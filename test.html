@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expand Hidden Div Under Table Row</title>
+<style>
+  .hiddenDiv {
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <table id="myTable">
+    <tr>
+      <td>Row 1</td>
+      <td><button onclick="expandDiv(this)">Expand</button></td>
+    </tr>
+    <tr>
+      <td>Row 2</td>
+      <td><button onclick="expandDiv(this)">Expand</button></td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </table>
+
+  <div class="hiddenDiv">
+    <p>This is the hidden div.</p>
+  </div>
+
+  <script>
+    function expandDiv(button) {
+      // Get the closest table row (tr) element
+      var tableRow = button.closest("tr");
+      
+      // Get the hidden div following the table row
+      var hiddenDiv = tableRow.nextElementSibling;
+
+      // Check if the hidden div is currently hidden
+      if (hiddenDiv.classList.contains("hiddenDiv")) {
+        // Display the hidden div
+        hiddenDiv.classList.remove("hiddenDiv");
+      }
+    }
+  </script>
+</body>
+</html>

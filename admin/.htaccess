@@ -1,0 +1,27 @@
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^/$    index.php    [L]
+
+#RewriteRule ^admin?$    admin/login   [R]
+RewriteRule ^admin/?$    admin/index.php    [NC,L]
+RewriteRule ^admin/login?$    admin/index.php    [NC,L]
+#change password section
+RewriteRule ^change-password/([A-Za-z0-9-]+)/?$    change-password.php?token=$1    [NC,L]
+RewriteRule ^admin/change-password/([A-Za-z0-9-]+)/?$    admin/changepassword.php?token=$1    [NC,L] 
+RewriteRule ^changepass/([A-Za-z0-9-]+)/?$    changepass.php?token=$1    [NC,L]
+
+RewriteRule ^verify/([A-Za-z0-9-]+)/?$    verify.php?token=$1    [NC,L]
+
+#ErrorDocument 404 siteurl
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:vaijapurapmc.org.in
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} (www\.)?marwadimart.in/
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:vaijapurapmc.org.in
