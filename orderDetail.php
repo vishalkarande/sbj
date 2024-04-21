@@ -50,7 +50,7 @@ if (!isset($_SESSION['user'])) {
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="Less than a minute" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":"Prags Salty"},{"@type":"WebSite","@id":"#website","url":"https://pragssalty.com","name":"Prags Salty","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"cart/#webpage","url":"cart/","name":"Cart - Prags Salty","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author/pragssaltyjodhpur/","name":"Prags Salty","url":"author/pragssaltyjodhpur/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Prags Salty","inLanguage":"en-US"},"sameAs":["https://pragssalty.com","https://www.facebook.com/pragssaltyjodhpur"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"Cart - Prags Salty","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","author":{"@id":"author/pragssaltyjodhpur/","name":"Prags Salty"},"publisher":{"@id":"#organization"},"name":"Cart - Prags Salty","@id":"cart/#richSnippet","isPartOf":{"@id":"cart/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"cart/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":"Prags Salty"},{"@type":"WebSite","@id":"#website","url":"","name":"Prags Salty","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"cart/#webpage","url":"cart/","name":"Cart - Prags Salty","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author/pragssaltyjodhpur/","name":"Prags Salty","url":"author/pragssaltyjodhpur/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Prags Salty","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/pragssaltyjodhpur"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"Cart - Prags Salty","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","author":{"@id":"author/pragssaltyjodhpur/","name":"Prags Salty"},"publisher":{"@id":"#organization"},"name":"Cart - Prags Salty","@id":"cart/#richSnippet","isPartOf":{"@id":"cart/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"cart/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='//stats.wp.com' />
@@ -882,293 +882,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wd-flicker-fix">// Flicker fix.</script>
 
 	<div class="website-wrapper">
-		<header class="whb-header whb-default_header whb-sticky-shadow whb-scroll-stick whb-sticky-real">
-			<div class="whb-main-header">
+		
+	<?php require_once('headerbar.php'); ?>
 
-				<div
-					class="whb-row whb-top-bar whb-not-sticky-row whb-with-bg whb-without-border whb-color-dark whb-flex-flex-middle">
-					<div class="container">
-						<div class="whb-flex-row whb-top-bar-inner">
-							<div class="whb-column whb-col-left whb-visible-lg whb-empty-column">
-							</div>
-							<div class="whb-column whb-col-center whb-visible-lg">
-
-								<div class="wd-header-text set-cont-mb-s reset-last-child ">
-									<h5 style="text-align: center;"><span style="color: #ffffff;">Navratri Sale Live!
-											Flat 10% off on orders above ₹499. Code: "NAVRATRI"</span></h5>
-								</div>
-							</div>
-							<div class="whb-column whb-col-right whb-visible-lg whb-empty-column">
-							</div>
-							<div class="whb-column whb-col-mobile whb-hidden-lg">
-
-								<div class="wd-header-text set-cont-mb-s reset-last-child ">
-									<h5 style="text-align: center;"><span style="color: #ffffff;">Navratri Sale Live!
-											Flat 10% off on orders above ₹499. Code: "NAVRATRI</span></h5>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="whb-row whb-general-header whb-sticky-row whb-with-bg whb-border-fullwidth whb-color-dark whb-flex-flex-middle">
-					<div class="container">
-						<div class="whb-flex-row whb-general-header-inner">
-							<div class="whb-column whb-col-left whb-visible-lg">
-								<div class="site-logo">
-									<a href="index.php" class="wd-logo wd-main-logo" rel="home">
-										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="Prags Salty"
-											style="max-width: 250px;" /> </a>
-								</div>
-							</div>
-							<div class="whb-column whb-col-center whb-visible-lg">
-								<div class="wd-header-nav wd-header-main-nav text-left wd-design-1" role="navigation"
-									aria-label="Main navigation">
-									<ul id="menu-main-menu" class="menu wd-nav wd-nav-main wd-style-default wd-gap-s">
-										<li id="menu-item-1380"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1380 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="index.php" class="woodmart-nav-link"><span
-													class="nav-link-text">Home</span></a>
-										</li>
-										<li id="menu-item-1388"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1388 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="about-us/" class="woodmart-nav-link"><span
-													class="nav-link-text">About Us</span></a>
-										</li>
-										<li id="menu-item-1381"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1381 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="products/" class="woodmart-nav-link"><span
-													class="nav-link-text">Products</span></a>
-											<div
-												class="color-scheme-dark wd-design-default wd-dropdown-menu wd-dropdown">
-												<div class="container">
-													<ul class="wd-sub-menu color-scheme-dark">
-														<li id="menu-item-2264"
-															class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2264 item-level-1 wd-event-hover">
-															<a href="product-category/roasted/"
-																class="woodmart-nav-link">Roasted</a>
-														</li>
-														<li id="menu-item-2265"
-															class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2265 item-level-1 wd-event-hover">
-															<a href="product-category/namkeen/"
-																class="woodmart-nav-link">Namkeen</a>
-														</li>
-														<li id="menu-item-2266"
-															class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2266 item-level-1 wd-event-hover">
-															<a href="product-category/fox-nuts/"
-																class="woodmart-nav-link">Fox Nuts</a>
-														</li>
-														<li id="menu-item-2969"
-															class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2969 item-level-1 wd-event-hover">
-															<a href="product-category/sweets/"
-																class="woodmart-nav-link">Sweets</a>
-														</li>
-														<li id="menu-item-11236"
-															class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11236 item-level-1 wd-event-hover">
-															<a href="product-category/combos/"
-																class="woodmart-nav-link">Combos</a>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</li>
-										<li id="menu-item-10676"
-											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10676 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="blogs/" class="woodmart-nav-link"><span
-													class="nav-link-text">Blogs</span></a>
-										</li>
-										<li id="menu-item-1389"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1389 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="contact-us/" class="woodmart-nav-link"><span
-													class="nav-link-text">Contact Us</span></a>
-										</li>
-									</ul>
-								</div><!--END MAIN-NAV-->
-								<div
-									class="wd-search-form wd-header-search-form wd-display-form whb-duljtjrl87kj7pmuut6b">
-
-
-									<form role="search" method="get"
-										class="searchform  wd-style-default wd-cat-style-bordered woodmart-ajax-search"
-										action="" data-thumbnail="1" data-price="1"
-										data-post_type="product" data-count="20" data-sku="0" data-symbols_count="3">
-										<input type="text" class="s" placeholder="Search for products" value="" name="s"
-											aria-label="Search" title="Search for products" required />
-										<input type="hidden" name="post_type" value="product">
-										<button type="submit" class="searchsubmit">
-											<span>
-												Search </span>
-										</button>
-									</form>
-
-
-
-									<div class="search-results-wrapper">
-										<div class="wd-dropdown-results wd-scroll wd-dropdown">
-											<div class="wd-scroll-content"></div>
-										</div>
-									</div>
-
-
-								</div>
-								<div class="whb-space-element " style="width:30px;"></div>
-							</div>
-							<div class="whb-column whb-col-right whb-visible-lg">
-								<div
-									class="wd-header-my-account wd-tools-element wd-event-hover wd-design-1 wd-account-style-icon whb-2b8mjqhbtvxz16jtxdrd">
-									<a href="my-account/" title="My account">
-
-										<span class="wd-tools-icon">
-										</span>
-										<span class="wd-tools-text">
-											Login / Register </span>
-
-									</a>
-
-
-									<div class="wd-dropdown wd-dropdown-register">
-										<div class="login-dropdown-inner">
-											<span class="wd-heading"><span class="title">Sign in</span><a
-													class="create-account-link"
-													href="my-account/?action=register">Create an
-													Account</a></span>
-											<form method="post" class="login woocommerce-form woocommerce-form-login
-						" action="my-account/">
-
-
-
-												<p
-													class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide form-row-username">
-													<label for="username">Username or email address&nbsp;<span
-															class="required">*</span></label>
-													<input type="text"
-														class="woocommerce-Input woocommerce-Input--text input-text"
-														name="username" id="username" value="" />
-												</p>
-												<p
-													class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide form-row-password">
-													<label for="password">Password&nbsp;<span
-															class="required">*</span></label>
-													<input class="woocommerce-Input woocommerce-Input--text input-text"
-														type="password" name="password" id="password"
-														autocomplete="current-password" />
-												</p>
-
-												<div class="g-recaptcha-wrap" style="padding:10px 0 10px 0">
-													<div id="woo_recaptcha_1" class="g-recaptcha"
-														data-sitekey="6LcQbn0pAAAAAK6GbM71LXlWQOqPJBrv8raQ6NdA"></div>
-												</div>
-												<p class="form-row">
-													<input type="hidden" id="woocommerce-login-nonce"
-														name="woocommerce-login-nonce" value="a35c8b2951" /><input
-														type="hidden" name="_wp_http_referer" value="/cart/" /> <button
-														type="submit"
-														class="button woocommerce-button woocommerce-form-login__submit"
-														name="login" value="Log in">Log in</button>
-												</p>
-
-												<p class="login-form-footer">
-													<a href="my-account/lost-password/"
-														class="woocommerce-LostPassword lost_password">Lost your
-														password?</a>
-													<label
-														class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
-														<input
-															class="woocommerce-form__input woocommerce-form__input-checkbox"
-															name="rememberme" type="checkbox" value="forever"
-															title="Remember me" aria-label="Remember me" />
-														<span>Remember me</span>
-													</label>
-												</p>
-
-												<p class="title wd-login-divider "><span>Or login with</span></p>
-												<div class="wd-social-login">
-													<a href="my-account/?social_auth=google"
-														class="login-goo-link btn">Google</a>
-												</div>
-
-											</form>
-
-
-										</div>
-									</div>
-								</div>
-
-								<div
-									class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener whb-5u866sftq6yga790jxf3">
-									<a href="cart/" title="Shopping cart">
-
-										<span class="wd-tools-icon wd-icon-alt">
-											<span class="wd-cart-number wd-tools-count">0 <span>items</span></span>
-										</span>
-										<span class="wd-tools-text">
-
-											<span class="wd-cart-subtotal"><span
-													class="woocommerce-Price-amount amount"><bdi><span
-															class="woocommerce-Price-currencySymbol">&#8377;</span>0.00</bdi></span></span>
-										</span>
-
-									</a>
-								</div>
-							</div>
-							<div class="whb-column whb-mobile-left whb-hidden-lg">
-								<div
-									class="wd-tools-element wd-header-mobile-nav wd-style-icon wd-design-1 whb-wn5z894j1g5n0yp3eeuz">
-									<a href="#" rel="nofollow" aria-label="Open mobile menu">
-
-										<span class="wd-tools-icon">
-										</span>
-
-										<span class="wd-tools-text">Menu</span>
-
-									</a>
-								</div><!--END wd-header-mobile-nav-->
-							</div>
-							<div class="whb-column whb-mobile-center whb-hidden-lg">
-								<div class="site-logo">
-									<a href="index.php" class="wd-logo wd-main-logo" rel="home">
-										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="Prags Salty"
-											style="max-width: 149px;" /> </a>
-								</div>
-							</div>
-							<div class="whb-column whb-mobile-right whb-hidden-lg">
-
-								<div
-									class="wd-header-search wd-tools-element wd-header-search-mobile wd-display-icon whb-6o3ywcqlos79wmtp8ui8 wd-style-icon wd-design-1">
-									<a href="#" rel="nofollow noopener" aria-label="Search">
-
-										<span class="wd-tools-icon">
-										</span>
-
-										<span class="wd-tools-text">
-											Search </span>
-
-									</a>
-								</div>
-
-								<div
-									class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener whb-u6cx6mzhiof1qeysah9h">
-									<a href="cart.php" title="Shopping cart">
-
-										<span class="wd-tools-icon wd-icon-alt">
-											<span class="wd-cart-number wd-tools-count">0 <span>items</span></span>
-										</span>
-										<span class="wd-tools-text">
-
-											<span class="wd-cart-subtotal"><span
-													class="woocommerce-Price-amount amount"><bdi><span
-															class="woocommerce-Price-currencySymbol">&#8377;</span>0.00</bdi></span></span>
-										</span>
-
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
 
 		<div class="main-page-wrapper">
 
@@ -1177,18 +893,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="container">
 					<ul class="wd-checkout-steps">
 						<li class="step-cart step-active">
-							<a href="cart.php">
-								<span>Shopping cart</span>
+							<a href="trackOrder.php">
+								<span>Order</span>
 							</a>
 						</li>
-						<li class="step-checkout step-inactive">
-							<a href="checkout.php">
-								<span>Checkout</span>
-							</a>
-						</li>
-						<li class="step-complete step-inactive">
-							<span>Order complete</span>
-						</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -2313,136 +2022,16 @@ foreach($orders as $item){
 	</div>
 </footer>
 </div> <!-- end wrapper -->
-<div class="wd-close-side wd-fill"></div>
-<a href="#" class="scrollToTop" aria-label="Scroll to top button"></a>
-<div class="mobile-nav wd-side-hidden wd-left">
-	<div class="wd-search-form">
 
+<?php
+  require_once('headermobile.php');
+?>
 
-		<form role="search" method="get" class="searchform  wd-cat-style-bordered woodmart-ajax-search"
-			action="" data-thumbnail="1" data-price="1" data-post_type="product" data-count="20"
-			data-sku="0" data-symbols_count="3">
-			<input type="text" class="s" placeholder="Search for products" value="" name="s" aria-label="Search"
-				title="Search for products" required />
-			<input type="hidden" name="post_type" value="product">
-			<button type="submit" class="searchsubmit">
-				<span>
-					Search </span>
-			</button>
-		</form>
+		
+<!--END MOBILE-NAV-->
 
 
 
-		<div class="search-results-wrapper">
-			<div class="wd-dropdown-results wd-scroll wd-dropdown">
-				<div class="wd-scroll-content"></div>
-			</div>
-		</div>
-
-
-	</div>
-	<ul id="menu-main-menu-1" class="mobile-pages-menu wd-nav wd-nav-mobile wd-active">
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1380 item-level-0">
-			<a href="index.php" class="woodmart-nav-link"><span class="nav-link-text">Home</span></a>
-		</li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1388 item-level-0"><a
-				href="about-us/" class="woodmart-nav-link"><span class="nav-link-text">About
-					Us</span></a></li>
-		<li
-			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1381 item-level-0">
-			<a href="products/" class="woodmart-nav-link"><span
-					class="nav-link-text">Products</span></a>
-			<ul class="wd-sub-menu">
-				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2264 item-level-1"><a
-						href="product-category/roasted/" class="woodmart-nav-link">Roasted</a>
-				</li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2265 item-level-1"><a
-						href="product-category/namkeen/" class="woodmart-nav-link">Namkeen</a>
-				</li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2266 item-level-1"><a
-						href="product-category/fox-nuts/" class="woodmart-nav-link">Fox
-						Nuts</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2969 item-level-1"><a
-						href="product-category/sweets/" class="woodmart-nav-link">Sweets</a>
-				</li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11236 item-level-1"><a
-						href="product-category/combos/" class="woodmart-nav-link">Combos</a>
-				</li>
-			</ul>
-		</li>
-		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10676 item-level-0"><a
-				href="blogs/" class="woodmart-nav-link"><span
-					class="nav-link-text">Blogs</span></a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1389 item-level-0"><a
-				href="contact-us/" class="woodmart-nav-link"><span class="nav-link-text">Contact
-					Us</span></a></li>
-		<li class="menu-item  menu-item-account wd-with-icon"><a href="my-account/">Login /
-				Register</a></li>
-	</ul>
-</div><!--END MOBILE-NAV-->
-<div class="cart-widget-side wd-side-hidden wd-right">
-	<div class="wd-heading">
-		<span class="title">Shopping cart</span>
-		<div class="close-side-widget wd-action-btn wd-style-text wd-cross-icon">
-			<a href="#" rel="nofollow">Close</a>
-		</div>
-	</div>
-</div>
-<div class="wd-cookies-popup">
-	<div class="wd-cookies-inner">
-		<div class="cookies-info-text">
-			We use cookies to improve your experience on our website. By browsing this website, you agree to our use
-			of cookies. </div>
-		<div class="cookies-buttons">
-			<a href="#" rel="nofollow noopener"
-				class="btn btn-size-small btn-color-primary cookies-accept-btn">Accept</a>
-		</div>
-	</div>
-</div>
-<script type="javascript/blocked" data-wpmeteor-type="text/javascript">
-        jQuery('div.woocommerce').on('change', 'input.qty', function(){
-            setTimeout(function() {
-                jQuery('[name="update_cart"]').trigger('click');
-            }, 100 );
-        });
-        </script>
-<div class="wd-toolbar wd-toolbar-label-show">
-	<div class="wd-toolbar-shop wd-toolbar-item wd-tools-element">
-		<a href="products/">
-			<span class="wd-tools-icon"></span>
-			<span class="wd-toolbar-label">
-				Shop </span>
-		</a>
-	</div>
-	<div class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener" title="My cart">
-		<a href="cart/">
-			<span class="wd-tools-icon wd-icon-alt">
-				<span class="wd-cart-number wd-tools-count">0 <span>items</span></span>
-			</span>
-			<span class="wd-toolbar-label">
-				Cart </span>
-		</a>
-	</div>
-	<div class="wd-header-my-account wd-tools-element wd-style-icon ">
-		<a href="my-account/">
-			<span class="wd-tools-icon"></span>
-			<span class="wd-toolbar-label">
-				My account </span>
-		</a>
-	</div>
-	<div class="wd-toolbar-link wd-tools-element wd-toolbar-item wd-tools-custom-icon">
-		<a href="https://wa.link/rukdzb">
-			<span class="wd-toolbar-icon wd-tools-icon wd-icon wd-custom-icon">
-				<img width="150" height="150" src="wp-content/uploads/2023/06/whatsapp-1-150x150.webp"
-					class="attachment-thumbnail size-thumbnail" alt="" decoding="async"
-					srcset="wp-content/uploads/2023/06/whatsapp-1-150x150.webp 150w, wp-content/uploads/2023/06/whatsapp-1-300x300.webp 300w, wp-content/uploads/2023/06/whatsapp-1-32x32.webp 32w, wp-content/uploads/2023/06/whatsapp-1.webp 512w"
-					sizes="(max-width: 150px) 100vw, 150px" /> </span>
-
-			<span class="wd-toolbar-label">
-				Enquire </span>
-		</a>
-	</div>
-</div>
 <div class="wcjfw-total-placeholder wcjfw-hidden">
 	<input type="hidden" id="wcjfw-cart-total" value="0">
 </div>
@@ -2706,7 +2295,7 @@ var wc_single_product_params = {"i18n_required_rating_text":"Please select a rat
 <!-- WooCommerce JavaScript -->
 <script type="javascript/blocked" data-wpmeteor-type="text/javascript">
 jQuery(function($) { 
-_wca.push({'_en': 'woocommerceanalytics_cart_view','blog_id': '217092730', 'ui': 'null', 'url': 'https://pragssalty.com', 'woo_version': '8.7.0', 'store_admin': '0', 'device': 'desktop', 'template_used': '0', 'additional_blocks_on_cart_page': [],'additional_blocks_on_checkout_page': [],'store_currency': 'INR', 'cart_page_contains_cart_block': '0', 'cart_page_contains_cart_shortcode': '1', 'checkout_page_contains_checkout_block': '0', 'checkout_page_contains_checkout_shortcode': '1', 'products': '[]', 'create_account': 'Yes', 'guest_checkout': 'Yes', 'express_checkout': 'null', 'products_count': '0', 'order_value': '0', 'shipping_options_count': 'null', 'coupon_used': '0', 'payment_options': ["phonepe","cod"],});
+_wca.push({'_en': 'woocommerceanalytics_cart_view','blog_id': '217092730', 'ui': 'null', 'url': '', 'woo_version': '8.7.0', 'store_admin': '0', 'device': 'desktop', 'template_used': '0', 'additional_blocks_on_cart_page': [],'additional_blocks_on_checkout_page': [],'store_currency': 'INR', 'cart_page_contains_cart_block': '0', 'cart_page_contains_cart_shortcode': '1', 'checkout_page_contains_checkout_block': '0', 'checkout_page_contains_checkout_shortcode': '1', 'products': '[]', 'create_account': 'Yes', 'guest_checkout': 'Yes', 'express_checkout': 'null', 'products_count': '0', 'order_value': '0', 'shipping_options_count': 'null', 'coupon_used': '0', 'payment_options': ["phonepe","cod"],});
  });
 </script>
 

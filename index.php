@@ -148,7 +148,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                       <div class="wrapp-category">
                                         <div class="category-image-wrapp">
                                           <a
-                                            href="product-category/roasted/index.html"
+                                            href="products.php"
                                             class="category-image"
                                           >
                                             <img
@@ -172,14 +172,14 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
 
                                           <div class="more-products">
                                             <a
-                                              href="product-category/roasted/index.html"
+                                              href="products.php"
                                               >11 products</a
                                             >
                                           </div>
                                         </div>
 
                                         <a
-                                          href="product-category/roasted/index.html"
+                                          href="products.php"
                                           class="category-link wd-fill"
                                           aria-label="<?= $prod["name"] ?>"
                                         ></a>
@@ -249,7 +249,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                     display: inline-block;
                                   }
                                 </style>
-                                <a href="index.html#combopacks">
+                                <a href="products.php">
                                   <img
                                     loading="lazy"
                                     decoding="async"
@@ -484,7 +484,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                               aria-label="Add to cart: &ldquo;<?= $row["name"]?>&rdquo;"
                                               aria-describedby=""
                                               rel="nofollow"
-                                              ><span> <input type="submit" style="background-color:#355E3B;color:white" name="add_to_cart" value="Add to Cart"></span></a
+                                              ><span> <input type="submit" style="background-color:#355E3B;color:white" name="add_to_cart" value="Add"></span></a
                                             >
                                           </div>
 
@@ -512,7 +512,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                 <div class="elementor-button-wrapper">
                                   <a
                                     class="elementor-button elementor-button-link elementor-size-sm"
-                                    href="product-category/combos/index.html"
+                                    href="products.php"
                                   >
                                     <span
                                       class="elementor-button-content-wrapper"
@@ -593,7 +593,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                 <div class="elementor-button-wrapper">
                                   <a
                                     class="elementor-button elementor-button-link elementor-size-sm"
-                                    href="index.html@p=237"
+                                    href="aboutus.php"
                                   >
                                     <span
                                       class="elementor-button-content-wrapper"
