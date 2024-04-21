@@ -1,3 +1,17 @@
+
+<?php 
+session_start();
+require_once('admin/query.php');
+if (!isset($_SESSION['user'])) {
+	echo "<script>window.location.href='login.php';</script>";
+}else{
+	$orders=$QueryFire->getAllData('orders',' user_id='.$_SESSION['user']['id'].' ORDER BY id desc');
+
+}
+	
+
+?>
+
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
 
@@ -7,7 +21,8 @@
 	<link rel="pingback" href="https://pragssalty.com/xmlrpc.php">
 	<!-- Optimized with WP Meteor v3.4.0 - https://wordpress.org/plugins/wp-meteor/ -->
 	<script data-wpmeteor-nooptimize="true">var _wpmeteor = { "gdpr": true, "rdelay": 86400000, "preload": true, "elementor-animations": true, "elementor-pp": true, "v": "3.4.0", "rest_url": "https:\/\/pragssalty.com\/wp-json\/" }; (() => { try { new MutationObserver(function () { }), new PerformanceObserver(function () { }), Object.assign({}, {}), document.fonts.ready.then(function () { }) } catch { t = "wpmeteordisable=1", i = document.location.href, i.match(/[?&]wpmeteordisable/) || (o = "", i.indexOf("?") == -1 ? i.indexOf("#") == -1 ? o = i + "?" + t : o = i.replace("#", "?" + t + "#") : i.indexOf("#") == -1 ? o = i + "&" + t : o = i.replace("#", "&" + t + "#"), document.location.href = o) } var t, i, o; })();
-
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.4/dist/bootstrap-table.min.css">
+<script src="https://unpkg.com/bootstrap-table@1.22.4/dist/bootstrap-table.min.js"></script>
 	</script>
 	<script data-wpmeteor-nooptimize="true">(() => {
 			var Fe = () => Math.round(performance.now()) / 1e3; var g = "addEventListener", de = "removeEventListener", u = "getAttribute", y = "setAttribute", pe = "removeAttribute", D = "hasAttribute", Bt = "querySelector", O = Bt + "All", G = "appendChild", j = "removeChild", ue = "createElement", _ = "tagName", We = "getOwnPropertyDescriptor", v = "prototype", F = "__lookupGetter__", ze = "__lookupSetter__", f = "DOMContentLoaded", E = "load", fe = "error"; var l = window, c = document, _e = c.documentElement, Ye = () => { }, x = console.error; var $e = !0, J = class { constructor() { this.known = [] } init() { let e, n, s = (r, i) => { if ($e && r && r.fn && !r.__wpmeteor) { let a = function (o) { return c[g](f, d => { o.call(c, r, d, "jQueryMock") }), this }; this.known.push([r, r.fn.ready, r.fn.init.prototype.ready]), r.fn.ready = a, r.fn.init.prototype.ready = a, r.__wpmeteor = !0 } return r }; window.jQuery || window.$, Object.defineProperty(window, "jQuery", { get() { return e }, set(r) { e = s(r, "jQuery") } }), Object.defineProperty(window, "$", { get() { return n }, set(r) { n = s(r, "$") } }) } unmock() { this.known.forEach(([e, n, s]) => { e.fn.ready = n, e.fn.init.prototype.ready = s }), $e = !1 } }; var Ee = "fpo:first-interaction", me = "fpo:replay-captured-events"; var Qe = "fpo:element-loaded", be = "fpo:images-loaded", M = "fpo:the-end"; var X = "click", W = window, Ke = W.addEventListener.bind(W), je = W.removeEventListener.bind(W), Ae = "removeAttribute", ge = "getAttribute", Nt = "setAttribute", Te = ["touchstart", "touchmove", "touchend", "touchcancel", "keydown", "wheel"], Je = ["mouseover", "mouseout", X], Ct = ["touchstart", "touchend", "touchcancel", "mouseover", "mouseout", X], R = "data-wpmeteor-"; var Ge = "dispatchEvent", Xe = t => { let e = new MouseEvent(X, { view: t.view, bubbles: !0, cancelable: !0 }); return Object.defineProperty(e, "target", { writable: !1, value: t.target }), e }, Se = class { static capture() { let e = !1, n = [], s = r => { if (r.target && Ge in r.target) { if (!r.isTrusted) return; if (r.cancelable && !Te.includes(r.type)) try { r.preventDefault() } catch { } r.stopImmediatePropagation(), r.type === X ? n.push(Xe(r)) : Ct.includes(r.type) && n.push(r), r.target[Nt](R + r.type, !0), e || (e = !0, W[Ge](new CustomEvent(Ee))) } }; W.addEventListener(me, () => { Je.forEach(a => je(a, s, { passive: !1, capture: !0 })), Te.forEach(a => je(a, s, { passive: !0, capture: !0 })); let r; for (; r = n.shift();) { var i = r.target; i[ge](R + "touchstart") && i[ge](R + "touchend") && !i[ge](R + X) ? (i[ge](R + "touchmove") || n.push(Xe(r)), i[Ae](R + "touchstart"), i[Ae](R + "touchend")) : i[Ae](R + r.type), i[Ge](r) } }), Je.forEach(r => Ke(r, s, { passive: !1, capture: !0 })), Te.forEach(r => Ke(r, s, { passive: !0, capture: !0 })) } }; var Ze = Se; var Z = class { constructor() { this.l = [] } emit(e, n = null) { this.l[e] && this.l[e].forEach(s => s(n)) } on(e, n) { this.l[e] ||= [], this.l[e].push(n) } off(e, n) { this.l[e] = (this.l[e] || []).filter(s => s !== n) } }; var b = new Z; var he = c[ue]("span"); he[y]("id", "elementor-device-mode"); he[y]("class", "elementor-screen-only"); var Ot = !1, et = () => (Ot || c.body[G](he), getComputedStyle(he, ":after").content.replace(/"/g, "")); var tt = t => t[u]("class") || "", rt = (t, e) => t[y]("class", e), nt = () => { l[g](E, function () { let t = et(), e = Math.max(_e.clientWidth || 0, l.innerWidth || 0), n = Math.max(_e.clientHeight || 0, l.innerHeight || 0), s = ["_animation_" + t, "animation_" + t, "_animation", "_animation", "animation"]; Array.from(c[O](".elementor-invisible")).forEach(r => { let i = r.getBoundingClientRect(); if (i.top + l.scrollY <= n && i.left + l.scrollX < e) try { let o = JSON.parse(r[u]("data-settings")); if (o.trigger_source) return; let d = o._animation_delay || o.animation_delay || 0, p, w; for (var a = 0; a < s.length; a++)if (o[s[a]]) { w = s[a], p = o[w]; break } if (p) { let Q = tt(r), K = p === "none" ? Q : Q + " animated " + p, St = setTimeout(() => { rt(r, K.replace(/\belementor-invisible\b/, "")), s.forEach(Ut => delete o[Ut]), r[y]("data-settings", JSON.stringify(o)) }, d); b.on("fi", () => { clearTimeout(St), rt(r, tt(r).replace(new RegExp("\b" + p + "\b"), "")) }) } } catch (o) { console.error(o) } }) }) }; var st = "data-in-mega_smartmenus", ot = () => { let t = c[ue]("div"); t.innerHTML = '<span class="sub-arrow --wp-meteor"><i class="fa" aria-hidden="true"></i></span>'; let e = t.firstChild, n = s => { let r = []; for (; s = s.previousElementSibling;)r.push(s); return r }; c[g](f, function () { Array.from(c[O](".pp-advanced-menu ul")).forEach(s => { if (s[u](st)) return; (s[u]("class") || "").match(/\bmega-menu\b/) && s[O]("ul").forEach(a => { a[y](st, !0) }); let r = n(s), i = r.filter(a => a).filter(a => a[_] === "A").pop(); if (i || (i = r.map(a => Array.from(a[O]("a"))).filter(a => a).flat().pop()), i) { let a = e.cloneNode(!0); i[G](a), new MutationObserver(d => { d.forEach(({ addedNodes: p }) => { p.forEach(w => { if (w.nodeType === 1 && w[_] === "SPAN") try { i[j](a) } catch { } }) }) }).observe(i, { childList: !0 }) } }) }) }; var A = "readystatechange", B = "message"; var Y = "SCRIPT", m = "data-wpmeteor-", T = Object.defineProperty, Pe = Object.defineProperties, P = "javascript/blocked", Be = /^\s*(application|text)\/javascript|module\s*$/i, ht = "requestAnimationFrame", vt = "requestIdleCallback", ae = "setTimeout", k = l.constructor.name + "::", le = c.constructor.name + "::", yt = function (t, e) { e = e || l; for (var n = 0; n < this.length; n++)t.call(e, this[n], n, this) }; "NodeList" in l && !NodeList[v].forEach && (NodeList[v].forEach = yt); "HTMLCollection" in l && !HTMLCollection[v].forEach && (HTMLCollection[v].forEach = yt); _wpmeteor["elementor-animations"] && nt(), _wpmeteor["elementor-pp"] && ot(); var N = [], te = [], I = [], se = !1, q = [], h = {}, ke = !1, Rt = 0, ye = c.visibilityState === "visible" ? l[ht] : l[ae], Lt = l[vt] || ye; c[g]("visibilitychange", () => { ye = c.visibilityState === "visible" ? l[ht] : l[ae], Lt = l[vt] || ye }); var U = l[ae], Le, ee = ["src", "type"], z = Object, re = "definePropert"; z[re + "y"] = (t, e, n) => t === l && ["jQuery", "onload"].indexOf(e) >= 0 || (t === c || t === c.body) && ["readyState", "write", "writeln", "on" + A].indexOf(e) >= 0 ? (["on" + A, "on" + E].indexOf(e) && n.set && (h["on" + A] = h["on" + A] || [], h["on" + A].push(n.set)), t) : t instanceof HTMLScriptElement && ee.indexOf(e) >= 0 ? (t[e + "Getters"] || (t[e + "Getters"] = [], t[e + "Setters"] = [], T(t, e, { set(s) { t[e + "Setters"].forEach(r => r.call(t, s)) }, get() { return t[e + "Getters"].slice(-1)[0]() } })), n.get && t[e + "Getters"].push(n.get), n.set && t[e + "Setters"].push(n.set), t) : T(t, e, n); z[re + "ies"] = (t, e) => { for (let n in e) z[re + "y"](t, n, e[n]); for (let n of Object.getOwnPropertySymbols(e)) z[re + "y"](t, n, e[n]); return t }; var De = EventTarget[v][g], Dt = EventTarget[v][de], $ = De.bind(c), xt = Dt.bind(c), C = De.bind(l), wt = Dt.bind(l), _t = Document[v].createElement, V = _t.bind(c), we = c.__proto__[F]("readyState").bind(c), it = "loading"; T(c, "readyState", { get() { return it }, set(t) { return it = t } }); var ct = t => q.filter(([e, , n], s) => { if (!(t.indexOf(e.type) < 0)) { n || (n = e.target); try { let r = n.constructor.name + "::" + e.type; for (let i = 0; i < h[r].length; i++)if (h[r][i]) { let a = r + "::" + s + "::" + i; if (!Ne[a]) return !0 } } catch { } } }).length, oe, Ne = {}, ie = t => { q.forEach(([e, n, s], r) => { if (!(t.indexOf(e.type) < 0)) { s || (s = e.target); try { let i = s.constructor.name + "::" + e.type; if ((h[i] || []).length) for (let a = 0; a < h[i].length; a++) { let o = h[i][a]; if (o) { let d = i + "::" + r + "::" + a; if (!Ne[d]) { Ne[d] = !0, c.readyState = n, oe = i; try { Rt++, !o[v] || o[v].constructor === o ? o.bind(s)(e) : o(e) } catch (p) { x(p, o) } oe = null } } } } catch (i) { x(i) } } }) }; $(f, t => { q.push([new t.constructor(f, t), we(), c]) }); $(A, t => { q.push([new t.constructor(A, t), we(), c]) }); C(f, t => { q.push([new t.constructor(f, t), we(), l]) }); C(E, t => { ke = !0, q.push([new t.constructor(E, t), we(), l]), H || ie([f, A, B, E]) }); var bt = t => { q.push([t, c.readyState, l]) }, Mt = l[F]("onmessage"), Pt = l[ze]("onmessage"), kt = () => { wt(B, bt), (h[k + "message"] || []).forEach(t => { C(B, t) }), T(l, "onmessage", { get: Mt, set: Pt }) }; C(B, bt); var At = new J; At.init(); var Ie = () => { !H && !se && (H = !0, Re(), c.readyState = "loading", U(S)), ke || C(E, () => { Ie() }) }; C(Ee, () => { Ie() }); b.on(be, () => { Ie() }); _wpmeteor.rdelay >= 0 && Ze.capture(); var Ce = 1, at = () => { --Ce || U(b.emit.bind(b, M)) }; var H = !1, S = () => { let t = N.shift(); if (t) t[u](m + "src") ? t[D]("async") ? (Ce++, Ue(t, at), U(S)) : Ue(t, U.bind(null, S)) : (t.origtype == P && Ue(t), U(S)); else if (te.length) { for (; te.length;)N.push(te.shift()); Re(), U(S) } else if (ct([f, A, B])) ie([f, A, B]), U(S); else if (ke) if (ct([E, B])) ie([E, B]), U(S); else if (Ce > 1) Lt(S); else if (I.length) { for (; I.length;)N.push(I.shift()); Re(), U(S) } else { if (l.RocketLazyLoadScripts) try { RocketLazyLoadScripts.run() } catch (e) { x(e) } c.readyState = "complete", kt(), At.unmock(), H = !1, se = !0, l[ae](at) } else H = !1 }, Oe = t => { let e = V(Y), n = t.attributes; for (var s = n.length - 1; s >= 0; s--)n[s].name.startsWith(m) || e[y](n[s].name, n[s].value); let r = t[u](m + "type"); r ? e.type = r : e.type = "text/javascript", (t.textContent || "").match(/^\s*class RocketLazyLoadScripts/) ? e.textContent = t.textContent.replace(/^\s*class\s*RocketLazyLoadScripts/, "window.RocketLazyLoadScripts=class").replace("RocketLazyLoadScripts.run();", "") : e.textContent = t.textContent; for (let i of ["onload", "onerror", "onreadystatechange"]) t[i] && (e[i] = t[i]); return e }, lt = (t, e) => { let n = t.parentNode; if (n) return (n.nodeType === 11 ? V(n.host[_]) : V(n[_]))[G](n.replaceChild(e, t)), n.isConnected ? t : void 0; x("No parent for", t) }, Ue = (t, e) => { let n = t[u](m + "src"); if (n) { let s = Oe(t), r = De ? De.bind(s) : s[r].bind(s); t.getEventListeners && t.getEventListeners().forEach(([o, d]) => { r(o, d) }), e && (r(E, e), r(fe, e)), s.src = n; let i = lt(t, s), a = s[u]("type"); (!i || t[D]("nomodule") || a && !Be.test(a)) && e && e() } else t.origtype === P ? lt(t, Oe(t)) : e && e() }, Ve = (t, e) => { let n = (h[t] || []).indexOf(e); if (n >= 0) return h[t][n] = void 0, !0 }, dt = (t, e, ...n) => { if ("HTMLDocument::" + f == oe && t === f && !e.toString().match(/jQueryMock/)) { b.on(M, c[g].bind(c, t, e, ...n)); return } if (e && (t === f || t === A)) { let s = le + t; h[s] = h[s] || [], h[s].push(e), se && ie([t]); return } return $(t, e, ...n) }, pt = (t, e, ...n) => { if (t === f) { let s = le + t; Ve(s, e) } return xt(t, e, ...n) }; Pe(c, { [g]: { get() { return dt }, set() { return dt } }, [de]: { get() { return pt }, set() { return pt } } }); var ut = {}, ve = t => { if (t) try { t.match(/^\/\/\w+/) && (t = c.location.protocol + t); let e = new URL(t), n = e.origin; if (n && !ut[n] && c.location.host !== e.host) { let s = V("link"); s.rel = "preconnect", s.href = n, c.head[G](s), ut[n] = !0 } } catch { } }, ce = {}, Tt = (t, e, n, s) => { var r = V("link"); r.rel = e ? "modulepre" + E : "pre" + E, r.as = "script", n && r[y]("crossorigin", n), r.href = t, s[G](r), ce[t] = !0 }, Re = () => { if (_wpmeteor.preload && N.length) { let t = c.createDocumentFragment(); N.forEach(e => { let n = e[u](m + "src"); n && !ce[n] && !e[u](m + "integrity") && !e[D]("nomodule") && Tt(n, e[u](m + "type") == "module", e[D]("crossorigin") && e[u]("crossorigin"), t) }), ye(c.head[G].bind(c.head, t)) } }; $(f, () => { let t = [...N]; N.length = 0, [...c[O]("script[type='" + P + "']"), ...t].forEach(e => { if (ne.has(e)) return; let n = e[F]("type").bind(e); T(e, "origtype", { get() { return n() } }), (e[u](m + "src") || "").match(/\/gtm.js\?/) ? I.push(e) : e[D]("async") ? I.unshift(e) : e[D]("defer") ? te.push(e) : N.push(e), ne.add(e) }) }); var xe = function (...t) { let e = V(...t); if (!t || t[0].toUpperCase() !== Y || !H) return e; let n = e[y].bind(e), s = e[u].bind(e), r = e[D].bind(e), i = e[F]("attributes").bind(e), a = []; return e.getEventListeners = () => a, ee.forEach(o => { let d = e[F](o).bind(e); z[re + "y"](e, o, { set(p) { return o === "type" && p && !Be.test(p) ? e[y](o, p) : ((o === "src" && p || o === "type" && p && e.origsrc) && n("type", P), p ? e[y](m + o, p) : e[pe](m + o)) }, get() { return e[u](m + o) } }), T(e, "orig" + o, { get() { return d() } }) }), e[g] = function (o, d) { a.push([o, d]) }, e[y] = function (o, d) { if (ee.includes(o)) return o === "type" && d && !Be.test(d) ? n(o, d) : ((o === "src" && d || o === "type" && d && e.origsrc) && n("type", P), d ? n(m + o, d) : e[pe](m + o)); n(o, d) }, e[u] = function (o) { return ee.indexOf(o) >= 0 ? s(m + o) : s(o) }, e[D] = function (o) { return ee.indexOf(o) >= 0 ? r(m + o) : r(o) }, T(e, "attributes", { get() { return [...i()].filter(d => d.name !== "type").map(d => ({ name: d.name.match(new RegExp(m)) ? d.name.replace(m, "") : d.name, value: d.value })) } }), e }; Object.defineProperty(Document[v], "createElement", { set(t) { t !== xe && (Le = t) }, get() { return Le || xe } }); var ne = new Set, He = new MutationObserver(t => { H && t.forEach(({ removedNodes: e, addedNodes: n, target: s }) => { e.forEach(r => { r.nodeType === 1 && Y === r[_] && "origtype" in r && ne.delete(r) }), n.forEach(r => { if (r.nodeType === 1) if (Y === r[_]) { if ("origtype" in r) { let i = r[u](m + "src"); ne.has(r) && x("Inserted twice", r), r.parentNode ? (ne.add(r), (i || "").match(/\/gtm.js\?/) ? (I.push(r), ve(i)) : r[D]("async") ? (I.unshift(r), ve(i)) : r[D]("defer") ? (te.push(r), ve(i)) : (i && !r[u](m + "integrity") && !r[D]("nomodule") && !ce[i] && (Ye(Fe(), "pre preload", N.length), Tt(i, r[u](m + "type") == "module", r[D]("crossorigin") && r[u]("crossorigin"), c.head)), N.push(r))) : (r[g](E, a => a.target.parentNode[j](a.target)), r[g](fe, a => a.target.parentNode[j](a.target)), s[G](r)) } } else r[_] === "LINK" && r[u]("as") === "script" && (ce[r[u]("href")] = !0) }) }) }), Gt = { childList: !0, subtree: !0, attributes: !0, attributeOldValue: !0 }; He.observe(c.documentElement, Gt); var It = HTMLElement[v].attachShadow; HTMLElement[v].attachShadow = function (t) { let e = It.call(this, t); return t.mode === "open" && He.observe(e, Gt), e }; var ft = z[We](HTMLIFrameElement[v], "src"); T(HTMLIFrameElement[v], "src", { get() { return this.dataset.fpoSrc ? this.dataset.fpoSrc : ft.get.call(this) }, set(t) { delete this.dataset.fpoSrc, ft.set.call(this, t) } }); b.on(M, () => { (!Le || Le === xe) && (Document[v].createElement = _t, He.disconnect()), dispatchEvent(new CustomEvent(me)), dispatchEvent(new CustomEvent(M)) }); var Me = t => { let e, n; !c.currentScript || !c.currentScript.parentNode ? (e = c.body, n = e.lastChild) : (n = c.currentScript, e = n.parentNode); try { let s = V("div"); s.innerHTML = t, Array.from(s.childNodes).forEach(r => { r.nodeName === Y ? e.insertBefore(Oe(r), n) : e.insertBefore(r, n) }) } catch (s) { x(s) } }, Et = t => Me(t + `
@@ -564,6 +579,8 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 var pysOptions = {"staticEvents":[],"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"debug":"","siteUrl":"https:\/\/pragssalty.com","ajaxUrl":"https:\/\/pragssalty.com\/wp-admin\/admin-ajax.php","ajax_event":"ef3f681bba","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","send_external_id":"1","external_id_expire":"180","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utmTerms_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"undefined","TrafficUtms":[],"TrafficUtmsId":[]},"woo":{"enabled":true,"enabled_save_data_to_orders":true,"addToCartOnButtonEnabled":true,"addToCartOnButtonValueEnabled":true,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":false,"containOrderId":false},"edd":{"enabled":false}};
 /* ]]> */
 </script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjs-cookie-pysjquery-bind-firstpys3.7.12.1.39.5.5.min.js"
 		id="wpo_min-header-15-js"></script>
@@ -1190,18 +1207,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														data-widget_type="wc-elements.default">
 														
 
-                                                        <div class="container">
-<h1>Bootstrap Table</h1>
+ 										<div class="container" style=" overflow-x: scroll;">
 
-<p>A table with third party integration  extension Filter control extension Data export</a> pour exporter</p>
-
-<div id="toolbar">
-		<select class="form-control">
-				<option value="">Export Basic</option>
-				<option value="all">Export All</option>
-				<option value="selected">Export Selected</option>
-		</select>
-</div>
 
 <table id="table" 
 			 data-toggle="table"
@@ -1214,46 +1221,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<thead>
 		<tr>
 			<th data-field="state" data-checkbox="true"></th>
-			<th data-field="prenom" data-filter-control="input" data-sortable="true">First Name</th>
-			<th data-field="date" data-filter-control="select" data-sortable="true">Date</th>
-			<th data-field="examen" data-filter-control="select" data-sortable="true">Examination</th>
-			<th data-field="note" data-sortable="true">Note</th>
+			<th data-field="prenom" data-filter-control="input" data-sortable="true">Name</th>
+			<th data-field="date" data-filter-control="select" data-sortable="true">Address</th>
+			<th data-field="examen" data-filter-control="select" data-sortable="true">Total Amount</th>
+			<th data-field="note" data-sortable="true">Order Date</th>
 		</tr>
 	</thead>
 	<tbody>
+
+	<?php foreach($orders as $row){
+		?>
 		<tr>
-			<td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td>
-			<td>Jitender</td>
-			<td>01/09/2015</td>
-			<td>Français</td>
-			<td>12/20</td>
-            <div id="hiddenDiv">
-    <p>This is the hidden div.</p>
-  </div>
+			<td class="bs-checkbox "><a href="orderDetail.php?id=<?=$row["id"] ?>"><button name="track">Show Detail</button></a></td>
+			<td><?=$row["user_name"] ?></td>
+			<td><?=$row["address"] ?></td>
+			<td><?=$row["grand_total"] ?></td>
+			<td><?=$row["date"] ?></td>
+           
 		</tr>
 		
-
-  <tr>
-			<td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td>
-			<td>Jitender</td>
-			<td>01/09/2015</td>
-			<td>Français</td>
-			<td>12/20</td>
-		</tr>
-		<div id="hiddenDiv">
-    <p>This is the hidden div.</p>
-  </div>
-
-  <tr>
-			<td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td>
-			<td>Jitender</td>
-			<td>01/09/2015</td>
-			<td>Français</td>
-			<td>12/20</td>
-		</tr>
-		<div id="hiddenDiv">
-    <p>This is the hidden div.</p>
-  </div>
+<?php } ?>
+  
 	</tbody>
 </table>
 </div>

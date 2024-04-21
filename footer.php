@@ -4,7 +4,7 @@
           <link
             rel="stylesheet"
             id="elementor-post-2129-css"
-            href="wp-content/uploads/elementor/css/post-2129.css@ver=1712761393"
+            href="wp-content/uploads/elementor/css/post-2129.css"
             type="text/css"
             media="all"
           />

@@ -1,29 +1,14 @@
 <?php
 session_start();
 require_once('admin/query.php');
-if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
-    $cart_value=count($_SESSION['cart']);
+if (!isset($_SESSION['user'])) {
+	echo "<script>window.location.href='login.php';</script>";
 }else{
-    $cart_value=0;
+	$orderId = $_GET["id"];
+	$orders=$QueryFire->getAllData('order_has_products',' order_id='.$orderId.' ORDER BY id desc');
+	
 }
 
-
-
-// Check if update button is pressed
-if(isset($_POST['update_cart_1'])) {
-    // Update quantities in session
-    foreach($_POST['quantity'] as $product_id => $quantity) {
-        $_SESSION['cart'][$product_id] = $quantity;
-    }
-}
-if(isset($_POST['empty_cart'])) {
-    // Update quantities in session
-    unset($_SESSION['cart']);
-}
-if(isset($_GET['remove']) && isset($_SESSION['cart'][$_GET['remove']])) {
-    // Remove the product from the cart
-    unset($_SESSION['cart'][$_GET['remove']]);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
@@ -1252,7 +1237,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 														<?php
-foreach($_SESSION['cart'] as $product_id => $quantity){
+foreach($orders as $item){
+	$product_id = $item['product_id'];
+    $quantity = $item['qty'];
 // $product = $QueryFire->getAllData('products',' id= "'.$product_id.'"')[0];
     $productDetail = $QueryFire->getAllData(
     "",
@@ -1372,7 +1359,7 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
 											<div class="cart_totals ">
 
 												<div class="cart-totals-inner set-mb-m reset-last-child">
-													<h2>Cart totals</h2>
+													<h2>Grand totals</h2>
 
 													<table cellspacing="0" class="shop_table shop_table_responsive">
 

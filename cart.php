@@ -670,15 +670,15 @@ gtag("config", "GT-PJNB9QPL");
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jquerywd-device-library3.7.17.1.4.min.js"
 		id="wpo_min-header-25-js"></script>
-	<link rel="https://api.w.org/" href="https://pragssalty.com/wp-json/" />
-	<link rel="alternate" type="application/json" href="https://pragssalty.com/wp-json/wp/v2/pages/231" />
+	<link rel="https://api.w.org/" href="wp-json/" />
+	<link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/231" />
 	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://pragssalty.com/xmlrpc.php?rsd" />
 	<meta name="generator" content="WordPress 6.5.2" />
 	<link rel='shortlink' href='https://pragssalty.com/?p=231' />
 	<link rel="alternate" type="application/json+oembed"
-		href="https://pragssalty.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpragssalty.com%2Fcart%2F" />
+		href="wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpragssalty.com%2Fcart%2F" />
 	<link rel="alternate" type="text/xml+oembed"
-		href="https://pragssalty.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpragssalty.com%2Fcart%2F&#038;format=xml" />
+		href="wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpragssalty.com%2Fcart%2F&#038;format=xml" />
 	<meta name="generator" content="Site Kit by Google 1.124.0" /><!-- Google tag (gtag.js) -->
 	<!-- <script  type="javascript/blocked" data-wpmeteor-type="text/javascript"  async data-wpmeteor-src="https://www.googletagmanager.com/gtag/js?id=UA-269068220-1"></script>
 <script  type="javascript/blocked" data-wpmeteor-type="text/javascript" >
@@ -1206,6 +1206,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				</div>
 			</div>
 
+<?php if($cart_value!=0){ ?>
+
+
 			<!-- MAIN CONTENT AREA -->
 			<div class="container">
 				<div class="row content-layout-wrapper align-items-start">
@@ -1250,6 +1253,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 														<?php
+														
 foreach($_SESSION['cart'] as $product_id => $quantity){
 // $product = $QueryFire->getAllData('products',' id= "'.$product_id.'"')[0];
     $productDetail = $QueryFire->getAllData(
@@ -1500,7 +1504,7 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
 
 
 
-
+<?php }else{ ?>
 
 
 <!-- MAIN CONTENT AREA -->
@@ -1542,7 +1546,7 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
 
 
 
-
+<?php }?>
 
 
 

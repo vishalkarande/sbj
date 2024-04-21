@@ -28,7 +28,7 @@ if(isset($_POST['placeOrder'])) {
 	$billing['pincode']=$_POST['billing_postcode'];
 	$billing['phone_number']=$_POST['billing_phone'];
 	$billing['email']=$_POST['billing_email'];
-	
+	$billing['grand_total']=$_POST['hidden-total'];
 	$order_param= array();
 	if($QueryFire->insertData('orders', $billing)) {
 		$success = 'You have successfully created your account. Please Login with Phone Number.';
@@ -39,7 +39,7 @@ if(isset($_POST['placeOrder'])) {
 	
     $order_param['order_id'] = $QueryFire->getLastInsertId();
 	foreach($_SESSION['cart'] as $product_id => $quantity){
-        
+        $product=$QueryFire->getAllData('inventry',' product_id='.$product_id.';')[0];
 		$order_param['product_id']=$product_id;
 		$order_param['qty']=$quantity;
 
@@ -1981,7 +1981,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																				</p>
 																				<div id="payment"
 																					class="woocommerce-checkout-payment">
-
+																					<input type="hidden" id="hidden-total" name="hidden-total" value="0">
 
 																					<p> <button type="submit"
 																							class="button alt"
@@ -2023,6 +2023,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							const priceElements = document.querySelectorAll(".priceValue");
 							const totalPriceElements = document.querySelectorAll(".total-price");
 							const totalElement = document.getElementById("total");
+							const hiddenTotalElement = document.getElementById("hidden-total");
 
 							console.log(countElements);
 
@@ -2041,33 +2042,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							}
 
 							totalElement.textContent = total;
+							hiddenTotalElement.value = total;
 
-							incrementButtons.forEach((button, index) => {
-								button.addEventListener("click", () => {
-									console.log("hello world");
-									const count = parseInt(countElements[index].value);
-									countElements[index].value = count + 1;
-									const price = parseInt(priceElements[index].textContent);
-									const totalPrice = (count + 1) * price;
-									totalPriceElements[index].textContent = '$' + totalPrice;
-									total += price;
-									totalElement.textContent = total;
-								});
-							});
 
-							decrementButtons.forEach((button, index) => {
-								button.addEventListener("click", () => {
-									const count = parseInt(countElements[index].value);
-									if (count > 1) {
-										countElements[index].value = count - 1;
-										const price = parseInt(priceElements[index].textContent);
-										const totalPrice = (count - 1) * price;
-										totalPriceElements[index].textContent = '$' + totalPrice;
-										total -= price;
-										totalElement.textContent = total;
-									}
-								});
-							});
+							
 						});
 					</script>
 
