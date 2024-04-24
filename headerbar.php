@@ -18,6 +18,10 @@ if(isset($_POST['logout'])) {
     echo "<script>window.location.href = 'logout.php';</script>";
 }
 
+if(isset($_POST['trackOrder'])) {
+    echo "<script>window.location.href = 'trackOrder.php';</script>";
+}
+
 ?>
 
 
@@ -218,7 +222,7 @@ if(isset($_POST['logout'])) {
 											
 											<button type="submit"
 												class="button woocommerce-button woocommerce-form-login__submit"
-												name="login" value="Log in">Track Order</button>
+												name="trackOrder" value="Log in">Track Order</button>
 										</p>
                                         <p class="form-row">
 											<input type="hidden" id="woocommerce-login-nonce"

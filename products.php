@@ -3,6 +3,23 @@ session_start();
 require_once('admin/query.php');
 $productsAll=$QueryFire->getAllData('','','SELECT * FROM `products` as p JOIN `inventry` as i ON p.id=i.product_id where p.is_show=1 and p.is_deleted=0 limit 16;');
 
+
+if(isset($_POST['add_to_cart'])) {
+    $product_id = $_POST['product_id'];
+    $quantity = 1;
+    // Check if the product is already in the session
+    if(isset($_SESSION['cart'][$product_id])) {
+      // If yes, update the quantity
+      $_SESSION['cart'][$product_id] += $quantity;
+     
+  } else {
+      // If not, add the product to the session
+      $_SESSION['cart'][$product_id] = $quantity;
+  
+  }
+  header("Location: {$_SERVER['PHP_SELF']}");
+  exit();
+  }
 ?>
 
 
@@ -1860,246 +1877,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
 
 	<div class="website-wrapper">
-		<header class="whb-header whb-default_header whb-sticky-shadow whb-scroll-stick whb-sticky-real">
-			<div class="whb-main-header">
-				<div
-					class="whb-row whb-top-bar whb-not-sticky-row whb-with-bg whb-without-border whb-color-dark whb-flex-flex-middle">
-					<div class="container">
-						<div class="whb-flex-row whb-top-bar-inner">
-							<div class="whb-column whb-col-left whb-visible-lg whb-empty-column"></div>
-							<div class="whb-column whb-col-center whb-visible-lg">
-								<div class="wd-header-text set-cont-mb-s reset-last-child">
-									<h5 style="text-align: center">
-										<span style="color: #ffffff">Navratri Sale Live! Flat 10% off on orders above
-											₹499.
-											Code: "NAVRATRI"</span>
-									</h5>
-								</div>
-							</div>
-							<div class="whb-column whb-col-right whb-visible-lg whb-empty-column"></div>
-							<div class="whb-column whb-col-mobile whb-hidden-lg">
-								<div class="wd-header-text set-cont-mb-s reset-last-child">
-									<h5 style="text-align: center">
-										<span style="color: #ffffff">Navratri Sale Live! Flat 10% off on orders above
-											₹499.
-											Code: "NAVRATRI</span>
-									</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="whb-row whb-general-header whb-sticky-row whb-with-bg whb-border-fullwidth whb-color-dark whb-flex-flex-middle">
-					<div class="container">
-						<div class="whb-flex-row whb-general-header-inner">
-							<div class="whb-column whb-col-left whb-visible-lg">
-								<div class="site-logo">
-									<a href="index.php" class="wd-logo wd-main-logo" rel="home">
-										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="SBJNamkeens"
-											style="max-width: 250px" />
-									</a>
-								</div>
-							</div>
-							<div class="whb-column whb-col-center whb-visible-lg">
-								<div class="wd-header-nav wd-header-main-nav text-left wd-design-1" role="navigation"
-									aria-label="Main navigation">
-									<ul id="menu-main-menu" class="menu wd-nav wd-nav-main wd-style-default wd-gap-s">
-										<li id="menu-item-1380"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1380 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="index.php" class="woodmart-nav-link"><span
-													class="nav-link-text">Home</span></a>
-										</li>
-										<li id="menu-item-1388"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1388 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="index.php@p=237" class="woodmart-nav-link"><span
-													class="nav-link-text">About Us</span></a>
-										</li>
-										<li id="menu-item-1381"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children current-menu-item current_page_item menu-item-1381 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="index.html" class="woodmart-nav-link"><span
-													class="nav-link-text">Products</span></a>
-											<div
-												class="color-scheme-dark wd-design-default wd-dropdown-menu wd-dropdown">
-												<div class="container">
-													
-												</div>
-											</div>
-										</li>
-										<li id="menu-item-10676"
-											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10676 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="index.php@p=10671" class="woodmart-nav-link"><span
-													class="nav-link-text">Blogs</span></a>
-										</li>
-										<li id="menu-item-1389"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1389 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="index.php@p=236" class="woodmart-nav-link"><span
-													class="nav-link-text">Contact Us</span></a>
-										</li>
-									</ul>
-								</div>
-								<!--END MAIN-NAV-->
-								<div
-									class="wd-search-form wd-header-search-form wd-display-form whb-duljtjrl87kj7pmuut6b">
-									<form role="search" method="get"
-										class="searchform wd-style-default wd-cat-style-bordered woodmart-ajax-search"
-										action="index.php" data-thumbnail="1" data-price="1" data-post_type="product"
-										data-count="20" data-sku="0" data-symbols_count="3">
-										<input type="text" class="s" placeholder="Search for products" value="" name="s"
-											aria-label="Search" title="Search for products" required />
-										<input type="hidden" name="post_type" value="product" />
-										<button type="submit" class="searchsubmit">
-											<span> Search </span>
-										</button>
-									</form>
-
-									<div class="search-results-wrapper">
-										<div class="wd-dropdown-results wd-scroll wd-dropdown">
-											<div class="wd-scroll-content"></div>
-										</div>
-									</div>
-								</div>
-								<div class="whb-space-element" style="width: 30px"></div>
-							</div>
-							<div class="whb-column whb-col-right whb-visible-lg">
-								<div
-									class="wd-header-my-account wd-tools-element wd-event-hover wd-design-1 wd-account-style-icon whb-2b8mjqhbtvxz16jtxdrd">
-									<a href="index.php@p=233" title="My account">
-										<span class="wd-tools-icon"> </span>
-										<span class="wd-tools-text"> Login / Register </span>
-									</a>
-
-									<div class="wd-dropdown wd-dropdown-register">
-										<div class="login-dropdown-inner">
-											<span class="wd-heading"><span class="title">Sign in</span><a
-													class="create-account-link"
-													href="../my-account/index.html@action=register">Create an
-													Account</a></span>
-											<form method="post" class="login woocommerce-form woocommerce-form-login"
-												action="index.php@p=233">
-												<p
-													class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide form-row-username">
-													<label for="username">Username or email address&nbsp;<span
-															class="required">*</span></label>
-													<input type="text"
-														class="woocommerce-Input woocommerce-Input--text input-text"
-														name="username" id="username" value="" />
-												</p>
-												<p
-													class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide form-row-password">
-													<label for="password">Password&nbsp;<span
-															class="required">*</span></label>
-													<input class="woocommerce-Input woocommerce-Input--text input-text"
-														type="password" name="password" id="password"
-														autocomplete="current-password" />
-												</p>
-
-												<div class="g-recaptcha-wrap" style="padding: 10px 0 10px 0">
-													<div id="woo_recaptcha_1" class="g-recaptcha"
-														data-sitekey="6LcQbn0pAAAAAK6GbM71LXlWQOqPJBrv8raQ6NdA"></div>
-												</div>
-												<p class="form-row">
-													<input type="hidden" id="woocommerce-login-nonce"
-														name="woocommerce-login-nonce" value="a35c8b2951" /><input
-														type="hidden" name="_wp_http_referer" value="/products/" />
-													<button type="submit"
-														class="button woocommerce-button woocommerce-form-login__submit"
-														name="login" value="Log in">
-														Log in
-													</button>
-												</p>
-
-												<p class="login-form-footer">
-													<a href="../my-account/lost-password/index.html"
-														class="woocommerce-LostPassword lost_password">Lost your
-														password?</a>
-													<label
-														class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
-														<input
-															class="woocommerce-form__input woocommerce-form__input-checkbox"
-															name="rememberme" type="checkbox" value="forever"
-															title="Remember me" aria-label="Remember me" />
-														<span>Remember me</span>
-													</label>
-												</p>
-
-												<p class="title wd-login-divider">
-													<span>Or login with</span>
-												</p>
-												<div class="wd-social-login">
-													<a href="../my-account/index.html@social_auth=google"
-														class="login-goo-link btn">Google</a>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-
-								<div
-									class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener whb-5u866sftq6yga790jxf3">
-									<a href="cart.php"
-										title="Shopping cart">
-										<span class="wd-tools-icon wd-icon-alt">
-											<span class="wd-cart-number wd-tools-count">0 <span>items</span></span>
-										</span>
-										<span class="wd-tools-text">
-											<span class="wd-cart-subtotal"><span
-													class="woocommerce-Price-amount amount"><bdi><span
-															class="woocommerce-Price-currencySymbol">&#8377;</span>0.00</bdi></span></span>
-										</span>
-									</a>
-								</div>
-							</div>
-							<div class="whb-column whb-mobile-left whb-hidden-lg">
-								<div
-									class="wd-tools-element wd-header-mobile-nav wd-style-icon wd-design-1 whb-wn5z894j1g5n0yp3eeuz">
-									<a href="index.html#" rel="nofollow" aria-label="Open mobile menu">
-										<span class="wd-tools-icon"> </span>
-
-										<span class="wd-tools-text">Menu</span>
-									</a>
-								</div>
-								<!--END wd-header-mobile-nav-->
-							</div>
-							<div class="whb-column whb-mobile-center whb-hidden-lg">
-								<div class="site-logo">
-									<a href="index.php" class="wd-logo wd-main-logo" rel="home">
-										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="SBJNamkeens"
-											style="max-width: 149px" />
-									</a>
-								</div>
-							</div>
-							<div class="whb-column whb-mobile-right whb-hidden-lg">
-								<div
-									class="wd-header-search wd-tools-element wd-header-search-mobile wd-display-icon whb-6o3ywcqlos79wmtp8ui8 wd-style-icon wd-design-1">
-									<a href="index.html#" rel="nofollow noopener" aria-label="Search">
-										<span class="wd-tools-icon"> </span>
-
-										<span class="wd-tools-text"> Search </span>
-									</a>
-								</div>
-
-								<div
-									class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener whb-u6cx6mzhiof1qeysah9h">
-									<a href="../cart/index.html@remove_item=0fe473396242072e84af286632d3f0ff&amp;_wpnonce=e91a900064"
-										title="Shopping cart">
-										<span class="wd-tools-icon wd-icon-alt">
-											<span class="wd-cart-number wd-tools-count">0 <span>items</span></span>
-										</span>
-										<span class="wd-tools-text">
-											<span class="wd-cart-subtotal"><span
-													class="woocommerce-Price-amount amount"><bdi><span
-															class="woocommerce-Price-currencySymbol">&#8377;</span>0.00</bdi></span></span>
-										</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		
+	<?php require_once('headerbar.php'); ?>
 
 		<div class="main-page-wrapper">
 			<div class="page-title page-title-default title-size-small title-design-centered color-scheme-light wd-nav-accordion-mb-on title-shop"
@@ -2150,6 +1929,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 							<div class="product-grid-item product wd-hover-fw-button wd-hover-with-fade col-lg-3 col-md-3 col-6 first type-product post-1784 status-publish instock product_cat-namkeen has-post-thumbnail taxable shipping-taxable purchasable product-type-variable has-default-attributes"
 								data-loop="1" data-id="1784">
+								<form method="post">
+								<input type="hidden" name="product_id" value="<?=$row["id"]?>">
 								<div class="product-wrapper">
 									<div class="content-product-imagin"></div>
 									<div class="product-element-top wd-quick-shop">
@@ -2169,13 +1950,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												<?= $row["name"]?>
 											</a>
 										</h3>
-										<div class="wd-star-rating">
-											<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-												<span style="width: 100%">
-													Rated <strong class="rating">5.00</strong> out of 5
-												</span>
-											</div>
-										</div>
+										
 
 										<div class="wrap-price">
 											<span class="price"><span class="price-from">From:</span>
@@ -2191,9 +1966,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												data-product_id="1784" data-product_sku=""
 												aria-label="Select options for &ldquo;Aalu Papdi&rdquo;"
 												aria-describedby="This product has multiple variants. The options may be chosen on the product page"
-												rel="nofollow"><span>Add to Cart</span></a>
+												rel="nofollow"><span><input type="submit" style="background-color:#355E3B;color:white" name="add_to_cart" value="Add"></span></a>
 										</div>
-
+							</form>
 										<!-- <div class="fade-in-block wd-scroll"></div> -->
 									</div>
 								</div>
@@ -2234,7 +2009,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<footer class="footer-container color-scheme-light">
 			<div class="container main-footer">
 				<link rel="stylesheet" id="elementor-post-2129-css"
-					href="wp-content/uploads/elementor/css/post-2129.css@ver=1712761393" type="text/css" media="all" />
+					href="wp-content/uploads/elementor/css/post-2129.css" type="text/css" media="all" />
 				<div data-elementor-type="wp-post" data-elementor-id="2129" class="elementor elementor-2129"
 					data-elementor-post-type="cms_block">
 					<section data-particle_enable="false" data-particle-mobile-disabled="false"
@@ -3023,150 +2798,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</footer>
 	</div>
 	<!-- end wrapper -->
-	<div class="wd-close-side wd-fill"></div>
-	<a href="index.html#" class="scrollToTop" aria-label="Scroll to top button"></a>
-	<div class="mobile-nav wd-side-hidden wd-left">
-		<div class="wd-search-form">
-			<form role="search" method="get" class="searchform wd-cat-style-bordered woodmart-ajax-search"
-				action="index.php" data-thumbnail="1" data-price="1" data-post_type="product" data-count="20"
-				data-sku="0" data-symbols_count="3">
-				<input type="text" class="s" placeholder="Search for products" value="" name="s" aria-label="Search"
-					title="Search for products" required />
-				<input type="hidden" name="post_type" value="product" />
-				<button type="submit" class="searchsubmit">
-					<span> Search </span>
-				</button>
-			</form>
+	
 
-			<div class="search-results-wrapper">
-				<div class="wd-dropdown-results wd-scroll wd-dropdown">
-					<div class="wd-scroll-content"></div>
-				</div>
-			</div>
-		</div>
-		<ul id="menu-main-menu-1" class="mobile-pages-menu wd-nav wd-nav-mobile wd-active">
-			<li
-				class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1380 item-level-0">
-				<a href="index.php" class="woodmart-nav-link"><span class="nav-link-text">Home</span></a>
-			</li>
-			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1388 item-level-0">
-				<a href="index.php@p=237" class="woodmart-nav-link"><span class="nav-link-text">About Us</span></a>
-			</li>
-			<li
-				class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children current-menu-item current_page_item menu-item-1381 item-level-0">
-				<a href="index.html" class="woodmart-nav-link"><span class="nav-link-text">Products</span></a>
-				<ul class="wd-sub-menu">
-					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2264 item-level-1">
-						<a href="../product-category/roasted/index.html" class="woodmart-nav-link">Roasted</a>
-					</li>
-					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2265 item-level-1">
-						<a href="../product-category/namkeen/index.html" class="woodmart-nav-link">Namkeen</a>
-					</li>
-					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2266 item-level-1">
-						<a href="../product-category/fox-nuts/index.html" class="woodmart-nav-link">Fox Nuts</a>
-					</li>
-					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2969 item-level-1">
-						<a href="../product-category/sweets/index.html" class="woodmart-nav-link">Sweets</a>
-					</li>
-					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11236 item-level-1">
-						<a href="../product-category/combos/index.html" class="woodmart-nav-link">Combos</a>
-					</li>
-				</ul>
-			</li>
-			<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10676 item-level-0">
-				<a href="index.php@p=10671" class="woodmart-nav-link"><span class="nav-link-text">Blogs</span></a>
-			</li>
-			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1389 item-level-0">
-				<a href="index.php@p=236" class="woodmart-nav-link"><span class="nav-link-text">Contact Us</span></a>
-			</li>
-			<li class="menu-item menu-item-account wd-with-icon">
-				<a href="index.php@p=233">Login / Register</a>
-			</li>
-		</ul>
-	</div>
+	<?php
+  require_once('headermobile.php');
+?>
+
+
 	<!--END MOBILE-NAV-->
-	<div class="cart-widget-side wd-side-hidden wd-right">
-		<div class="wd-heading">
-			<span class="title">Shopping cart</span>
-			<div class="close-side-widget wd-action-btn wd-style-text wd-cross-icon">
-				<a href="index.html#" rel="nofollow">Close</a>
-			</div>
-		</div>
-		<div class="widget woocommerce widget_shopping_cart">
-			<div class="widget_shopping_cart_content"></div>
-		</div>
-	</div>
-	<div class="wd-cookies-popup">
-		<div class="wd-cookies-inner">
-			<div class="cookies-info-text">
-				We use cookies to improve your experience on our website. By browsing
-				this website, you agree to our use of cookies.
-			</div>
-			<div class="cookies-buttons">
-				<a href="index.html#" rel="nofollow noopener"
-					class="btn btn-size-small btn-color-primary cookies-accept-btn">Accept</a>
-			</div>
-		</div>
-	</div>
-	<div class="wd-toolbar wd-toolbar-label-show">
-		<div class="wd-toolbar-shop wd-toolbar-item wd-tools-element">
-			<a href="index.html">
-				<span class="wd-tools-icon"></span>
-				<span class="wd-toolbar-label"> Shop </span>
-			</a>
-		</div>
-		<div class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener" title="My cart">
-			<a href="cart.php">
-				<span class="wd-tools-icon wd-icon-alt">
-					<span class="wd-cart-number wd-tools-count">0 <span>items</span></span>
-				</span>
-				<span class="wd-toolbar-label"> Cart </span>
-			</a>
-		</div>
-		<div class="wd-header-my-account wd-tools-element wd-style-icon">
-			<a href="index.php@p=233">
-				<span class="wd-tools-icon"></span>
-				<span class="wd-toolbar-label"> My account </span>
-			</a>
-		</div>
-		<div class="wd-toolbar-link wd-tools-element wd-toolbar-item wd-tools-custom-icon">
-			<a href="https://wa.link/rukdzb">
-				<span class="wd-toolbar-icon wd-tools-icon wd-icon wd-custom-icon">
-					<img loading="lazy" width="150" height="150"
-						src="wp-content/uploads/2023/06/whatsapp-1-150x150.webp"
-						class="attachment-thumbnail size-thumbnail" alt="" decoding="async" srcset="
-                wp-content/uploads/2023/06/whatsapp-1-150x150.webp 150w,
-                wp-content/uploads/2023/06/whatsapp-1-300x300.webp 300w,
-                wp-content/uploads/2023/06/whatsapp-1-32x32.webp    32w,
-                wp-content/uploads/2023/06/whatsapp-1.webp         512w
-              " sizes="(max-width: 150px) 100vw, 150px" />
-				</span>
 
-				<span class="wd-toolbar-label"> Enquire </span>
-			</a>
-		</div>
-	</div>
-	<script type="application/ld+json">
-      {
-        "@context": "https:\/\/schema.org\/",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": { "name": "Home", "@id": "https:\/\/pragssalty.com" }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "name": "Products",
-              "@id": "https:\/\/pragssalty.com\/products\/"
-            }
-          }
-        ]
-      }
-    </script>
+
+	
 	<div class="wcjfw-total-placeholder wcjfw-hidden">
 		<input type="hidden" id="wcjfw-cart-total" value="0" />
 	</div>

@@ -57,3 +57,42 @@
 	</div>
   
   
+	<link rel="stylesheet" id="wd-bottom-toolbar-css"
+		href="wp-content/themes/woodmart/css/parts/opt-bottom-toolbar.min.css?ver=7.1.4" type="text/css" media="all" />
+	<div class="wd-toolbar wd-toolbar-label-show">
+		<div class="wd-toolbar-shop wd-toolbar-item wd-tools-element">
+			<a href="products.php">
+				<span class="wd-tools-icon"></span>
+				<span class="wd-toolbar-label">
+					Shop </span>
+			</a>
+		</div>
+		<div class="wd-header-cart wd-tools-element wd-design-5" >
+			<a href="cart.php">
+				<span class="wd-tools-icon wd-icon-alt">
+					<span class="wd-cart-number wd-tools-count"><?=$cart_value?>  <span>items</span></span>
+				</span>
+				<span class="wd-toolbar-label">
+					Cart </span>
+			</a>
+		</div>
+		<div class="wd-header-my-account wd-tools-element wd-style-icon ">
+			<a href="trackOrder.php">
+				<span class="wd-tools-icon"></span>
+				<span class="wd-toolbar-label">
+					My account </span>
+			</a>
+		</div>
+		<div class="wd-toolbar-link wd-tools-element wd-toolbar-item wd-tools-custom-icon">
+			<a href="https://wa.link/rukdzb">
+				<span class="wd-toolbar-icon wd-tools-icon wd-icon wd-custom-icon">
+					<img width="150" height="150" src="wp-content/uploads/2023/06/whatsapp-1-150x150.webp"
+						class="attachment-thumbnail size-thumbnail" alt="" decoding="async"
+						srcset="wp-content/uploads/2023/06/whatsapp-1-150x150.webp 150w, wp-content/uploads/2023/06/whatsapp-1-300x300.webp 300w, wp-content/uploads/2023/06/whatsapp-1-32x32.webp 32w, wp-content/uploads/2023/06/whatsapp-1.webp 512w"
+						sizes="(max-width: 150px) 100vw, 150px" /> </span>
+
+				<span class="wd-toolbar-label">
+					Enquire </span>
+			</a>
+		</div>
+	</div>
