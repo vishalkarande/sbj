@@ -1,7 +1,29 @@
 <?php
 session_start();
 require_once('admin/query.php');
-$productsAll=$QueryFire->getAllData('','','SELECT * FROM `products` as p JOIN `inventry` as i ON p.id=i.product_id where p.is_show=1 and p.is_deleted=0 limit 16;');
+if (isset($_GET['count'])) {
+	$load=0;
+	$productsAll=$QueryFire->getAllData('','','SELECT * FROM `products` as p JOIN `inventry` as i ON p.id=i.product_id where p.id >= '.$_GET['count'].' and p.is_deleted=0 and p.is_show=1 ORDER BY p.id ASC limit 16;');
+	$count = count($productsAll);
+	$totalCount=$QueryFire->getAllData('','','SELECT COUNT(*) AS total FROM `products` as p JOIN `inventry` as i ON p.id=i.product_id where p.is_deleted=0 and p.is_show=1')[0];
+	$calcu=$totalCount['total']-$_GET['count'];
+	
+
+if ($calcu < 16) {
+
+		$load=1;
+
+		
+	}else{
+		$load=0;
+		$count=$_GET['count']+16;
+	}
+   
+} else {
+	$load=0;
+	$count=16;
+    $productsAll=$QueryFire->getAllData('','','SELECT * FROM `products` as p JOIN `inventry` as i ON p.id=i.product_id where p.is_show=1 and p.is_deleted=0 limit 16;');
+}
 
 
 if(isset($_POST['add_to_cart'])) {
@@ -1982,22 +2004,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-
-
-
+							
 
 
 						</div>
+						
 						<div class="wd-loop-footer products-footer">
-							<a href="page/2/index.html" rel="nofollow noopener"
+						<?php if($load==0){ ?>
+							<a href="products.php?count=<?=$count?>" rel="nofollow noopener"
 								class="btn wd-load-more wd-products-load-more load-on-scroll"><span
 									class="load-more-label">Load more products</span></a>
 							<div class="btn wd-load-more wd-load-more-loader">
 								<span class="load-more-loading">Loading...</span>
 							</div>
+							<?php }?>
 						</div>
+						
 					</div>
 				</div>
 				<!-- .main-page-wrapper -->
