@@ -42,7 +42,7 @@ if(isset($_POST['add_to_cart'])) {
         "elementor-animations": true,
         "elementor-pp": true,
         v: "3.4.0",
-        rest_url: "https:\/\/pragssalty.com\/wp-json\/",
+        rest_url: "https:\/\/\/wp-json\/",
       };
       (() => {
         try {
@@ -1091,11 +1091,11 @@ if(isset($_POST['add_to_cart'])) {
     <meta property="og:updated_time" content="2024-04-06T19:51:49+05:30" />
     <meta
       property="og:image"
-      content="wp-content/uploads/2024/02/Order-Now-91-9929321144-1024x413.webp"
+      content="wp-content/uploads/2024/02/Order-Now-91-9001655666-1024x413.webp"
     />
     <meta
       property="og:image:secure_url"
-      content="/wp-content/uploads/2024/02/Order-Now-91-9929321144-1024x413.webp"
+      content="/wp-content/uploads/2024/02/Order-Now-91-9001655666-1024x413.webp"
     />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="413" />
@@ -1123,7 +1123,7 @@ if(isset($_POST['add_to_cart'])) {
     />
     <meta
       name="twitter:image"
-      content="/wp-content/uploads/2024/02/Order-Now-91-9929321144-1024x413.webp"
+      content="/wp-content/uploads/2024/02/Order-Now-91-9001655666-1024x413.webp"
     />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="SBJNamkeens" />
@@ -1728,7 +1728,7 @@ if(isset($_POST['add_to_cart'])) {
       id="wpo_min-header-8-js-extra"
     >
       /* <![CDATA[ */
-      var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=229","i18n_view_cart":"View cart","cart_url":"https:\/\/pragssalty.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+      var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=229","i18n_view_cart":"View cart","cart_url":"https:\/\/\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
       /* ]]> */
     </script>
     <script
@@ -1799,7 +1799,7 @@ if(isset($_POST['add_to_cart'])) {
       id="wpo_min-header-15-js-extra"
     >
       /* <![CDATA[ */
-      var pysOptions = {"staticEvents":[],"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"debug":"","siteUrl":"https:\/\/pragssalty.com","ajaxUrl":"https:\/\/pragssalty.com\/wp-admin\/admin-ajax.php","ajax_event":"59edc6e2e9","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","send_external_id":"1","external_id_expire":"180","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utmTerms_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"undefined","TrafficUtms":[],"TrafficUtmsId":[]},"woo":{"enabled":true,"enabled_save_data_to_orders":true,"addToCartOnButtonEnabled":true,"addToCartOnButtonValueEnabled":true,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":false,"containOrderId":false},"edd":{"enabled":false}};
+      var pysOptions = {"staticEvents":[],"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"debug":"","siteUrl":"https:\/\/","ajaxUrl":"https:\/\/\/wp-admin\/admin-ajax.php","ajax_event":"59edc6e2e9","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","send_external_id":"1","external_id_expire":"180","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utmTerms_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"undefined","TrafficUtms":[],"TrafficUtmsId":[]},"woo":{"enabled":true,"enabled_save_data_to_orders":true,"addToCartOnButtonEnabled":true,"addToCartOnButtonValueEnabled":true,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":false,"containOrderId":false},"edd":{"enabled":false}};
       /* ]]> */
     </script>
     <script
@@ -1837,7 +1837,7 @@ if(isset($_POST['add_to_cart'])) {
     >
       /* <![CDATA[ */
       window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-      gtag("set","linker",{"domains":["pragssalty.com"]});
+      gtag("set","linker",{"domains":[""]});
       gtag("js", new Date());
       gtag("set", "developer_id.dZTNiMT", true);
       gtag("config", "GT-PJNB9QPL");
@@ -1868,12 +1868,12 @@ if(isset($_POST['add_to_cart'])) {
     <link
       rel="alternate"
       type="application/json+oembed"
-      href="wp-json/oembed/1.0/embed@url=https%253A%252F%252Fpragssalty.com%252F"
+      href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F%252F"
     />
     <link
       rel="alternate"
       type="text/xml+oembed"
-      href="wp-json/oembed/1.0/embed@url=https%253A%252F%252Fpragssalty.com%252F&amp;format=xml"
+      href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F%252F&amp;format=xml"
     />
     <meta name="generator" content="Site Kit by Google 1.124.0" />
     <!-- Google tag (gtag.js) -->
