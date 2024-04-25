@@ -977,7 +977,7 @@
 			</a>
 		</div>
 		<div class="wd-toolbar-link wd-tools-element wd-toolbar-item wd-tools-custom-icon">
-			<a href="https://wa.link/rukdzb">
+			<a href="">
 				<span class="wd-toolbar-icon wd-tools-icon wd-icon wd-custom-icon">
 					<img width="150" height="150" src="wp-content/uploads/2023/06/whatsapp-1-150x150.webp"
 						class="attachment-thumbnail size-thumbnail" alt="" decoding="async"
