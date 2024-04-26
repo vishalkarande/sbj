@@ -1,6 +1,22 @@
 <?php
 session_start();
 require_once "admin/query.php";
+
+
+if(isset($_GET["pop"]) && isset($_GET["mes"])) {
+	$pop=$_GET["pop"];
+	$mes=$_GET['mes'];
+	if($pop==1 && $mes==1){
+	  $message="Added to Cart. Continue Shopping";
+	}elseif($pop==1 && $mes==2){
+	  $message="Thank you for Making Order";
+	}else{
+	  $pop=0;
+	}
+  }else{
+	$pop=0;
+}
+
 $proID = $_GET["id"];
 $productDetail = $QueryFire->getAllData(
     "",
@@ -26,26 +42,15 @@ if(isset($_POST['add_to_cart'])) {
       $_SESSION['cart'][$product_id] = $quantity;
   
   }
-  header("Location: {$_SERVER['PHP_SELF']}?id=$proID");
-          exit();
-  }
 
-  if(isset($_POST['add_to_cart_prod'])) {
-    $product_id = $_POST['product_id'];
-    $quantity = $_POST['quantity'];
-    // Check if the product is already in the session
-    if(isset($_SESSION['cart'][$product_id])) {
-      // If yes, update the quantity
-      $_SESSION['cart'][$product_id] += $quantity;
-     
-  } else {
-      // If not, add the product to the session
-      $_SESSION['cart'][$product_id] = $quantity;
-  
-  }
-  header("Location: {$_SERVER['PHP_SELF']}?id=$proID");
+  header("Location: {$_SERVER['PHP_SELF']}?id={$proID}&pop=1&mes=1");
   exit();
   }
+
+
+
+
+
   
 ?>
 
@@ -68,9 +73,6 @@ if(isset($_POST['add_to_cart'])) {
 		//0.1.47
 
 	</script>
-	<script type="javascript/blocked"
-		data-wpmeteor-type="text/javascript">window.MSInputMethodContext && document.documentMode && document.write('<script src="wp-content/themes/woodmart/js/libs/ie11CustomProperties.min.js"><\/script>');</script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript">window._wca = window._wca || [];</script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
 	<title>Aalu Wafers + Salty Vinegar Crunch - SBJNamkeens</title>
@@ -883,12 +885,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+	<style>
+   .popup {
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(
+                    0,
+                    0,
+                    0,
+                    0.4
+                );
+                display: none;
+            }
+            .popup-content {
+                background-color: white;
+                margin: 10% auto;
+				margin-top:40%;
+                padding: 20px;
+                border: 1px solid #888888;
+                width: 70%;
+                font-weight: bolder;
+            }
+            .popup-content button {
+                display: block;
+                margin: 0 auto;
+            }
+            .show {
+                display: block;
+            }
+
+	</style>			
+
+		
+
+
+
 	<?php require_once('headerbar.php'); ?>
 
 
 
 
 		<div class="main-page-wrapper">
+
 
 
 			<!-- MAIN CONTENT AREA -->
@@ -908,6 +952,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							class="single-product-page single-product-content product-design-default tabs-location-standard tabs-type-tabs meta-location-add_to_cart reviews-location-separate product-no-bg product type-product post-2407 status-publish first instock product_cat-combos has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple">
 
 							<div class="container">
+
+
+
+							
 
 								<div class="woocommerce-notices-wrapper"></div>
 								<div class="row product-image-summary-wrap">
@@ -1395,6 +1443,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div> <!-- end row -->
 		</div> <!-- end container -->
 
+
+				
+	<?php if($pop==1){?>
+
+<div id="myPopup" class="popup show">
+<div class="popup-content">
+<h1 style="color: green">
+  <?= $message ?> !
+</h1>
+<!-- <p>This is a popup box!</p> -->
+<button id="closePopup">
+  Close
+</button>
+</div>
+</div>
+
+<?php } ?>
+
+<script>
+closePopup.addEventListener(
+"click",
+function () {
+  myPopup.classList.remove(
+	  "show"
+  );
+}
+);
+window.addEventListener(
+"click",
+function (event) {
+  if (event.target == myPopup) {
+	  myPopup.classList.remove(
+		  "show"
+	  );
+  }
+}
+);
+</script>
 
 		<footer class="footer-container color-scheme-light">
 			<div class="container main-footer">

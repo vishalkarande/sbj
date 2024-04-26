@@ -7,6 +7,24 @@ if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
 	echo "<script>window.location.href='index.php';</script>";
 }
 
+if(isset($_GET["pop"]) && isset($_GET["mes"])) {
+	$pop=$_GET["pop"];
+	$mes=$_GET['mes'];
+	if($pop==1 && $mes==1){
+	  $message="Registration Success ";
+	}elseif($pop==1 && $mes==2){
+	  $message="Registration Failed "; 
+	}elseif($pop==1 && $mes==3){
+		$message="Already Registered "; 
+	}elseif($pop==1 && $mes==4){
+		$message="Login Failed. Check Email Or Password"; 
+	}else{
+	  $pop=0;
+	}
+  }else{
+	  $pop=0;
+	}
+  
 
 if(isset($_POST['login'])) {
     $data = $QueryFire->getAllData('users',' email="'.trim(strip_tags($_POST['username'])).'" and password ="'.md5(trim(strip_tags($_POST['password']))).'"');
@@ -14,11 +32,16 @@ if(isset($_POST['login'])) {
 		$data = $data[0];
 		$_SESSION['user'] = $data;
 		echo "<script>window.location.href = 'index.php';</script>";
-	}}
+	}else{
+		header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=4");
+		exit();
+	}
+
+}
 
 
 if(isset($_POST['register'])) {
-	$dummy = $QueryFire->getAllData('users',' mobile_no = "'.trim($_POST['mobile_no']).'"');
+	$dummy = $QueryFire->getAllData('users',' mobile_no = "'.trim($_POST['mobile_no']).'" or email = "'.$_POST['email'].'";');
 	if(empty($dummy)) {
 		$data = array();
 		$data['name'] = $_POST['full_name'];
@@ -47,15 +70,20 @@ if(isset($_POST['register'])) {
 		$template = str_replace('%link%', base_url.'verify/'.$data['access_token'] , $template);
 		if($QueryFire->insertData('users', $data)) {
 		  $success = 'You have successfully created your account. Please Login with Phone Number.';
-		   
+		  header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=1");
+		  exit();
 		}
 		else
 		{
 			$error = 'Unable to register. Please try after sometime.';
+			header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=2");
+       exit();
 		}
 	}
 	else
 		$error = " Number already registered. If you forget your password Contact Admin .";
+		header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=3");
+		exit();
 }
 
 ?>
@@ -80,27 +108,23 @@ if(isset($_POST['register'])) {
 		//0.1.47
 
 	</script>
-	<script type="javascript/blocked"
-		data-wpmeteor-type="text/javascript">window.MSInputMethodContext && document.documentMode && document.write('<script src="wp-content//themes/woodmart/js/libs/ie11CustomProperties.min.js"><\/script>');</script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript">window._wca = window._wca || [];</script>
+
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-	<title>My account - Prags Salty</title>
+	<title>My account - </title>
 	<meta name="robots" content="noindex, follow" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="My account - Prags Salty" />
+	<meta property="og:title" content="My account -" />
 	<meta property="og:url" content="my-account/" />
 	<meta property="og:site_name" content="Prags Salty" />
 	<meta property="article:author" content="https://www.facebook.com/pragssaltyjodhpur" />
 	<meta property="article:published_time" content="2023-05-19T06:24:27+05:30" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="My account - Prags Salty" />
+	<meta name="twitter:title" content="My account - " />
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="Less than a minute" />
-	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":"Prags Salty"},{"@type":"WebSite","@id":"#website","url":"","name":"Prags Salty","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"my-account/#webpage","url":"my-account/","name":"My account - Prags Salty","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-05-19T06:24:27+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author/pragssaltyjodhpur/","name":"Prags Salty","url":"author/pragssaltyjodhpur/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Prags Salty","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/pragssaltyjodhpur"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"My account - Prags Salty","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-05-19T06:24:27+05:30","author":{"@id":"author/pragssaltyjodhpur/","name":"Prags Salty"},"publisher":{"@id":"#organization"},"name":"My account - Prags Salty","@id":"my-account/#richSnippet","isPartOf":{"@id":"my-account/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"my-account/#webpage"}}]}</script>
-	<!-- /Rank Math WordPress SEO plugin -->
+<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='//stats.wp.com' />
 	<link rel='dns-prefetch' href='//www.googletagmanager.com' />
@@ -1224,6 +1248,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+		<style>
+   .popup {
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(
+                    0,
+                    0,
+                    0,
+                    0.4
+                );
+                display: none;
+            }
+            .popup-content {
+                background-color: white;
+                margin: 10% auto;
+				margin-top:40%;
+                padding: 20px;
+                border: 1px solid #888888;
+                width: 70%;
+                font-weight: bolder;
+            }
+            .popup-content button {
+                display: block;
+                margin: 0 auto;
+            }
+            .show {
+                display: block;
+            }
+
+  </style>			
+
+			<?php if($pop==1){?>
+
+<div id="myPopup" class="popup show">
+<div class="popup-content">
+<h1 style="color: green">
+  <?= $message ?> !
+</h1>
+<!-- <p>This is a popup box!</p> -->
+<button id="closePopup">
+  Close
+</button>
+</div>
+</div>
+
+<?php } ?>
+<script>
+closePopup.addEventListener(
+"click",
+function () {
+  myPopup.classList.remove(
+	  "show"
+  );
+}
+);
+window.addEventListener(
+"click",
+function (event) {
+  if (event.target == myPopup) {
+	  myPopup.classList.remove(
+		  "show"
+	  );
+  }
+}
+);
+</script>
+
+
 
 
 
@@ -2217,10 +2314,7 @@ var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-elementor1.8.7.min.js"
 		id="wpo_min-footer-20-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-21-js-extra">
-/* <![CDATA[ */
-var woodmart_settings = {"menu_storage_key":"woodmart_8ce3279f3268b69002b606679d8624f3","ajax_dropdowns_save":"1","photoswipe_close_on_scroll":"1","woocommerce_ajax_add_to_cart":"yes","variation_gallery_storage_method":"new","elementor_no_gap":"enabled","adding_to_cart":"Processing","added_to_cart":"Product was successfully added to your cart.","continue_shopping":"Continue shopping","view_cart":"View Cart","go_to_checkout":"Checkout","loading":"Loading...","countdown_days":"days","countdown_hours":"hr","countdown_mins":"min","countdown_sec":"sc","cart_url":"https:\/\/\/cart\/","ajaxurl":"https:\/\/\/wp-admin\/admin-ajax.php","add_to_cart_action":"popup","added_popup":"no","categories_toggle":"no","enable_popup":"no","popup_delay":"2000","popup_event":"time","popup_scroll":"1000","popup_pages":"0","promo_popup_hide_mobile":"no","product_images_captions":"no","ajax_add_to_cart":"1","all_results":"View all results","zoom_enable":"yes","ajax_scroll":"yes","ajax_scroll_class":".main-page-wrapper","ajax_scroll_offset":"100","infinit_scroll_offset":"300","product_slider_auto_height":"yes","product_slider_dots":"no","price_filter_action":"click","product_slider_autoplay":"","close":"Close (Esc)","share_fb":"Share on Facebook","pin_it":"Pin it","tweet":"Tweet","download_image":"Download image","off_canvas_column_close_btn_text":"Close","cookies_version":"1","header_banner_version":"1","promo_version":"1","header_banner_close_btn":"yes","header_banner_enabled":"no","whb_header_clone":"\n    <div class=\"whb-sticky-header whb-clone whb-main-header <%wrapperClasses%>\">\n        <div class=\"<%cloneClass%>\">\n            <div class=\"container\">\n                <div class=\"whb-flex-row whb-general-header-inner\">\n                    <div class=\"whb-column whb-col-left whb-visible-lg\">\n                        <%.site-logo%>\n                    <\/div>\n                    <div class=\"whb-column whb-col-center whb-visible-lg\">\n                        <%.wd-header-main-nav%>\n                    <\/div>\n                    <div class=\"whb-column whb-col-right whb-visible-lg\">\n                        <%.wd-header-my-account%>\n                        <%.wd-header-search:not(.wd-header-search-mobile)%>\n\t\t\t\t\t\t<%.wd-header-wishlist%>\n                        <%.wd-header-compare%>\n                        <%.wd-header-cart%>\n                        <%.wd-header-fs-nav%>\n                    <\/div>\n                    <%.whb-mobile-left%>\n                    <%.whb-mobile-center%>\n                    <%.whb-mobile-right%>\n                <\/div>\n            <\/div>\n        <\/div>\n    <\/div>\n","pjax_timeout":"5000","split_nav_fix":"","shop_filters_close":"no","woo_installed":"1","base_hover_mobile_click":"no","centered_gallery_start":"1","quickview_in_popup_fix":"","one_page_menu_offset":"150","hover_width_small":"1","is_multisite":"","current_blog_id":"1","swatches_scroll_top_desktop":"no","swatches_scroll_top_mobile":"no","lazy_loading_offset":"0","add_to_cart_action_timeout":"no","add_to_cart_action_timeout_number":"3","single_product_variations_price":"no","google_map_style_text":"Custom style","quick_shop":"yes","sticky_product_details_offset":"150","preloader_delay":"300","comment_images_upload_size_text":"Some files are too large. Allowed file size is 1 MB.","comment_images_count_text":"You can upload up to 3 images to your review.","single_product_comment_images_required":"no","comment_required_images_error_text":"Image is required.","comment_images_upload_mimes_text":"You are allowed to upload images only in png, jpeg formats.","comment_images_added_count_text":"Added %s image(s)","comment_images_upload_size":"1048576","comment_images_count":"3","search_input_padding":"no","comment_images_upload_mimes":{"jpg|jpeg|jpe":"image\/jpeg","png":"image\/png"},"home_url":"https:\/\/\/","shop_url":"https:\/\/\/products\/","age_verify":"no","banner_version_cookie_expires":"60","promo_version_cookie_expires":"7","age_verify_expires":"30","cart_redirect_after_add":"no","swatches_labels_name":"no","product_categories_placeholder":"Select a category","product_categories_no_results":"No matches found","cart_hash_key":"wc_cart_hash_922703ab473fa9b909b138c94b1e78ba","fragment_name":"wc_fragments_922703ab473fa9b909b138c94b1e78ba","photoswipe_template":"<div class=\"pswp\" aria-hidden=\"true\" role=\"dialog\" tabindex=\"-1\"><div class=\"pswp__bg\"><\/div><div class=\"pswp__scroll-wrap\"><div class=\"pswp__container\"><div class=\"pswp__item\"><\/div><div class=\"pswp__item\"><\/div><div class=\"pswp__item\"><\/div><\/div><div class=\"pswp__ui pswp__ui--hidden\"><div class=\"pswp__top-bar\"><div class=\"pswp__counter\"><\/div><button class=\"pswp__button pswp__button--close\" title=\"Close (Esc)\"><\/button> <button class=\"pswp__button pswp__button--share\" title=\"Share\"><\/button> <button class=\"pswp__button pswp__button--fs\" title=\"Toggle fullscreen\"><\/button> <button class=\"pswp__button pswp__button--zoom\" title=\"Zoom in\/out\"><\/button><div class=\"pswp__preloader\"><div class=\"pswp__preloader__icn\"><div class=\"pswp__preloader__cut\"><div class=\"pswp__preloader__donut\"><\/div><\/div><\/div><\/div><\/div><div class=\"pswp__share-modal pswp__share-modal--hidden pswp__single-tap\"><div class=\"pswp__share-tooltip\"><\/div><\/div><button class=\"pswp__button pswp__button--arrow--left\" title=\"Previous (arrow left)\"><\/button> <button class=\"pswp__button pswp__button--arrow--right\" title=\"Next (arrow right)>\"><\/button><div class=\"pswp__caption\"><div class=\"pswp__caption__center\"><\/div><\/div><\/div><\/div><\/div>","load_more_button_page_url":"yes","load_more_button_page_url_opt":"no","menu_item_hover_to_click_on_responsive":"no","clear_menu_offsets_on_resize":"yes","three_sixty_framerate":"60","three_sixty_prev_next_frames":"5","ajax_search_delay":"300","animated_counter_speed":"3000","site_width":"1222","cookie_secure_param":"1","slider_distortion_effect":"sliderWithNoise","current_page_builder":"elementor","collapse_footer_widgets":"yes","ajax_fullscreen_content":"yes","grid_gallery_control":"hover","grid_gallery_enable_arrows":"none","ajax_links":".wd-nav-product-cat a, .website-wrapper .widget_product_categories a, .widget_layered_nav_filters a, .woocommerce-widget-layered-nav a, .filters-area:not(.custom-content) a, body.post-type-archive-product:not(.woocommerce-account) .woocommerce-pagination a, body.tax-product_cat:not(.woocommerce-account) .woocommerce-pagination a, .wd-shop-tools a:not(.breadcrumb-link), .woodmart-woocommerce-layered-nav a, .woodmart-price-filter a, .wd-clear-filters a, .woodmart-woocommerce-sort-by a, .woocommerce-widget-layered-nav-list a, .wd-widget-stock-status a, .widget_nav_mega_menu a, .wd-products-shop-view a, .wd-products-per-page a, .category-grid-item a, .wd-cat a, body[class*=\"tax-pa_\"] .woocommerce-pagination a","wishlist_expanded":"no","wishlist_show_popup":"enable","wishlist_page_nonce":"7ac956ed16","wishlist_fragments_nonce":"a1b90d19b7","wishlist_remove_notice":"Do you really want to remove these products?","wishlist_hash_name":"woodmart_wishlist_hash_cd293198e35f34019acb34031f535867","wishlist_fragment_name":"woodmart_wishlist_fragments_cd293198e35f34019acb34031f535867","frequently_bought":"ccf2fc0a0c","is_criteria_enabled":"","summary_criteria_ids":"","myaccount_page":"https:\/\/\/my-account\/","vimeo_library_url":"https:\/\/\/wp-content\/themes\/woodmart\/js\/libs\/vimeo-player.min.js","reviews_criteria_rating_required":"no","is_rating_summary_filter_enabled":""};
-var woodmart_page_css = {"wd-widget-nav-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/widget-nav.min.css","wd-widget-product-cat-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-widget-product-cat.min.css","wd-wp-gutenberg-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/wp-gutenberg.min.css","wd-elementor-base-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/int-elem-base.min.css","wd-elementor-pro-base-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/int-elementor-pro.min.css","wd-woocommerce-base-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woocommerce-base.min.css","wd-mod-star-rating-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/mod-star-rating.min.css","wd-woo-el-track-order-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-el-track-order.min.css","wd-woo-gutenberg-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-gutenberg.min.css","wd-select2-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-lib-select2.min.css","wd-woo-mod-shop-table-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-mod-shop-table.min.css","wd-woo-mod-grid-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-mod-grid.min.css","wd-woo-mod-order-details-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-mod-order-details.min.css","wd-page-my-account-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-page-my-account.min.css","wd-header-base-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/header-base.min.css","wd-mod-tools-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/mod-tools.min.css","wd-header-elements-base-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/header-el-base.min.css","wd-header-search-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/header-el-search.min.css","wd-header-search-form-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/header-el-search-form.min.css","wd-wd-search-results-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/wd-search-results.min.css","wd-wd-search-form-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/wd-search-form.min.css","wd-woo-mod-login-form-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-mod-login-form.min.css","wd-header-my-account-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/header-el-my-account.min.css","wd-header-cart-side-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/header-el-cart-side.min.css","wd-woo-mod-quantity-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-mod-quantity.min.css","wd-header-cart-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/header-el-cart.min.css","wd-widget-shopping-cart-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-widget-shopping-cart.min.css","wd-widget-product-list-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-widget-product-list.min.css","wd-page-title-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/page-title.min.css","wd-woo-page-login-register-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-page-login-register.min.css","wd-woo-opt-social-login-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/woo-opt-social-login.min.css","wd-widget-collapse-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/opt-widget-collapse.min.css","wd-footer-base-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/footer-base.min.css","wd-section-title-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/el-section-title.min.css","wd-list-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/el-list.min.css","wd-scroll-top-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/opt-scrolltotop.min.css","wd-cookies-popup-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/opt-cookies.min.css","wd-bottom-toolbar-css":"https:\/\/\/wp-content\/themes\/woodmart\/css\/parts\/opt-bottom-toolbar.min.css"};
-/* ]]> */
+
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-woodmart-theme7.1.4.min.js"

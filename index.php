@@ -11,6 +11,42 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
 
 ?>
 
+<style>
+   .popup {
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(
+                    0,
+                    0,
+                    0,
+                    0.4
+                );
+                display: none;
+            }
+            .popup-content {
+                background-color: white;
+                margin: 10% auto;
+				        margin-top:40%;
+                padding: 20px;
+                border: 1px solid #888888;
+                width: 30%;
+                font-weight: bolder;
+            }
+            .popup-content button {
+                display: block;
+                margin: 0 auto;
+            }
+            .show {
+                display: block;
+            }
+
+  </style>
+
       <div class="main-page-wrapper">
         <!-- MAIN CONTENT AREA -->
         <div class="container">
@@ -32,9 +68,41 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
 
 
 
+                  <?php if($pop==1){?>
 
+                  <div id="myPopup" class="popup show">
+            <div class="popup-content">
+                <h1 style="color: green">
+                    <?= $message ?> !
+                </h1>
+                <!-- <p>This is a popup box!</p> -->
+                <button id="closePopup">
+                    Close
+                </button>
+            </div>
+        </div>
 
-
+        <?php } ?>
+        <script>
+           closePopup.addEventListener(
+                "click",
+                function () {
+                    myPopup.classList.remove(
+                        "show"
+                    );
+                }
+            );
+            window.addEventListener(
+                "click",
+                function (event) {
+                    if (event.target == myPopup) {
+                        myPopup.classList.remove(
+                            "show"
+                        );
+                    }
+                }
+            );
+          </script>
 
 
                     <section
@@ -335,6 +403,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                             <div
                               class="elementor-element elementor-element-413baeec elementor-widget elementor-widget-wd_products"
                               data-id="413baeec"
+                              id="products"
                               data-element_type="widget"
                               data-widget_type="wd_products.default"
                             >
@@ -496,6 +565,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                     </div>
 </form>
 <?php } ?>
+
 
 
                                   </div>

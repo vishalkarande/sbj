@@ -7,6 +7,21 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
     $cart_value=0;
 }
 
+if(isset($_GET["pop"]) && isset($_GET["mes"])) {
+  $pop=$_GET["pop"];
+  $mes=$_GET['mes'];
+  if($pop==1 && $mes==1){
+    $message="Added to Cart. Continue Shopping";
+  }elseif($pop==1 && $mes==2){
+    $message="Thank you for Making Order";
+  }else{
+    $pop=0;
+  }
+}else{
+	$pop=0;
+  }
+
+
 if(isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_id'];
     $quantity = $_POST['quantity'];
@@ -20,8 +35,10 @@ if(isset($_POST['add_to_cart'])) {
       $_SESSION['cart'][$product_id] = $quantity;
   
   }
-  header("Location: {$_SERVER['PHP_SELF']}");
-          exit();
+
+
+  header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=1#products");
+       exit();
   }
   
 ?>

@@ -6,6 +6,10 @@ if(isset($_POST['login'])) {
 		$data = $data[0];
 		$_SESSION['user'] = $data;
 		echo "<script>window.location.href = 'index.php';</script>";
+}else{
+	echo "<script>window.location.href = 'login.php?pop=1&mes=4';</script>";
+
+		exit();
 }}
 
 if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
@@ -125,7 +129,12 @@ if(isset($_POST['trackOrder'])) {
 						</div>
 						<div class="whb-space-element " style="width:30px;"></div>
 					</div>
+
+
 					<div class="whb-column whb-col-right whb-visible-lg">
+						<?php if (isset($loginPage)==1) { 
+	$v=1;
+}else{?>
 						<div
 							class="wd-header-my-account wd-tools-element wd-event-hover wd-design-1 wd-account-style-icon whb-2b8mjqhbtvxz16jtxdrd">
 							<a href="login.php" title="My account">
@@ -244,9 +253,9 @@ if(isset($_POST['trackOrder'])) {
 
 
 
-                                <?php } } ?>
+                                <?php } }?>
 						</div>
-
+						<?php } ?>
 						<div
 							class="wd-header-cart wd-tools-element wd-design-5  whb-5u866sftq6yga790jxf3">
 							<a href="cart.php"
