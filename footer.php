@@ -1,4 +1,41 @@
 
+<?php if($pop==1){?>
+
+<div id="myPopup" class="popup show">
+<div class="popup-content">
+<h1 style="color: green; overflow-x: auto;font-size: 15px">
+  <?= $message ?> !
+</h1>
+<!-- <p>This is a popup box!</p> -->
+<button id="closePopup">
+  Close
+</button>
+</div>
+</div>
+
+<?php } ?>
+<script>
+closePopup.addEventListener(
+"click",
+function () {
+  myPopup.classList.remove(
+      "show"
+  );
+}
+);
+window.addEventListener(
+"click",
+function (event) {
+  if (event.target == myPopup) {
+      myPopup.classList.remove(
+          "show"
+      );
+  }
+}
+);
+</script>
+
+
 <footer class="footer-container color-scheme-light">
         <div class="container main-footer">
           <link

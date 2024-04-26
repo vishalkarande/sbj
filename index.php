@@ -34,7 +34,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
 				        margin-top:40%;
                 padding: 20px;
                 border: 1px solid #888888;
-                width: 30%;
+                width: 50%;
                 font-weight: bolder;
             }
             .popup-content button {
@@ -68,42 +68,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
 
 
 
-                  <?php if($pop==1){?>
-
-                  <div id="myPopup" class="popup show">
-            <div class="popup-content">
-                <h1 style="color: green">
-                    <?= $message ?> !
-                </h1>
-                <!-- <p>This is a popup box!</p> -->
-                <button id="closePopup">
-                    Close
-                </button>
-            </div>
-        </div>
-
-        <?php } ?>
-        <script>
-           closePopup.addEventListener(
-                "click",
-                function () {
-                    myPopup.classList.remove(
-                        "show"
-                    );
-                }
-            );
-            window.addEventListener(
-                "click",
-                function (event) {
-                    if (event.target == myPopup) {
-                        myPopup.classList.remove(
-                            "show"
-                        );
-                    }
-                }
-            );
-          </script>
-
+          
 
                     <section
                       data-particle_enable="false"
@@ -276,7 +241,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
 
 
 
-                    <section
+                    <section  id="products"
                       data-particle_enable="false"
                       data-particle-mobile-disabled="false"
                       class="wd-negative-gap elementor-section elementor-top-section elementor-element elementor-element-5b5fb7e8 wd-section-stretch elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -350,6 +315,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
 
 
                     <section
+                   
                       data-particle_enable="false"
                       data-particle-mobile-disabled="false"
                       class="wd-negative-gap elementor-section elementor-top-section elementor-element elementor-element-2366be91 elementor-section-boxed elementor-section-height-default elementor-section-height-default wd-section-disabled"
@@ -403,7 +369,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                             <div
                               class="elementor-element elementor-element-413baeec elementor-widget elementor-widget-wd_products"
                               data-id="413baeec"
-                              id="products"
+                             
                               data-element_type="widget"
                               data-widget_type="wd_products.default"
                             >

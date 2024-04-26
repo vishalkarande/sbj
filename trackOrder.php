@@ -1077,7 +1077,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="whb-column whb-mobile-left whb-hidden-lg">
 								<div
 									class="wd-tools-element wd-header-mobile-nav wd-style-icon wd-design-1 whb-wn5z894j1g5n0yp3eeuz">
-									<a href="#" rel="nofollow" aria-label="Open mobile menu">
+									<a href="index.php" rel="nofollow" aria-label="Open mobile menu">
 										<span class="wd-tools-icon"> </span>
 
 										<span class="wd-tools-text">Menu</span>
@@ -1096,7 +1096,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="whb-column whb-mobile-right whb-hidden-lg">
 								<div
 									class="wd-header-search wd-tools-element wd-header-search-mobile wd-display-icon whb-6o3ywcqlos79wmtp8ui8 wd-style-icon wd-design-1">
-									<a href="#" rel="nofollow noopener" aria-label="Search">
+									<a href="index.php" rel="nofollow noopener" aria-label="Search">
 										<span class="wd-tools-icon"> </span>
 
 										<span class="wd-tools-text"> Search </span>
@@ -2074,7 +2074,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="wd-heading">
 			<span class="title">Shopping cart</span>
 			<div class="close-side-widget wd-action-btn wd-style-text wd-cross-icon">
-				<a href="#" rel="nofollow">Close</a>
+				<a href="index.php" rel="nofollow">Close</a>
 			</div>
 		</div>
 		<div class="widget woocommerce widget_shopping_cart">
@@ -2083,17 +2083,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</div>
 	<link rel="stylesheet" id="wd-cookies-popup-css"
 		href="wp-content/themes/woodmart/css/parts/opt-cookies.min.css?ver=7.1.4" type="text/css" media="all" />
-	<div class="wd-cookies-popup">
-		<div class="wd-cookies-inner">
-			<div class="cookies-info-text">
-				We use cookies to improve your experience on our website. By browsing this website, you agree to our use
-				of cookies. </div>
-			<div class="cookies-buttons">
-				<a href="#" rel="nofollow noopener"
-					class="btn btn-size-small btn-color-primary cookies-accept-btn">Accept</a>
-			</div>
-		</div>
-	</div>
+
 	<link rel="stylesheet" id="wd-bottom-toolbar-css"
 		href="wp-content/themes/woodmart/css/parts/opt-bottom-toolbar.min.css?ver=7.1.4" type="text/css" media="all" />
 	<div class="wd-toolbar wd-toolbar-label-show">
