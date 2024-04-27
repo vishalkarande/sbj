@@ -2343,12 +2343,7 @@ var wd_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-update-cart-fragments-fix7.1.4.min.js"
 		id="wpo_min-footer-0-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-1-js-extra">
-/* <![CDATA[ */
-var cr_ajax_object = {"ajax_url":"https:\/\/\/wp-admin\/admin-ajax.php"};
-var cr_ajax_object = {"ajax_url":"https:\/\/\/wp-admin\/admin-ajax.php","ivole_recaptcha":"1","disable_lightbox":"0","cr_upload_initial":"Upload up to 5 images or videos","cr_upload_error_file_type":"Error: accepted file types are PNG, JPG, JPEG, GIF, MP4, MPEG, OGG, WEBM, MOV, AVI","cr_upload_error_too_many":"Error: You tried to upload too many files. The maximum number of files that can be uploaded is 5.","cr_upload_error_file_size":"The file cannot be uploaded because its size exceeds the limit of 25 MB","cr_images_upload_limit":"5","cr_images_upload_max_size":"26214400"};
-/* ]]> */
-</script>
+	
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-cr-frontend-js5.47.0.min.js"
 		id="wpo_min-footer-1-js"></script>
@@ -2394,8 +2389,7 @@ var wc_timeline = {"url":"https:\/\/\/wp-admin\/admin-ajax.php","open_on_add":"0
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wc_j_upsellator_js3.4.7.min.js"
 		id="wpo_min-footer-10-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://www.google.com/recaptcha/api.js?hl=en" id="cr-recaptcha-js"></script>
+
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-comment-reply.min.js"
 		id="wpo_min-footer-12-js"></script>
@@ -2426,12 +2420,7 @@ var wc_timeline = {"url":"https:\/\/\/wp-admin\/admin-ajax.php","open_on_add":"0
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-pro-elements-handlers3.20.0.min.js"
 		id="wpo_min-footer-21-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-22-js-extra">
-/* <![CDATA[ */
-var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"};
-var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"};
-/* ]]> */
-</script>
+
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-elementor1.8.7.min.js"
 		id="wpo_min-footer-22-js"></script>
