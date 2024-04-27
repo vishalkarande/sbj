@@ -39,7 +39,7 @@ $data = $QueryFire->getAllData('pageandcontents','id=1')[0];
 		content="Discover the creativity and passion that go into SBJNamkeens. Find out about our commitment to providing nutritious meals and true flavors." />
 	<meta property="og:url" content="about-us/" />
 	<meta property="og:site_name" content="SBJNamkeens" />
-	<meta property="article:author" content="https://www.facebook.com/pragssaltyjodhpur" />
+	<meta property="article:author" content="https://www.facebook.com/" />
 	<meta property="og:updated_time" content="2023-11-27T21:47:56+05:30" />
 	<meta property="og:image"
 		content="wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg" />
@@ -60,7 +60,7 @@ $data = $QueryFire->getAllData('pageandcontents','id=1')[0];
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="1 minute" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":"SBJNamkeens"},{"@type":"WebSite","@id":"#website","url":"","name":"SBJNamkeens","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg","url":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"about-us/#webpage","url":"about-us/","name":"About SBJNamkeens: Your Journey into Irresistible Flavors","datePublished":"2023-05-19T06:26:17+05:30","dateModified":"2023-11-27T21:47:56+05:30","isPartOf":{"@id":"#website"},"primaryImageOfPage":{"@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg"},"inLanguage":"en-US"},{"@type":"Person","@id":"author/pragssaltyjodhpur/","name":"SBJNamkeens","url":"author/pragssaltyjodhpur/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"SBJNamkeens","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/pragssaltyjodhpur"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"About SBJNamkeens: Your Journey into Irresistible Flavors","keywords":"about,SBJNamkeens","datePublished":"2023-05-19T06:26:17+05:30","dateModified":"2023-11-27T21:47:56+05:30","author":{"@id":"author/pragssaltyjodhpur/","name":"SBJNamkeens"},"publisher":{"@id":"#organization"},"description":"Discover\u00a0the creativity and passion that go into SBJNamkeens. Find out about our commitment to providing nutritious meals and true flavors.","name":"About SBJNamkeens: Your Journey into Irresistible Flavors","@id":"about-us/#richSnippet","isPartOf":{"@id":"about-us/#webpage"},"image":{"@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"about-us/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":"SBJNamkeens"},{"@type":"WebSite","@id":"#website","url":"","name":"SBJNamkeens","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg","url":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"about-us/#webpage","url":"about-us/","name":"About SBJNamkeens: Your Journey into Irresistible Flavors","datePublished":"2023-05-19T06:26:17+05:30","dateModified":"2023-11-27T21:47:56+05:30","isPartOf":{"@id":"#website"},"primaryImageOfPage":{"@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg"},"inLanguage":"en-US"},{"@type":"Person","@id":"author//","name":"SBJNamkeens","url":"author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"SBJNamkeens","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"About SBJNamkeens: Your Journey into Irresistible Flavors","keywords":"about,SBJNamkeens","datePublished":"2023-05-19T06:26:17+05:30","dateModified":"2023-11-27T21:47:56+05:30","author":{"@id":"author//","name":"SBJNamkeens"},"publisher":{"@id":"#organization"},"description":"Discover\u00a0the creativity and passion that go into SBJNamkeens. Find out about our commitment to providing nutritious meals and true flavors.","name":"About SBJNamkeens: Your Journey into Irresistible Flavors","@id":"about-us/#richSnippet","isPartOf":{"@id":"about-us/#webpage"},"image":{"@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"about-us/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='https://stats.wp.com/' />
@@ -561,7 +561,7 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjquery-blockuijs-cookiewoocommerce3.7.12.7.0-wc.8.7.02.1.4-wc.8.7.08.7.0.min.js"
 		id="wpo_min-header-10-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/s-202415.js" id="woocommerce-analytics-js" defer="defer"
+		data-wpmeteor-src="" id="woocommerce-analytics-js" defer="defer"
 		data-wp-strategy="defer"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-12-js-extra">
 /* <![CDATA[ */
@@ -836,7 +836,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="main-page-wrapper">
 
 			<div class="page-title  page-title-default title-size-small title-design-centered color-scheme-light"
-				style="background-image: url(wp-content/uploads/2023/07/PragsSalty-Banner-scaled.webp);">
+				style="background-image: url(wp-content/uploads/2023/07/-Banner-scaled.webp);">
 				<div class="container">
 					<h1 class="entry-title title">
 						About Us </h1>
@@ -1486,7 +1486,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="https://www.facebook.com/pragssaltyjodhpur"
+														href="https://www.facebook.com/"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i> </a>
@@ -1499,7 +1499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-														href="https://youtube.com/@PRagsSalty" target="_blank">
+														href="https://youtube.com/@" target="_blank">
 														<span class="elementor-screen-only">Youtube</span>
 														<i class="fab fa-youtube"></i> </a>
 												</span>
@@ -1575,16 +1575,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														Contact Us </span>
 
 
-													<a href="../index.html@p=236" class="wd-fill"
+													<a href="contactus.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-f93516b">
 
 													<span class="list-content">
-														Our Blog </span>
+														Products </span>
 
 
-													<a href="../blog/index.html" class="wd-fill"
+													<a href="products.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 											</ul>
@@ -1595,7 +1595,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										data-id="ee4ed93" data-element_type="widget" data-widget_type="image.default">
 										<div class="elementor-widget-container">
 											<img src="wp-content/uploads/elementor/thumbs/FSSAI_logo-qhknfg5w7q5sou0mwj9etsyho23217v1nl6qnl44cg.png"
-												title="FSSAI_logo" alt="pragssalty - fssai" loading="lazy" />
+												title="FSSAI_logo" alt=" - fssai" loading="lazy" />
 										</div>
 									</div>
 									<div class="elementor-element elementor-element-0c93ff4 elementor-widget elementor-widget-wd_title"
@@ -1642,22 +1642,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<div class="elementor-widget-container">
 											<ul
 												class="wd-list color-scheme-custom wd-fontsize-xs wd-list-type-icon wd-list-style-default wd-justify-left">
-												<li class="elementor-repeater-item-1402af2">
-
-													<span class="list-content">
-														FAQ’s </span>
-
-
-													<a href="../index.html@p=2188" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
+												
 												<li class="elementor-repeater-item-c77fc22">
 
 													<span class="list-content">
 														Track Your Order </span>
 
 
-													<a href="../index.html@p=2197" class="wd-fill"
+													<a href="trackOrder.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-c373d8d">
@@ -1666,40 +1658,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														Privacy Policy </span>
 
 
-													<a href="../privacy-policy/index.html" class="wd-fill"
+													<a href="policy.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
-												<li class="elementor-repeater-item-1540aa8">
-
-													<span class="list-content">
-														Return Policy </span>
-
-
-													<a href="../index.html@p=234" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
-												<li class="elementor-repeater-item-02e96b0">
-
-													<span class="list-content">
-														Shipping Policy </span>
-
-
-													<a href="../index.html@p=2138" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
+												
+												
 												<li class="elementor-repeater-item-f93516b">
 
 													<span class="list-content">
 														Terms & Conditions </span>
 
 
-													<a href="../index.html@p=2159" class="wd-fill"
+													<a href="terms.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 											</ul>
 
 										</div>
 									</div>
+
+
 								</div>
 							</div>
 						</div>

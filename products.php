@@ -1663,7 +1663,7 @@ if(isset($_POST['add_to_cart'])) {
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjquery-blockuijs-cookiewoocommerce3.7.12.7.0-wc.8.7.02.1.4-wc.8.7.08.7.0.min.js"
 		id="wpo_min-header-10-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/s-202415.js" id="woocommerce-analytics-js" defer="defer"
+		data-wpmeteor-src="" id="woocommerce-analytics-js" defer="defer"
 		data-wp-strategy="defer"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-12-js-extra">
       /* <![CDATA[ */
@@ -2689,7 +2689,7 @@ function (event) {
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="https://www.facebook.com/pragssaltyjodhpur"
+														href="https://www.facebook.com/"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i>
@@ -2704,7 +2704,7 @@ function (event) {
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-														href="https://youtube.com/@PRagsSalty" target="_blank">
+														href="https://youtube.com/@" target="_blank">
 														<span class="elementor-screen-only">Youtube</span>
 														<i class="fab fa-youtube"></i>
 													</a>
@@ -2757,19 +2757,19 @@ function (event) {
 												<li class="elementor-repeater-item-1540aa8">
 													<span class="list-content"> About Us </span>
 
-													<a href="index.php@p=237" class="wd-fill"
+													<a href="aboutus" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-c77fc22">
 													<span class="list-content"> Contact Us </span>
 
-													<a href="index.php@p=236" class="wd-fill"
+													<a href="contactus.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-f93516b">
-													<span class="list-content"> Our Blog </span>
+													<span class="list-content"> Products </span>
 
-													<a href="../blog/index.html" class="wd-fill"
+													<a href="products.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 											</ul>
@@ -2798,7 +2798,7 @@ function (event) {
 												}
 											</style>
 											<img src="wp-content/uploads/elementor/thumbs/FSSAI_logo-qhknfg5w7q5sou0mwj9etsyho23217v1nl6qnl44cg.png"
-												title="FSSAI_logo" alt="pragssalty - fssai" loading="lazy" />
+												title="FSSAI_logo" alt=" - fssai" loading="lazy" />
 										</div>
 									</div>
 									<div class="elementor-element elementor-element-0c93ff4 elementor-widget elementor-widget-wd_title"
@@ -2840,45 +2840,38 @@ function (event) {
 										<div class="elementor-widget-container">
 											<ul
 												class="wd-list color-scheme-custom wd-fontsize-xs wd-list-type-icon wd-list-style-default wd-justify-left">
-												<li class="elementor-repeater-item-1402af2">
-													<span class="list-content"> FAQ’s </span>
-
-													<a href="index.php@p=2188" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
+												
 												<li class="elementor-repeater-item-c77fc22">
-													<span class="list-content"> Track Your Order </span>
 
-													<a href="index.php@p=2197" class="wd-fill"
+													<span class="list-content">
+														Track Your Order </span>
+
+
+													<a href="trackOrder.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-c373d8d">
-													<span class="list-content"> Privacy Policy </span>
 
-													<a href="../privacy-policy/index.html" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
-												<li class="elementor-repeater-item-1540aa8">
-													<span class="list-content"> Return Policy </span>
-
-													<a href="index.php@p=234" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
-												<li class="elementor-repeater-item-02e96b0">
-													<span class="list-content"> Shipping Policy </span>
-
-													<a href="index.php@p=2138" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
-												<li class="elementor-repeater-item-f93516b">
 													<span class="list-content">
-														Terms & Conditions
-													</span>
+														Privacy Policy </span>
 
-													<a href="index.php@p=2159" class="wd-fill"
+
+													<a href="policy.php" class="wd-fill"
+														aria-label="List item link"></a>
+												</li>
+												
+												
+												<li class="elementor-repeater-item-f93516b">
+
+													<span class="list-content">
+														Terms & Conditions </span>
+
+
+													<a href="terms.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 											</ul>
+
 										</div>
 									</div>
 								</div>

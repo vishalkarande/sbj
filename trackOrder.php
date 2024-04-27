@@ -28,22 +28,22 @@ if (!isset($_SESSION['user'])) {
     </script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-	<title>Track your order - Prags Salty</title>
+	<title>Track your order </title>
 	<meta name="description" content="Order Tracking" />
 	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
 	<link rel="canonical" href="track-order/" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Track your order - Prags Salty" />
+	<meta property="og:title" content="Track your order " />
 	<meta property="og:description" content="Order Tracking" />
 	<meta property="og:url" content="track-order/" />
-	<meta property="og:site_name" content="Prags Salty" />
-	<meta property="article:author" content="https://www.facebook.com/pragssaltyjodhpur" />
+	<meta property="og:site_name" content="" />
+	<meta property="article:author" content="https://www.facebook.com/" />
 	<meta property="og:updated_time" content="2023-08-17T10:27:45+05:30" />
 	<meta property="article:published_time" content="2023-06-15T03:21:20+05:30" />
 	<meta property="article:modified_time" content="2023-08-17T10:27:45+05:30" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Track your order - Prags Salty" />
+	<meta name="twitter:title" content="Track your order " />
 	<meta name="twitter:description" content="Order Tracking" />
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="Less than a minute" />
@@ -54,13 +54,13 @@ if (!isset($_SESSION['user'])) {
           {
             "@type": "Organization",
             "@id": "#organization",
-            "name": "Prags Salty"
+            "name": ""
           },
           {
             "@type": "WebSite",
             "@id": "#website",
             "url": "",
-            "name": "Prags Salty",
+            "name": "",
             "publisher": { "@id": "#organization" },
             "inLanguage": "en-US"
           },
@@ -68,7 +68,7 @@ if (!isset($_SESSION['user'])) {
             "@type": "WebPage",
             "@id": "track-order/#webpage",
             "url": "track-order/",
-            "name": "Track your order - Prags Salty",
+            "name": "Track your order ",
             "datePublished": "2023-06-15T03:21:20+05:30",
             "dateModified": "2023-08-17T10:27:45+05:30",
             "isPartOf": { "@id": "#website" },
@@ -76,34 +76,34 @@ if (!isset($_SESSION['user'])) {
           },
           {
             "@type": "Person",
-            "@id": "author/pragssaltyjodhpur/",
-            "name": "Prags Salty",
-            "url": "author/pragssaltyjodhpur/",
+            "@id": "author//",
+            "name": "",
+            "url": "author//",
             "image": {
               "@type": "ImageObject",
               "@id": "https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g",
               "url": "https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g",
-              "caption": "Prags Salty",
+              "caption": "",
               "inLanguage": "en-US"
             },
             "sameAs": [
               "",
-              "https://www.facebook.com/pragssaltyjodhpur"
+              "https://www.facebook.com/"
             ],
             "worksFor": { "@id": "#organization" }
           },
           {
             "@type": "Article",
-            "headline": "Track your order - Prags Salty",
+            "headline": "Track your order ",
             "datePublished": "2023-06-15T03:21:20+05:30",
             "dateModified": "2023-08-17T10:27:45+05:30",
             "author": {
-              "@id": "author/pragssaltyjodhpur/",
-              "name": "Prags Salty"
+              "@id": "author//",
+              "name": ""
             },
             "publisher": { "@id": "#organization" },
             "description": "Order Tracking",
-            "name": "Track your order - Prags Salty",
+            "name": "Track your order ",
             "@id": "track-order/#richSnippet",
             "isPartOf": {
               "@id": "track-order/#webpage"
@@ -121,8 +121,8 @@ if (!isset($_SESSION['user'])) {
 	<link rel="dns-prefetch" href="//stats.wp.com" />
 	<link rel="dns-prefetch" href="//www.googletagmanager.com" />
 	<link rel="dns-prefetch" href="//fonts.googleapis.com" />
-	<link rel="alternate" type="application/rss+xml" title="Prags Salty &raquo; Feed" href="feed/" />
-	<link rel="alternate" type="application/rss+xml" title="Prags Salty &raquo; Comments Feed" href="comments/feed/" />
+	<link rel="alternate" type="application/rss+xml" title=" &raquo; Feed" href="feed/" />
+	<link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed" href="comments/feed/" />
 	<style id="jetpack-sharing-buttons-style-inline-css" type="text/css">
 		.jetpack-sharing-buttons__services-list {
 			display: flex;
@@ -647,7 +647,7 @@ if (!isset($_SESSION['user'])) {
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjquery-blockuijs-cookiewoocommerce3.7.12.7.0-wc.8.7.02.1.4-wc.8.7.08.7.0.min.js"
 		id="wpo_min-header-10-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/s-202415.js" id="woocommerce-analytics-js" defer="defer"
+		data-wpmeteor-src="" id="woocommerce-analytics-js" defer="defer"
 		data-wp-strategy="defer"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-12-js-extra">
       /* <![CDATA[ */
@@ -961,7 +961,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="whb-column whb-col-left whb-visible-lg">
 								<div class="site-logo">
 									<a href="index.php" class="wd-logo wd-main-logo" rel="home">
-										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="Prags Salty"
+										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt=""
 											style="max-width: 250px" />
 									</a>
 								</div>
@@ -1088,7 +1088,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="whb-column whb-mobile-center whb-hidden-lg">
 								<div class="site-logo">
 									<a href="index.php" class="wd-logo wd-main-logo" rel="home">
-										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="Prags Salty"
+										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt=""
 											style="max-width: 149px" />
 									</a>
 								</div>
@@ -1803,7 +1803,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="https://www.facebook.com/pragssaltyjodhpur"
+														href="https://www.facebook.com/"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i> </a>
@@ -1816,7 +1816,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-														href="https://youtube.com/@PRagsSalty" target="_blank">
+														href="https://youtube.com/@" target="_blank">
 														<span class="elementor-screen-only">Youtube</span>
 														<i class="fab fa-youtube"></i> </a>
 												</span>
@@ -1895,10 +1895,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												<li class="elementor-repeater-item-f93516b">
 
 													<span class="list-content">
-														Our Blog </span>
+														Products </span>
 
 
-													<a href="blog/" class="wd-fill" aria-label="List item link"></a>
+													<a href="products.php" class="wd-fill" aria-label="List item link"></a>
 												</li>
 											</ul>
 
@@ -1927,7 +1927,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												}
 											</style> <img
 												src="wp-content/uploads/elementor/thumbs/FSSAI_logo-qhknfg5w7q5sou0mwj9etsyho23217v1nl6qnl44cg.png"
-												title="FSSAI_logo" alt="pragssalty - fssai" loading="lazy" />
+												title="FSSAI_logo" alt=" - fssai" loading="lazy" />
 										</div>
 									</div>
 									<div class="elementor-element elementor-element-0c93ff4 elementor-widget elementor-widget-wd_title"
@@ -2052,7 +2052,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 												<div class="liner-continer">
 													<h4 class="woodmart-title-container title wd-fontsize-l">© 2024
-														PRags Salty™. All Rights Reserved<br />
+														™. All Rights Reserved<br />
 													</h4>
 												</div>
 

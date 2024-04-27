@@ -158,7 +158,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                               height="1024"
                                               src="wp-content/uploads/2023/11/roasted-1-min-1024x1024.webp"
                                               class="attachment-large size-large wp-image-10725"
-                                              alt="pragssalty roasted category"
+                                              alt=" roasted category"
                                               
                                               sizes="(max-width: 1024px) 100vw, 1024px"
                                             />
@@ -257,7 +257,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                     height="412"
                                     src="wp-content/uploads/2023/06/Small-Banners-01-1024x412.webp"
                                     class="attachment-large size-large wp-image-1411"
-                                    alt="pragssalty - snacks combos"
+                                    alt=" - snacks combos"
                                     srcset="
                                       wp-content/uploads/2023/06/Small-Banners-01-1024x412.webp 1024w,
                                       wp-content/uploads/2023/06/Small-Banners-01-150x60.webp    150w,
@@ -593,7 +593,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                 <div class="elementor-button-wrapper">
                                   <a
                                     class="elementor-button elementor-button-link elementor-size-sm"
-                                    href="index.html@p=237"
+                                    href="contactus.php"
                                   >
                                     <span
                                       class="elementor-button-content-wrapper"

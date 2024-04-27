@@ -1,50 +1,53 @@
-<?php
-// Start session (if not already started)
-session_start();
+<?php 
 
-// Check if the form was submitted
-if(isset($_POST['product_id'])) {
-    // Simulate updating the cart count (replace with actual logic)
-    // Here, we just increment the cart count by 1
-    if(isset($_SESSION['cart_count'])) {
-        $_SESSION['cart_count']++;
-    } else {
-        $_SESSION['cart_count'] = 1;
-    }
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    // Return the updated cart count
-    echo $_SESSION['cart_count'];
-    exit; // Stop further execution
+require 'Phpmailer/Exception.php';
+require 'Phpmailer/PHPMailer.php';
+require 'Phpmailer/SMTP.php';
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+$mail->isSMTP();
+$mail->Host     = 'smtp.gmail.com';
+$mail->SMTPAuth = true;
+$mail->Username = 'vishal.we33ras@gmail.com';
+$mail->Password = 'cpgziveevrzshouj';
+$mail->SMTPSecure = 'tls';
+$mail->Port     = 587;
+   
+
+// Sender info 
+$mail->setFrom('vishal.we33ras@gmail.com', 'vishal Karande'); 
+//$mail->addReplyTo('reply@example.com', 'SenderName'); 
+ 
+// Add a recipient 
+$mail->addAddress('vishalkarande6@gmail.com'); 
+ 
+// Add cc or bcc  
+// $mail->addCC('cc@example.com'); 
+// $mail->addBCC('bcc@example.com'); 
+ 
+// Email subject 
+$mail->Subject = 'Send Email via SMTP using PHPMailer'; 
+ 
+// Set email format to HTML 
+$mail->isHTML(true); 
+ 
+// Email body content 
+$mailContent = ' 
+    <h2>Send HTML Email using SMTP Server in PHP</h2> 
+    <p>It is a test email by CodexWorld, sent via SMTP server with PHPMailer using PHP.</p> 
+    <p>Read the tutorial and download this script from <a href="https://www.codexworld.com/">CodexWorld</a>.</p>'; 
+$mail->Body = $mailContent; 
+ 
+// Send email 
+if(!$mail->send()){ 
+    echo 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo; 
+}else{ 
+    echo 'Message has been sent.'; 
 }
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add to Cart Example</title>
-</head>
-<body>
-    <button id="addToCartBtn" data-product-id="123">Add to Cart</button>
-    <span id="cartCount"><?php echo isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : '0'; ?></span> items in cart
-    <!-- Include jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#addToCartBtn').click(function(){
-                var productId = $(this).data('product-id');
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo $_SERVER["PHP_SELF"]; ?>',
-                    data: { product_id: productId },
-                    success: function(response){
-                        // Update cart count on success
-                        $('#cartCount').text(response);
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+?>

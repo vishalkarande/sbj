@@ -76,12 +76,12 @@ if(isset($_POST['trackOrder'])) {
 							aria-label="Main navigation">
 							<ul id="menu-main-menu" class="menu wd-nav wd-nav-main wd-style-default wd-gap-s">
 								<li id="menu-item-1380"
-									class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1380 item-level-0 menu-simple-dropdown wd-event-hover">
+									class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item menu-item-home menu-item-1380 item-level-0 menu-simple-dropdown wd-event-hover">
 									<a href="index.php" class="woodmart-nav-link"><span
 											class="nav-link-text">Home</span></a>
 								</li>
 								<li id="menu-item-1388"
-									class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-237 current_page_item menu-item-1388 item-level-0 menu-simple-dropdown wd-event-hover">
+									class="menu-item menu-item-type-post_type menu-item-object-page  page_item page-item-237 current_page_item menu-item-1388 item-level-0 menu-simple-dropdown wd-event-hover">
 									<a href="aboutus.php" class="woodmart-nav-link"><span class="nav-link-text">About
 											Us</span></a>
 								</li>
@@ -94,7 +94,7 @@ if(isset($_POST['trackOrder'])) {
 								
 								<li id="menu-item-1389"
 									class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1389 item-level-0 menu-simple-dropdown wd-event-hover">
-									<a href="../index.html@p=236" class="woodmart-nav-link"><span
+									<a href="contactus.php" class="woodmart-nav-link"><span
 											class="nav-link-text">Contact
 											Us</span></a>
 								</li>

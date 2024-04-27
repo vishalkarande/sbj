@@ -31,7 +31,7 @@ $productsAll=$QueryFire->getAllData('','','SELECT * FROM `products` as p JOIN `i
 if(isset($_POST['add_to_cart'])) {
     $product_id = $proID;
     $quantity = $_POST['quantity'];
-	print_r("called The Function");
+	
     // Check if the product is already in the session
     if(isset($_SESSION['cart'][$product_id])) {
       // If yes, update the quantity
@@ -40,10 +40,28 @@ if(isset($_POST['add_to_cart'])) {
   } else {
       // If not, add the product to the session
       $_SESSION['cart'][$product_id] = $quantity;
-  
+			
   }
 
   header("Location: {$_SERVER['PHP_SELF']}?id={$proID}&pop=1&mes=1");
+  exit();
+  }
+
+
+  if(isset($_POST['add_to_cart_prod'])) {
+    $product_id = $_POST['product_id'];
+    $quantity = $_POST['quantity'];
+    // Check if the product is already in the session
+    if(isset($_SESSION['cart'][$product_id])) {
+      // If yes, update the quantity
+      $_SESSION['cart'][$product_id] += $quantity;
+
+  } else {
+      // If not, add the product to the session
+      $_SESSION['cart'][$product_id] = $quantity;
+
+  }
+  header("Location: {$_SERVER['PHP_SELF']}?id=$proID");
   exit();
   }
 
@@ -79,7 +97,7 @@ if(isset($_POST['add_to_cart'])) {
 	<meta name="description"
 		content="Introducing our irresistible combo pack: &quot;Salty Vinegar Crunch &amp; Aloo Wafer Chips!&quot; Indulge in the perfect balance of tangy vinegar and crispy goodness, paired with the classic taste of our delectable Aloo Wafer Chips. Get ready for a flavor explosion in every bite! Order now and satisfy your cravings with this irresistible combination." />
 	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-	<link rel="canonical" href="index.php@p=2407" />
+	<link rel="canonical" href="index.php" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="product" />
 	<meta property="og:title" content="Aalu Wafers + Salty Vinegar Crunch - SBJNamkeens" />
@@ -620,7 +638,7 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjquery-blockuijs-cookiewoocommerce3.7.12.7.0-wc.8.7.02.1.4-wc.8.7.08.7.0.min.js"
 		id="wpo_min-header-12-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/s-202415.js" id="woocommerce-analytics-js" defer="defer"
+		data-wpmeteor-src="" id="woocommerce-analytics-js" defer="defer"
 		data-wp-strategy="defer"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-14-js-extra">
 /* <![CDATA[ */
@@ -669,7 +687,7 @@ gtag("config", "GT-PJNB9QPL");
 	<link rel="alternate" type="application/json" href="../../../wp-json/wp/v2/product/2407" />
 	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php@rsd" />
 	<meta name="generator" content="WordPress 6.5.2" />
-	<link rel='shortlink' href='index.php@p=2407' />
+	<link rel='shortlink' href='index.php' />
 	<link rel="alternate" type="application/json+oembed"
 		href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F%252Fproducts%252Fcombos%252Faalu-wafers-salty-vinegar-crunch%252F" />
 	<link rel="alternate" type="text/xml+oembed"
@@ -1001,7 +1019,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 															<div class="product-additional-galleries">
 																<div
 																	class="wd-show-product-gallery-wrap wd-action-btn wd-style-icon-bg-text wd-gallery-btn">
-																	<a href="index.php@p=2407#" rel="nofollow"
+																	<a href="index.php" rel="nofollow"
 																		class="woodmart-show-product-gallery"><span>Click
 																			to enlarge</span></a></div>
 															</div>
@@ -1260,7 +1278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 															id="tab-title-wd_custom_tab" role="tab"
 															aria-controls="tab-wd_custom_tab">
 															<a class="wd-nav-link"
-																href="index.php@p=2407#tab-wd_custom_tab">
+																href="index.php#tab-wd_custom_tab">
 																<span class="nav-link-text wd-tabs-title">
 																	Additional Details </span>
 															</a>
@@ -1407,7 +1425,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 																<a  data-quantity="1"
 																	class="button product_type_simple add_to_cart_button "
-																	aria-describedby="" rel="nofollow">  <input type="submit" style="background-color:#355E3B;color:white" name="add_to_cart" value="Add"></a>
+																	aria-describedby="" rel="nofollow">  <input type="submit" style="background-color:#355E3B;color:white" name="add_to_cart_prod" value="Add"></a>
 															</div>
 												
 															<div class="fade-in-block wd-scroll"></div>
@@ -2025,7 +2043,7 @@ function (event) {
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="https://www.facebook.com/pragssaltyjodhpur"
+														href="https://www.facebook.com/"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i> </a>
@@ -2038,7 +2056,7 @@ function (event) {
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-														href="https://youtube.com/@PRagsSalty" target="_blank">
+														href="https://youtube.com/@" target="_blank">
 														<span class="elementor-screen-only">Youtube</span>
 														<i class="fab fa-youtube"></i> </a>
 												</span>
@@ -2115,10 +2133,10 @@ function (event) {
 												<li class="elementor-repeater-item-f93516b">
 
 													<span class="list-content">
-														Our Blog </span>
+														Products </span>
 
 
-													<a href="../../../blog/index.html" class="wd-fill"
+													<a href="products.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 											</ul>
@@ -2148,7 +2166,7 @@ function (event) {
 												}
 											</style> <img
 												src="wp-content/uploads/elementor/thumbs/FSSAI_logo-qhknfg5w7q5sou0mwj9etsyho23217v1nl6qnl44cg.png"
-												title="FSSAI_logo" alt="pragssalty - fssai" loading="lazy" />
+												title="FSSAI_logo" alt=" - fssai" loading="lazy" />
 										</div>
 									</div>
 									<div class="elementor-element elementor-element-0c93ff4 elementor-widget elementor-widget-wd_title"
@@ -2195,22 +2213,14 @@ function (event) {
 										<div class="elementor-widget-container">
 											<ul
 												class="wd-list color-scheme-custom wd-fontsize-xs wd-list-type-icon wd-list-style-default wd-justify-left">
-												<li class="elementor-repeater-item-1402af2">
-
-													<span class="list-content">
-														FAQ’s </span>
-
-
-													<a href="index.php@p=2188" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
+												
 												<li class="elementor-repeater-item-c77fc22">
 
 													<span class="list-content">
 														Track Your Order </span>
 
 
-													<a href="index.php@p=2197" class="wd-fill"
+													<a href="trackOrder.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-c373d8d">
@@ -2219,34 +2229,18 @@ function (event) {
 														Privacy Policy </span>
 
 
-													<a href="../../../privacy-policy/index.html" class="wd-fill"
+													<a href="policy.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
-												<li class="elementor-repeater-item-1540aa8">
-
-													<span class="list-content">
-														Return Policy </span>
-
-
-													<a href="index.php@p=234" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
-												<li class="elementor-repeater-item-02e96b0">
-
-													<span class="list-content">
-														Shipping Policy </span>
-
-
-													<a href="index.php@p=2138" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
+												
+												
 												<li class="elementor-repeater-item-f93516b">
 
 													<span class="list-content">
 														Terms & Conditions </span>
 
 
-													<a href="index.php@p=2159" class="wd-fill"
+													<a href="terms.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 											</ul>

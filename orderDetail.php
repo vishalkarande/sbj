@@ -25,31 +25,31 @@ if (!isset($_SESSION['user'])) {
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript">window._wca = window._wca || [];</script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-	<title>Cart - Prags Salty</title>
+	<title>Cart </title>
 	<meta name="robots" content="noindex, follow" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Cart - Prags Salty" />
+	<meta property="og:title" content="Cart " />
 	<meta property="og:url" content="cart/" />
-	<meta property="og:site_name" content="Prags Salty" />
-	<meta property="article:author" content="https://www.facebook.com/pragssaltyjodhpur" />
+	<meta property="og:site_name" content="" />
+	<meta property="article:author" content="https://www.facebook.com/" />
 	<meta property="og:updated_time" content="2023-06-15T13:57:57+05:30" />
 	<meta property="article:published_time" content="2023-05-19T06:24:27+05:30" />
 	<meta property="article:modified_time" content="2023-06-15T13:57:57+05:30" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Cart - Prags Salty" />
+	<meta name="twitter:title" content="Cart " />
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="Less than a minute" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":"Prags Salty"},{"@type":"WebSite","@id":"#website","url":"","name":"Prags Salty","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"cart/#webpage","url":"cart/","name":"Cart - Prags Salty","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author/pragssaltyjodhpur/","name":"Prags Salty","url":"author/pragssaltyjodhpur/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Prags Salty","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/pragssaltyjodhpur"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"Cart - Prags Salty","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","author":{"@id":"author/pragssaltyjodhpur/","name":"Prags Salty"},"publisher":{"@id":"#organization"},"name":"Cart - Prags Salty","@id":"cart/#richSnippet","isPartOf":{"@id":"cart/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"cart/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":""},{"@type":"WebSite","@id":"#website","url":"","name":"","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"cart/#webpage","url":"cart/","name":"Cart ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author//","name":"","url":"author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"Cart ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","author":{"@id":"author//","name":""},"publisher":{"@id":"#organization"},"name":"Cart ","@id":"cart/#richSnippet","isPartOf":{"@id":"cart/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"cart/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='//stats.wp.com' />
 	<link rel='dns-prefetch' href='//www.googletagmanager.com' />
 	<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-	<link rel="alternate" type="application/rss+xml" title="Prags Salty &raquo; Feed"
+	<link rel="alternate" type="application/rss+xml" title=" &raquo; Feed"
 		href="feed/" />
-	<link rel="alternate" type="application/rss+xml" title="Prags Salty &raquo; Comments Feed"
+	<link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed"
 		href="comments/feed/" />
 	<style id='jetpack-sharing-buttons-style-inline-css' type='text/css'>
 		.jetpack-sharing-buttons__services-list {
@@ -603,7 +603,7 @@ var wc_password_strength_meter_params = {"min_password_strength":"3","stop_check
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jquerypassword-strength-meterwc-password-strength-meter3.7.18.7.0.min.js"
 		id="wpo_min-header-18-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/s-202415.js" id="woocommerce-analytics-js" defer="defer"
+		data-wpmeteor-src="" id="woocommerce-analytics-js" defer="defer"
 		data-wp-strategy="defer"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-20-js-extra">
 /* <![CDATA[ */
@@ -970,7 +970,7 @@ foreach($orders as $item){
 																		width="300" height="300"
 																		src="wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-300x300.webp"
 																		class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-																		alt="Cornflakes Crunch - roasted healthy snacks - pragssalty"
+																		alt="Cornflakes Crunch - roasted healthy snacks - "
 																		srcset="wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-300x300.webp 300w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-1024x1024.webp 1024w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-150x150.webp 150w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-768x767.webp 768w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-1536x1534.webp 1536w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-600x599.webp 600w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-32x32.webp 32w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822.webp 1745w"
 																		sizes="(max-width: 300px) 100vw, 300px" /></a>
 															</td>
@@ -1695,7 +1695,7 @@ foreach($orders as $item){
 									<div class="elementor-social-icons-wrapper elementor-grid">
 										<span class="elementor-grid-item">
 											<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-												href="https://www.facebook.com/pragssaltyjodhpur" target="_blank">
+												href="https://www.facebook.com/" target="_blank">
 												<span class="elementor-screen-only">Facebook</span>
 												<i class="fab fa-facebook"></i> </a>
 										</span>
@@ -1707,7 +1707,7 @@ foreach($orders as $item){
 										</span>
 										<span class="elementor-grid-item">
 											<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-												href="https://youtube.com/@PRagsSalty" target="_blank">
+												href="https://youtube.com/@" target="_blank">
 												<span class="elementor-screen-only">Youtube</span>
 												<i class="fab fa-youtube"></i> </a>
 										</span>
@@ -1815,7 +1815,7 @@ foreach($orders as $item){
 										}
 									</style> <img
 										src="wp-content/uploads/elementor/thumbs/FSSAI_logo-qhknfg5w7q5sou0mwj9etsyho23217v1nl6qnl44cg.png"
-										title="FSSAI_logo" alt="pragssalty - fssai" loading="lazy" />
+										title="FSSAI_logo" alt=" - fssai" loading="lazy" />
 								</div>
 							</div>
 							<div class="elementor-element elementor-element-0c93ff4 elementor-widget elementor-widget-wd_title"
@@ -1856,68 +1856,46 @@ foreach($orders as $item){
 								</div>
 							</div>
 							<div class="elementor-element elementor-element-b7a4a23 elementor-widget elementor-widget-wd_list"
-								data-id="b7a4a23" data-element_type="widget" data-widget_type="wd_list.default">
-								<div class="elementor-widget-container">
-									<ul
-										class="wd-list color-scheme-custom wd-fontsize-xs wd-list-type-icon wd-list-style-default wd-justify-left">
-										<li class="elementor-repeater-item-1402af2">
+										data-id="b7a4a23" data-element_type="widget" data-widget_type="wd_list.default">
+										<div class="elementor-widget-container">
+											<ul
+												class="wd-list color-scheme-custom wd-fontsize-xs wd-list-type-icon wd-list-style-default wd-justify-left">
+												
+												<li class="elementor-repeater-item-c77fc22">
 
-											<span class="list-content">
-												FAQ’s </span>
-
-
-											<a href="faqs/" class="wd-fill"
-												aria-label="List item link"></a>
-										</li>
-										<li class="elementor-repeater-item-c77fc22">
-
-											<span class="list-content">
-												Track Your Order </span>
+													<span class="list-content">
+														Track Your Order </span>
 
 
-											<a href="track-order/" class="wd-fill"
-												aria-label="List item link"></a>
-										</li>
-										<li class="elementor-repeater-item-c373d8d">
+													<a href="trackOrder.php" class="wd-fill"
+														aria-label="List item link"></a>
+												</li>
+												<li class="elementor-repeater-item-c373d8d">
 
-											<span class="list-content">
-												Privacy Policy </span>
-
-
-											<a href="privacy-policy/" class="wd-fill"
-												aria-label="List item link"></a>
-										</li>
-										<li class="elementor-repeater-item-1540aa8">
-
-											<span class="list-content">
-												Return Policy </span>
+													<span class="list-content">
+														Privacy Policy </span>
 
 
-											<a href="refund-and-returns-policy/" class="wd-fill"
-												aria-label="List item link"></a>
-										</li>
-										<li class="elementor-repeater-item-02e96b0">
+													<a href="policy.php" class="wd-fill"
+														aria-label="List item link"></a>
+												</li>
+												
+												
+												<li class="elementor-repeater-item-f93516b">
 
-											<span class="list-content">
-												Shipping Policy </span>
-
-
-											<a href="shipping/" class="wd-fill"
-												aria-label="List item link"></a>
-										</li>
-										<li class="elementor-repeater-item-f93516b">
-
-											<span class="list-content">
-												Terms & Conditions </span>
+													<span class="list-content">
+														Terms & Conditions </span>
 
 
-											<a href="terms-conditions/" class="wd-fill"
-												aria-label="List item link"></a>
-										</li>
-									</ul>
+													<a href="terms.php" class="wd-fill"
+														aria-label="List item link"></a>
+												</li>
+											</ul>
 
-								</div>
-							</div>
+										</div>
+									</div>
+
+							
 						</div>
 					</div>
 				</div>
@@ -1939,7 +1917,7 @@ foreach($orders as $item){
 
 										<div class="liner-continer">
 											<h4 class="woodmart-title-container title wd-fontsize-l">© 2024
-												PRags Salty™. All Rights Reserved<br />
+												™. All Rights Reserved<br />
 											</h4>
 										</div>
 

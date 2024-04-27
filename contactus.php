@@ -1,123 +1,41 @@
 <?php
-
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'Phpmailer/Exception.php';
-require 'Phpmailer/PHPMailer.php';
-require 'Phpmailer/SMTP.php';
-
-//Create an instance; passing `true` enables exceptions
-
-
 session_start();
 require_once('admin/query.php');
-$loginPage=1;
-if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
-	echo "<script>window.location.href='index.php';</script>";
+if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
+    $cart_value=count($_SESSION['cart']);
+}else{
+    $cart_value=0;
 }
 
 if(isset($_GET["pop"]) && isset($_GET["mes"])) {
-	$pop=$_GET["pop"];
-	$mes=$_GET['mes'];
-	if($pop==1 && $mes==1){
-	  $message="Registration Success ";
-	}elseif($pop==1 && $mes==2){
-	  $message="Registration Failed "; 
-	}elseif($pop==1 && $mes==3){
-		$message="Already Registered "; 
-	}elseif($pop==1 && $mes==4){
-		$message="Login Failed. Check Email Or Password"; 
-	}else{
-	  $pop=0;
-	}
+    $pop=$_GET["pop"];
+    $mes=$_GET['mes'];
+    if($pop==1 && $mes==1){
+      $message="Request Submitted ";
+    }else{
+      $pop=0;
+    }
   }else{
-	  $pop=0;
-	}
-  
+      $pop=0;
+    }
+if(isset($_POST['submit_req'])) {
+    $contact_enq = array();
+	$contact_enq['name']=$_POST['firstName'] . " " . $_POST['lastName'];
+	$contact_enq['email']=$_POST['email'];
+	$contact_enq['message']= $_POST['message_req'];
+	$contact_enq['mobile_no']=$_POST['phone'];
 
-if(isset($_POST['login'])) {
-    $data = $QueryFire->getAllData('users',' email="'.trim(strip_tags($_POST['username'])).'" and password ="'.md5(trim(strip_tags($_POST['password']))).'"');
-    if(!empty($data[0])) {
-		$data = $data[0];
-		$_SESSION['user'] = $data;
-		echo "<script>window.location.href = 'index.php';</script>";
+    if($QueryFire->insertData('contact_enquiry', $contact_enq)) {
+		$success = 'You have successfully created your account. Please Login with Phone Number.';
+		 echo "<script>window.location.href='contactus.php?pop=1&mes=1';</script>";
 	}else{
-		header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=4");
-		exit();
+		$success = 'fail';
+        echo "<script>window.location.href='contactus.php?pop=1&mes=1';</script>";
 	}
 
-}
-
-
-if(isset($_POST['register'])) {
-	$dummy = $QueryFire->getAllData('users',' mobile_no = "'.trim($_POST['mobile_no']).'" or email = "'.$_POST['email'].'";');
-	if(empty($dummy)) {
-		$data = array();
-		$data['name'] = $_POST['full_name'];
-		$data['email'] = $_POST['email'];
-		$data['address'] =$_POST['address'];
-		$data['pincode'] =$_POST['pincode'];
-		$data['mobile_no']=$_POST['mobile_no'];
-		$data['password'] =md5(trim($_POST['password']));
-		//$data['access_token'] = generateRandomString(10);
-		
-		$data['access_token'] = rand(100000,999999);
-		//$QueryFire->sendSms('To verify your account use OTP - '.$data['access_token'],$data['mobile_no']);
-		$data['is_verified'] = 0;
-		
-		$to = $data['email'];
-		$subject = 'Welcome to SBJ Namkeens. You have successfully created your profile.';
-		$mail = new PHPMailer(true);
-
-		$mail->isSMTP();
-		$mail->Host     = 'smtp.gmail.com';
-		$mail->SMTPAuth = true;
-		$mail->Username = 'vishal.we33ras@gmail.com';
-		$mail->Password = 'cpgziveevrzshouj';
-		$mail->SMTPSecure = 'tls';
-		$mail->Port     = 587;
-
-		// Set content-type header for sending HTML email
-		$mail->setFrom('vishal.we33ras@gmail.com', 'vishal Karande'); 
-		$mail->Subject = $subject; 
-		$mail->addAddress($to); 
-		$template = file_get_contents('verify_template.php');
-		$template = str_replace('%name%', $data['name'] , $template);
-		$template = str_replace('%link2text%', 'SBJ Namkeens' , $template);
-		$template = str_replace('%link2%', 'https://saptdhanya.com' , $template);
-		$template = str_replace('%link%', 'https://saptdhanya.com/verify/'.$data['access_token'] , $template);
-		$mail->isHTML(true); 
-		$mailContent = $template;
-		$mail->Body = $mailContent; 
-		if(!$mail->send()){ 
-			$message= 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo; 
-		}else{ 
-			$message= 'Message has been sent.'; 
-		}
-
-		if($QueryFire->insertData('users', $data)) {
-		  $success = 'You have successfully created your account. Please Login with Phone Number.';
-		  header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=1");
-		  exit();
-		}
-		else
-		{
-			$error = 'Unable to register. Please try after sometime.';
-			header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=2");
-       exit();
-		}
-	}
-	else
-		$error = "Number already registered. If you forget your password Contact Admin .";
-		header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=3");
-		exit();
 }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
@@ -125,7 +43,7 @@ if(isset($_POST['register'])) {
 <head>
 	<meta charset="UTF-8">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="pingback" href="xmlrpc.php">
+	<link rel="pingback" href="https://.com/xmlrpc.php">
 	<!-- Optimized with WP Meteor v3.4.0 - https://wordpress.org/plugins/wp-meteor/ -->
 	<script data-wpmeteor-nooptimize="true">
 		var _wpmeteor = {
@@ -1151,114 +1069,43 @@ if(isset($_POST['register'])) {
 		})();
 		//0.1.47
 	</script>
-
+	<script type="javascript/blocked"
+		data-wpmeteor-type="text/javascript">window.MSInputMethodContext && document.documentMode && document.write('<script src="wp-content/themes/woodmart/js/libs/ie11CustomProperties.min.js"><\/script>');</script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript">window._wca = window._wca || [];</script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-	<title>My account - </title>
-	<meta name="robots" content="noindex, follow" />
+	<title>Contact the best namkeen, roasted, sweets &amp; fox nuts in India</title>
+	<meta name="description"
+		content="Have a question or craving for our delicious namkeen treats? Contact us at SBJNamkeens and let your taste buds experience pure delight!" />
+	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+	<link rel="canonical" href="contactus.php" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="My account -" />
-	<meta property="og:url" content="my-account/" />
-	<meta property="og:site_name" content="" />
+	<meta property="og:title" content="Contact the best namkeen, roasted, sweets &amp; fox nuts in India" />
+	<meta property="og:description"
+		content="Have a question or craving for our delicious namkeen treats? Contact us at SBJNamkeens and let your taste buds experience pure delight!" />
+	<meta property="og:url" content="https://.com/contact-us/" />
+	<meta property="og:site_name" content="SBJNamkeens" />
 	<meta property="article:author" content="https://www.facebook.com/" />
-	<meta property="article:published_time" content="2023-05-19T06:24:27+05:30" />
+	<meta property="og:updated_time" content="2023-12-29T18:58:40+05:30" />
+	<meta property="article:published_time" content="2023-05-19T06:26:11+05:30" />
+	<meta property="article:modified_time" content="2023-12-29T18:58:40+05:30" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="My account - " />
+	<meta name="twitter:title" content="Contact the best namkeen, roasted, sweets &amp; fox nuts in India" />
+	<meta name="twitter:description"
+		content="Have a question or craving for our delicious namkeen treats? Contact us at SBJNamkeens and let your taste buds experience pure delight!" />
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="Less than a minute" />
-<!-- /Rank Math WordPress SEO plugin -->
+	<script type="application/ld+json"
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://.com/#organization","name":"SBJNamkeens"},{"@type":"WebSite","@id":"https://.com/#website","url":"https://.com","name":"SBJNamkeens","publisher":{"@id":"https://.com/#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg","url":"wp-content/plugins/wpforms/assets/images/submit-spin.svg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://.com/contact-us/#webpage","url":"https://.com/contact-us/","name":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","datePublished":"2023-05-19T06:26:11+05:30","dateModified":"2023-12-29T18:58:40+05:30","isPartOf":{"@id":"https://.com/#website"},"primaryImageOfPage":{"@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://.com/author//","name":"SBJNamkeens","url":"https://.com/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"SBJNamkeens","inLanguage":"en-US"},"sameAs":["https://.com","https://www.facebook.com/"],"worksFor":{"@id":"https://.com/#organization"}},{"@type":"Article","headline":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","keywords":"Contact,SBJNamkeens","datePublished":"2023-05-19T06:26:11+05:30","dateModified":"2023-12-29T18:58:40+05:30","author":{"@id":"https://.com/author//","name":"SBJNamkeens"},"publisher":{"@id":"https://.com/#organization"},"description":"Have a question or craving for our delicious namkeen treats? Contact us at SBJNamkeens and let your taste buds experience pure delight!","name":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","@id":"https://.com/contact-us/#richSnippet","isPartOf":{"@id":"https://.com/contact-us/#webpage"},"image":{"@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://.com/contact-us/#webpage"}}]}</script>
+	<!-- /Rank Math WordPress SEO plugin -->
 
-	<link rel='dns-prefetch' href='//stats.wp.com' />
-	<link rel='dns-prefetch' href='//www.googletagmanager.com' />
-	<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-	<link rel="alternate" type="application/rss+xml" title=" &raquo; Feed" href="feed/" />
-	<link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed" href="comments/feed/" />
-	<style type="text/css">
-		mark.order-status:hover {
-			cursor: pointer;
-		}
-
-		#tiptip_holder {
-			display: none;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 99999
-		}
-
-		#tiptip_holder.tip_top {
-			padding-bottom: 5px
-		}
-
-		#tiptip_holder.tip_top #tiptip_arrow_inner {
-			margin-top: -7px;
-			margin-left: -6px;
-			border-top-color: #464646
-		}
-
-		#tiptip_holder.tip_bottom {
-			padding-top: 5px
-		}
-
-		#tiptip_holder.tip_bottom #tiptip_arrow_inner {
-			margin-top: -5px;
-			margin-left: -6px;
-			border-bottom-color: #464646
-		}
-
-		#tiptip_holder.tip_right {
-			padding-left: 5px
-		}
-
-		#tiptip_holder.tip_right #tiptip_arrow_inner {
-			margin-top: -6px;
-			margin-left: -5px;
-			border-right-color: #464646
-		}
-
-		#tiptip_holder.tip_left {
-			padding-right: 5px
-		}
-
-		#tiptip_holder.tip_left #tiptip_arrow_inner {
-			margin-top: -6px;
-			margin-left: -7px;
-			border-left-color: #464646
-		}
-
-		#tiptip_content,
-		.chart-tooltip {
-			font-size: 11px;
-			color: #fff;
-			padding: .5em .5em;
-			background: #464646;
-			-webkit-border-radius: 3px;
-			-moz-border-radius: 3px;
-			border-radius: 3px;
-			-webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-			-moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-			box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-			text-align: center;
-			max-width: 150px
-		}
-
-		#tiptip_content code,
-		.chart-tooltip code {
-			background: #888;
-			padding: 1px
-		}
-
-		#tiptip_arrow,
-		#tiptip_arrow_inner {
-			position: absolute;
-			border-color: transparent;
-			border-style: solid;
-			border-width: 6px;
-			height: 0;
-			width: 0
-		}
-	</style>
+	<link rel='dns-prefetch' href='https://stats.wp.com/' />
+	<link rel='dns-prefetch' href='https://www.googletagmanager.com/' />
+	<link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
+	<link rel="alternate" type="application/rss+xml" title="SBJNamkeens &raquo; Feed" href="../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="SBJNamkeens &raquo; Comments Feed"
+		href="../comments/feed/index.html" />
 	<style id='jetpack-sharing-buttons-style-inline-css' type='text/css'>
 		.jetpack-sharing-buttons__services-list {
 			display: flex;
@@ -1705,7 +1552,7 @@ if(isset($_POST['register'])) {
 		}
 	</style>
 	<link rel='stylesheet' id='wpo_min-header-0-css'
-		href='wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-269ec182.min.css' type='text/css'
+		href='wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-d3bdd0d1.min.css' type='text/css'
 		media='all' />
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
@@ -1733,80 +1580,48 @@ if(isset($_POST['register'])) {
 		id="wpo_min-header-7-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-8-js-extra">
 /* <![CDATA[ */
-var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=233","i18n_view_cart":"View cart","cart_url":"https:\/\/\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=236","i18n_view_cart":"View cart","cart_url":"https:\/\/.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjquery-blockuiwc-add-to-cart3.7.12.7.0-wc.8.7.08.7.0.min.js"
 		id="wpo_min-header-8-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryselectWoo3.7.11.0.9-wc.8.7.0.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-js-cookie2.1.4-wc.8.7.0.min.js"
 		id="wpo_min-header-9-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-10-js-extra">
 /* <![CDATA[ */
-var _zxcvbnSettings = {"src":"https:\/\/\/wp-includes\/js\/zxcvbn.min.js"};
-/* ]]> */
-</script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-zxcvbn-async1.0.min.js"
-		id="wpo_min-header-10-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-wp-hookswp-polyfillwp-i18n2810c76e705dd1a53b183.15.05e580eb46a90c2b997e6.min.js"
-		id="wpo_min-header-11-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-12-js-extra">
-/* <![CDATA[ */
-var _zxcvbnSettings = {"src":"https:\/\/\/wp-includes\/js\/zxcvbn.min.js"};
-var pwsL10n = {"unknown":"Password strength unknown","short":"Very weak","bad":"Weak","good":"Medium","strong":"Strong","mismatch":"Mismatch"};
-/* ]]> */
-</script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryzxcvbn-asyncwp-i18npassword-strength-meter3.7.11.05e580eb46a90c2b997e6.min.js"
-		id="wpo_min-header-12-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-13-js-extra">
-/* <![CDATA[ */
-var pwsL10n = {"unknown":"Password strength unknown","short":"Very weak","bad":"Weak","good":"Medium","strong":"Strong","mismatch":"Mismatch"};
-var wc_password_strength_meter_params = {"min_password_strength":"3","stop_checkout":"","i18n_password_error":"Please enter a stronger password.","i18n_password_hint":"Hint: The password should be at least twelve characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! \" ? $ % ^ & )."};
-/* ]]> */
-</script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jquerypassword-strength-meterwc-password-strength-meter3.7.18.7.0.min.js"
-		id="wpo_min-header-13-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-js-cookie2.1.4-wc.8.7.0.min.js"
-		id="wpo_min-header-14-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-15-js-extra">
-/* <![CDATA[ */
-var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=233"};
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=236"};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjquery-blockuijs-cookiewoocommerce3.7.12.7.0-wc.8.7.02.1.4-wc.8.7.08.7.0.min.js"
-		id="wpo_min-header-15-js"></script>
+		id="wpo_min-header-10-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="" id="woocommerce-analytics-js" defer="defer"
 		data-wp-strategy="defer"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-17-js-extra">
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-12-js-extra">
 /* <![CDATA[ */
-var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=233","cart_hash_key":"wc_cart_hash_922703ab473fa9b909b138c94b1e78ba","fragment_name":"wc_fragments_922703ab473fa9b909b138c94b1e78ba","request_timeout":"5000"};
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=236","cart_hash_key":"wc_cart_hash_922703ab473fa9b909b138c94b1e78ba","fragment_name":"wc_fragments_922703ab473fa9b909b138c94b1e78ba","request_timeout":"5000"};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjs-cookiewc-cart-fragments3.7.12.1.4-wc.8.7.08.7.0.min.js"
-		id="wpo_min-header-17-js"></script>
+		id="wpo_min-header-12-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjquery-bind-first3.7.1.min.js"
-		id="wpo_min-header-18-js"></script>
+		id="wpo_min-header-13-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-js-cookie-pys2.1.3.min.js"
-		id="wpo_min-header-19-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-20-js-extra">
+		id="wpo_min-header-14-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-15-js-extra">
 /* <![CDATA[ */
-var pysOptions = {"staticEvents":[],"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"debug":"","siteUrl":"https:\/\/","ajaxUrl":"https:\/\/\/wp-admin\/admin-ajax.php","ajax_event":"ef3f681bba","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","send_external_id":"1","external_id_expire":"180","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utmTerms_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"undefined","TrafficUtms":[],"TrafficUtmsId":[]},"woo":{"enabled":true,"enabled_save_data_to_orders":true,"addToCartOnButtonEnabled":true,"addToCartOnButtonValueEnabled":true,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":false,"containOrderId":false},"edd":{"enabled":false}};
+var pysOptions = {"staticEvents":[],"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"debug":"","siteUrl":"https:\/\/.com","ajaxUrl":"https:\/\/.com\/wp-admin\/admin-ajax.php","ajax_event":"59edc6e2e9","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","send_external_id":"1","external_id_expire":"180","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utmTerms_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"undefined","TrafficUtms":[],"TrafficUtmsId":[]},"woo":{"enabled":true,"enabled_save_data_to_orders":true,"addToCartOnButtonEnabled":true,"addToCartOnButtonValueEnabled":true,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":false,"containOrderId":false},"edd":{"enabled":false}};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jqueryjs-cookie-pysjquery-bind-firstpys3.7.12.1.39.5.5.min.js"
-		id="wpo_min-header-20-js"></script>
+		id="wpo_min-header-15-js"></script>
 
 	<!-- Google tag (gtag.js) snippet added by Site Kit -->
 
@@ -1817,7 +1632,7 @@ var pysOptions = {"staticEvents":[],"dynamicEvents":[],"triggerEvents":[],"trigg
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="google_gtagjs-js-after">
 /* <![CDATA[ */
 window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-gtag("set","linker",{"domains":[""]});
+gtag("set","linker",{"domains":[".com"]});
 gtag("js", new Date());
 gtag("set", "developer_id.dZTNiMT", true);
 gtag("config", "GT-PJNB9QPL");
@@ -1827,16 +1642,16 @@ gtag("config", "GT-PJNB9QPL");
 	<!-- End Google tag (gtag.js) snippet added by Site Kit -->
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jquerywd-device-library3.7.17.1.4.min.js"
-		id="wpo_min-header-22-js"></script>
-	<link rel="https://api.w.org/" href="wp-json/" />
-	<link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/233" />
-	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php?rsd" />
+		id="wpo_min-header-17-js"></script>
+	<link rel="https://api.w.org/" href="wp-json/index.html" />
+	<link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/236" />
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php@rsd" />
 	<meta name="generator" content="WordPress 6.5.2" />
-	<link rel='shortlink' href='?p=233' />
+	<link rel='shortlink' href='contactus.php' />
 	<link rel="alternate" type="application/json+oembed"
-		href="wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2Fmy-account%2F" />
+		href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F.com%252Fcontact-us%252F" />
 	<link rel="alternate" type="text/xml+oembed"
-		href="wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2Fmy-account%2F&#038;format=xml" />
+		href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F.com%252Fcontact-us%252F&amp;format=xml" />
 	<meta name="generator" content="Site Kit by Google 1.124.0" /><!-- Google tag (gtag.js) -->
 	<!-- <script  type="javascript/blocked" data-wpmeteor-type="text/javascript"  async data-wpmeteor-src="https://www.googletagmanager.com/gtag/js?id=UA-269068220-1"></script>
 <script  type="javascript/blocked" data-wpmeteor-type="text/javascript" >
@@ -1916,7 +1731,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<link rel="icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-32x32.png" sizes="32x32" />
 	<link rel="icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" sizes="192x192" />
 	<link rel="apple-touch-icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
-	<meta name="msapplication-TileImage" content="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
+	<meta name="msapplication-TileImage"
+		content="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
 	<style type="text/css" id="wp-custom-css">
 		.sku_wrapper {
 			display: none !important;
@@ -2036,7 +1852,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body
-	class="page-template-default page page-id-233 theme-woodmart woocommerce-account woocommerce-page woocommerce-no-js wrapper-full-width  woodmart-ajax-shop-on offcanvas-sidebar-mobile offcanvas-sidebar-tablet sticky-toolbar-on elementor-default elementor-kit-227 elementor-page elementor-page-233">
+	class="page-template-default page page-id-236 theme-woodmart woocommerce-no-js wrapper-full-width  woodmart-ajax-shop-on offcanvas-sidebar-mobile offcanvas-sidebar-tablet sticky-toolbar-on elementor-default elementor-kit-227 elementor-page elementor-page-236">
 	<!-- Google Tag Manager (noscript) snippet added by Site Kit -->
 	<noscript>
 		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8G9NDDJ" height="0" width="0"
@@ -2050,34 +1866,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wd-flicker-fix">// Flicker fix.</script>
 
 	<div class="website-wrapper">
-		
-
-
-
-	<?php require_once('headerbar.php'); ?>
-
-
-
-
+    <?php require_once('headerbar.php'); ?>
 
 		<div class="main-page-wrapper">
 
 			<div class="page-title  page-title-default title-size-small title-design-centered color-scheme-light"
-				style="">
+				style="background-image: url(wp-content/uploads/2023/07/-Banner-scaled.webp);background-color: rgb(53,94,59);">
 				<div class="container">
 					<h1 class="entry-title title">
-						My account </h1>
+						Contact Us </h1>
 
 
 				</div>
 			</div>
-
-
-
-
-
-
-
 
 			<!-- MAIN CONTENT AREA -->
 			<div class="container">
@@ -2085,189 +1886,641 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 					<div class="site-content col-lg-12 col-12 col-md-12" role="main">
 
-						<article id="post-233" class="post-233 page type-page status-publish hentry">
+						<article id="post-236" class="post-236 page type-page status-publish hentry">
 
 							<div class="entry-content">
-								<div class="woocommerce">
-									<div class="woocommerce-notices-wrapper"></div>
-									<div class="wd-registration-page wd-register-tabs">
+								<div data-elementor-type="wp-page" data-elementor-id="236"
+									class="elementor elementor-236" data-elementor-post-type="page">
+									<section data-particle_enable="false" data-particle-mobile-disabled="false"
+										class="wd-negative-gap elementor-section elementor-top-section elementor-element elementor-element-b7b6e27 elementor-section-boxed elementor-section-height-default elementor-section-height-default wd-section-disabled"
+										data-id="b7b6e27" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-no">
+											<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-446b9f5"
+												data-id="446b9f5" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-39f78d0e elementor-widget elementor-widget-heading"
+														data-id="39f78d0e" data-element_type="widget"
+														data-widget_type="heading.default">
+														<div class="elementor-widget-container">
+															<style>
+																/*! elementor - v3.20.0 - 10-04-2024 */
+																.elementor-heading-title {
+																	padding: 0;
+																	margin: 0;
+																	line-height: 1
+																}
 
+																.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a {
+																	color: inherit;
+																	font-size: inherit;
+																	line-height: inherit
+																}
 
-										<div class="row" id="customer_login">
+																.elementor-widget-heading .elementor-heading-title.elementor-size-small {
+																	font-size: 15px
+																}
 
-											<div class="col-12 col-md-6 col-login">
+																.elementor-widget-heading .elementor-heading-title.elementor-size-medium {
+																	font-size: 19px
+																}
 
+																.elementor-widget-heading .elementor-heading-title.elementor-size-large {
+																	font-size: 29px
+																}
 
-												<h2 class="wd-login-title">Login</h2>
+																.elementor-widget-heading .elementor-heading-title.elementor-size-xl {
+																	font-size: 39px
+																}
 
-												<form method="post"
-													class="login woocommerce-form woocommerce-form-login" action="">
-
-
-													<p
-														class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide form-row-username">
-														<label for="username">Email Address&nbsp;<span
-																class="required">*</span></label>
-														<input type="text"
-															class="woocommerce-Input woocommerce-Input--text input-text"
-															name="username" id="username" value="" />
-													</p>
-													<p
-														class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide form-row-password">
-														<label for="password">Password&nbsp;<span
-																class="required">*</span></label>
-														<input
-															class="woocommerce-Input woocommerce-Input--text input-text"
-															type="password" name="password" id="password"
-															autocomplete="current-password" />
-													</p>
-
-
-													<p class="form-row">
-														<input type="hidden" id="woocommerce-login-nonce"
-															name="woocommerce-login-nonce" value="a35c8b2951" /><input
-															type="hidden" name="_wp_http_referer"
-															value="/my-account/" />
-														<button type="submit"
-															class="button woocommerce-button woocommerce-form-login__submit"
-															name="login" value="Log in">Log in</button>
-													</p>
-
-													<p class="login-form-footer">
-														<a href="forgetpassword.php" class="woocommerce-LostPassword lost_password">Lost
-															your password?</a>
-														<label
-															class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
-															<input
-																class="woocommerce-form__input woocommerce-form__input-checkbox"
-																name="rememberme" type="checkbox" value="forever"
-																title="Remember me" aria-label="Remember me" />
-															<span>Remember me</span>
-														</label>
-													</p>
-
-
-
-												</form>
-
-
-
-											</div>
-
-											<div class="col-12 col-md-6 col-register">
-
-												<h2 class="wd-login-title">Register</h2>
-
-												<form method="post" action=""
-													class="woocommerce-form woocommerce-form-register register">
-
-													<p class="form-row form-row-first">
-														<label for="full_name">Full Name<span
-																class="required">*</span></label>
-														<input type="text" class="input-text" name="full_name"
-															id="full_name" value="" />
-													</p>
-													<p class="form-row form-row-last">
-														<label for="mobile_no">Mobile Number<span
-																class="required">*</span></label>
-														<input type="tel" class="input-text" name="mobile_no"
-															id="mobile_no" value="" />
-													</p>
-													<div class="clear"></div>
-
-
-													<p
-														class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-														<label for="reg_email">Email address&nbsp;<span
-																class="required">*</span></label>
-														<input type="email"
-															class="woocommerce-Input woocommerce-Input--text input-text"
-															name="email" id="reg_email" autocomplete="email" value="" />
-													</p>
-
-													<p
-														class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-														<label for="address">Address&nbsp;<span
-																class="required">*</span></label>
-														<input type="text"
-															class="woocommerce-Input woocommerce-Input--text input-text"
-															name="address" id="address" autocomplete="number"
-															value="" />
-													</p>
-
-													<p
-														class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-														<label for="pincode">Pincode&nbsp;<span
-																class="required">*</span></label>
-														<input type="number"
-															class="woocommerce-Input woocommerce-Input--text input-text"
-															name="pincode" id="pincode" autocomplete="pincode"
-															value="" />
-													</p>
-
-
-													<p
-														class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-														<label for="reg_password">Password&nbsp;<span
-																class="required">*</span></label>
-														<input type="password"
-															class="woocommerce-Input woocommerce-Input--text input-text"
-															name="password" id="reg_password"
-															autocomplete="new-password" />
-													</p>
-
-
-													<!-- Spam Trap -->
-
-
-
-
-													<div class="woocommerce-privacy-policy-text">
-														<p>Your personal data will be used to support your experience
-															throughout this website, to manage
-															access to your account, and for other purposes described in
-															our <a href="" class="woocommerce-privacy-policy-link"
-																target="_blank">privacy policy</a>.</p>
+																.elementor-widget-heading .elementor-heading-title.elementor-size-xxl {
+																	font-size: 59px
+																}
+															</style>
+															<h6 class="elementor-heading-title elementor-size-default">
+																Get in Touch</h6>
+														</div>
 													</div>
-													<p class="woocommerce-form-row form-row">
-														<input type="hidden" id="_wpnonce" name="_wpnonce"
-															value="f18ef225c1" /><input type="hidden"
-															name="_wp_http_referer" value="/my-account/" /> <button
-															type="submit" class="woocommerce-Button button"
-															name="register" value="Register">Register</button>
-													</p>
+													<div class="elementor-element elementor-element-483e617b elementor-widget elementor-widget-heading"
+														data-id="483e617b" data-element_type="widget"
+														data-widget_type="heading.default">
+														<div class="elementor-widget-container">
+															<h3 class="elementor-heading-title elementor-size-default">
+																Contact Details</h3>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-4c711fe5 elementor-view-stacked elementor-position-left elementor-mobile-position-left elementor-shape-circle elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+														data-id="4c711fe5" data-element_type="widget"
+														data-widget_type="icon-box.default">
+														<div class="elementor-widget-container">
+															<link rel="stylesheet"
+																href="wp-content/plugins/elementor/assets/css/widget-icon-box.min.css">
+															<div class="elementor-icon-box-wrapper">
+																<div class="elementor-icon-box-icon">
+																	<span class="elementor-icon elementor-animation-">
+																		<i aria-hidden="true"
+																			class="fas fa-map-marker-alt"></i> </span>
+																</div>
+																<div class="elementor-icon-box-content">
+																	<h5 class="elementor-icon-box-title">
+																		<span>
+																			Address​ </span>
+																	</h5>
+																	<p class="elementor-icon-box-description">
+																		Plot no. 98, Sindhi Colony, near Jaljog Circle,
+																		<br>Jodhpur, Rajasthan, 342001 </p>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-4f9d640d elementor-view-stacked elementor-position-left elementor-mobile-position-left elementor-shape-circle elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+														data-id="4f9d640d" data-element_type="widget"
+														data-widget_type="icon-box.default">
+														<div class="elementor-widget-container">
+															<div class="elementor-icon-box-wrapper">
+																<div class="elementor-icon-box-icon">
+																	<span class="elementor-icon elementor-animation-">
+																		<i aria-hidden="true"
+																			class="fas fa-phone-alt"></i> </span>
+																</div>
+																<div class="elementor-icon-box-content">
+																	<h5 class="elementor-icon-box-title">
+																		<span>
+																			Phone Number </span>
+																	</h5>
+																	<p class="elementor-icon-box-description">
+																		<a href=" tel:919929321144">(+91) 9929321144</a>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-d96afe1 elementor-view-stacked elementor-position-left elementor-mobile-position-left elementor-shape-circle elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+														data-id="d96afe1" data-element_type="widget"
+														data-widget_type="icon-box.default">
+														<div class="elementor-widget-container">
+															<div class="elementor-icon-box-wrapper">
+																<div class="elementor-icon-box-icon">
+																	<span class="elementor-icon elementor-animation-">
+																		<i aria-hidden="true"
+																			class="fas fa-envelope-open"></i> </span>
+																</div>
+																<div class="elementor-icon-box-content">
+																	<h5 class="elementor-icon-box-title">
+																		<span>
+																			Email </span>
+																	</h5>
+																	<p class="elementor-icon-box-description">
+																		<a
+																			href="mailto:contact@.com">contact@.com</a>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-4d234be8 elementor-widget elementor-widget-heading"
+														data-id="4d234be8" data-element_type="widget"
+														data-widget_type="heading.default">
+														<div class="elementor-widget-container">
+															<h3 class="elementor-heading-title elementor-size-default">
+																Follow Us</h3>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-3a38e84 elementor-shape-circle e-grid-align-left elementor-grid-0 elementor-widget elementor-widget-social-icons"
+														data-id="3a38e84" data-element_type="widget"
+														data-widget_type="social-icons.default">
+														<div class="elementor-widget-container">
+															<style>
+																/*! elementor - v3.20.0 - 10-04-2024 */
+																.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,
+																.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,
+																.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container {
+																	line-height: 1;
+																	font-size: 0
+																}
 
+																.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid {
+																	display: inline-grid
+																}
 
-												</form>
+																.elementor-widget-social-icons .elementor-grid {
+																	grid-column-gap: var(--grid-column-gap, 5px);
+																	grid-row-gap: var(--grid-row-gap, 5px);
+																	grid-template-columns: var(--grid-template-columns);
+																	justify-content: var(--justify-content, center);
+																	justify-items: var(--justify-content, center)
+																}
 
+																.elementor-icon.elementor-social-icon {
+																	font-size: var(--icon-size, 25px);
+																	line-height: var(--icon-size, 25px);
+																	width: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em));
+																	height: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em))
+																}
+
+																.elementor-social-icon {
+																	--e-social-icon-icon-color: #fff;
+																	display: inline-flex;
+																	background-color: #69727d;
+																	align-items: center;
+																	justify-content: center;
+																	text-align: center;
+																	cursor: pointer
+																}
+
+																.elementor-social-icon i {
+																	color: var(--e-social-icon-icon-color)
+																}
+
+																.elementor-social-icon svg {
+																	fill: var(--e-social-icon-icon-color)
+																}
+
+																.elementor-social-icon:last-child {
+																	margin: 0
+																}
+
+																.elementor-social-icon:hover {
+																	opacity: .9;
+																	color: #fff
+																}
+
+																.elementor-social-icon-android {
+																	background-color: #a4c639
+																}
+
+																.elementor-social-icon-apple {
+																	background-color: #999
+																}
+
+																.elementor-social-icon-behance {
+																	background-color: #1769ff
+																}
+
+																.elementor-social-icon-bitbucket {
+																	background-color: #205081
+																}
+
+																.elementor-social-icon-codepen {
+																	background-color: #000
+																}
+
+																.elementor-social-icon-delicious {
+																	background-color: #39f
+																}
+
+																.elementor-social-icon-deviantart {
+																	background-color: #05cc47
+																}
+
+																.elementor-social-icon-digg {
+																	background-color: #005be2
+																}
+
+																.elementor-social-icon-dribbble {
+																	background-color: #ea4c89
+																}
+
+																.elementor-social-icon-elementor {
+																	background-color: #d30c5c
+																}
+
+																.elementor-social-icon-envelope {
+																	background-color: #ea4335
+																}
+
+																.elementor-social-icon-facebook,
+																.elementor-social-icon-facebook-f {
+																	background-color: #3b5998
+																}
+
+																.elementor-social-icon-flickr {
+																	background-color: #0063dc
+																}
+
+																.elementor-social-icon-foursquare {
+																	background-color: #2d5be3
+																}
+
+																.elementor-social-icon-free-code-camp,
+																.elementor-social-icon-freecodecamp {
+																	background-color: #006400
+																}
+
+																.elementor-social-icon-github {
+																	background-color: #333
+																}
+
+																.elementor-social-icon-gitlab {
+																	background-color: #e24329
+																}
+
+																.elementor-social-icon-globe {
+																	background-color: #69727d
+																}
+
+																.elementor-social-icon-google-plus,
+																.elementor-social-icon-google-plus-g {
+																	background-color: #dd4b39
+																}
+
+																.elementor-social-icon-houzz {
+																	background-color: #7ac142
+																}
+
+																.elementor-social-icon-instagram {
+																	background-color: #262626
+																}
+
+																.elementor-social-icon-jsfiddle {
+																	background-color: #487aa2
+																}
+
+																.elementor-social-icon-link {
+																	background-color: #818a91
+																}
+
+																.elementor-social-icon-linkedin,
+																.elementor-social-icon-linkedin-in {
+																	background-color: #0077b5
+																}
+
+																.elementor-social-icon-medium {
+																	background-color: #00ab6b
+																}
+
+																.elementor-social-icon-meetup {
+																	background-color: #ec1c40
+																}
+
+																.elementor-social-icon-mixcloud {
+																	background-color: #273a4b
+																}
+
+																.elementor-social-icon-odnoklassniki {
+																	background-color: #f4731c
+																}
+
+																.elementor-social-icon-pinterest {
+																	background-color: #bd081c
+																}
+
+																.elementor-social-icon-product-hunt {
+																	background-color: #da552f
+																}
+
+																.elementor-social-icon-reddit {
+																	background-color: #ff4500
+																}
+
+																.elementor-social-icon-rss {
+																	background-color: #f26522
+																}
+
+																.elementor-social-icon-shopping-cart {
+																	background-color: #4caf50
+																}
+
+																.elementor-social-icon-skype {
+																	background-color: #00aff0
+																}
+
+																.elementor-social-icon-slideshare {
+																	background-color: #0077b5
+																}
+
+																.elementor-social-icon-snapchat {
+																	background-color: #fffc00
+																}
+
+																.elementor-social-icon-soundcloud {
+																	background-color: #f80
+																}
+
+																.elementor-social-icon-spotify {
+																	background-color: #2ebd59
+																}
+
+																.elementor-social-icon-stack-overflow {
+																	background-color: #fe7a15
+																}
+
+																.elementor-social-icon-steam {
+																	background-color: #00adee
+																}
+
+																.elementor-social-icon-stumbleupon {
+																	background-color: #eb4924
+																}
+
+																.elementor-social-icon-telegram {
+																	background-color: #2ca5e0
+																}
+
+																.elementor-social-icon-threads {
+																	background-color: #000
+																}
+
+																.elementor-social-icon-thumb-tack {
+																	background-color: #1aa1d8
+																}
+
+																.elementor-social-icon-tripadvisor {
+																	background-color: #589442
+																}
+
+																.elementor-social-icon-tumblr {
+																	background-color: #35465c
+																}
+
+																.elementor-social-icon-twitch {
+																	background-color: #6441a5
+																}
+
+																.elementor-social-icon-twitter {
+																	background-color: #1da1f2
+																}
+
+																.elementor-social-icon-viber {
+																	background-color: #665cac
+																}
+
+																.elementor-social-icon-vimeo {
+																	background-color: #1ab7ea
+																}
+
+																.elementor-social-icon-vk {
+																	background-color: #45668e
+																}
+
+																.elementor-social-icon-weibo {
+																	background-color: #dd2430
+																}
+
+																.elementor-social-icon-weixin {
+																	background-color: #31a918
+																}
+
+																.elementor-social-icon-whatsapp {
+																	background-color: #25d366
+																}
+
+																.elementor-social-icon-wordpress {
+																	background-color: #21759b
+																}
+
+																.elementor-social-icon-x-twitter {
+																	background-color: #000
+																}
+
+																.elementor-social-icon-xing {
+																	background-color: #026466
+																}
+
+																.elementor-social-icon-yelp {
+																	background-color: #af0606
+																}
+
+																.elementor-social-icon-youtube {
+																	background-color: #cd201f
+																}
+
+																.elementor-social-icon-500px {
+																	background-color: #0099e5
+																}
+
+																.elementor-shape-rounded .elementor-icon.elementor-social-icon {
+																	border-radius: 10%
+																}
+
+																.elementor-shape-circle .elementor-icon.elementor-social-icon {
+																	border-radius: 50%
+																}
+															</style>
+															<div class="elementor-social-icons-wrapper elementor-grid">
+																<span class="elementor-grid-item">
+																	<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-9ce0797"
+																		href="https://www.facebook.com/"
+																		target="_blank" rel="noopener">
+																		<span
+																			class="elementor-screen-only">Facebook-f</span>
+																		<i class="fab fa-facebook-f"></i> </a>
+																</span>
+																<span class="elementor-grid-item">
+																	<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-2d6913e"
+																		href="https://www.instagram.com/prags_salty/"
+																		target="_blank" rel="noopener">
+																		<span
+																			class="elementor-screen-only">Instagram</span>
+																		<i class="fab fa-instagram"></i> </a>
+																</span>
+																<span class="elementor-grid-item">
+																	<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-aeb8307"
+																		href="https://youtube.com/@"
+																		target="_blank" rel="noopener">
+																		<span
+																			class="elementor-screen-only">Youtube</span>
+																		<i class="fab fa-youtube"></i> </a>
+																</span>
+																<span class="elementor-grid-item">
+																	<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-8b797cd"
+																		href="https://in.pinterest.com/prags_salty/"
+																		target="_blank" rel="noopener">
+																		<span
+																			class="elementor-screen-only">Pinterest</span>
+																		<i class="fab fa-pinterest"></i> </a>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
 											</div>
-
-											<div class="col-12 col-md-6 col-register-text">
-
-												<p class="title wd-login-divider "><span>Or</span></p>
-
-
-												<h2 class="wd-login-title">Register</h2>
-
-
-												<div class="registration-info">Registering for this site allows you to
-													access your order status and
-													history. Just fill in the fields below, and we'll get a new account
-													set up for you in no time. We
-													will only ask you for information necessary to make the purchase
-													process faster and easier.</div>
-
-
-												<a href="#" rel="nofollow noopener" class="btn wd-switch-to-register"
-													data-login="Login" data-login-title="Login"
-													data-reg-title="Register" data-register="Register">Register</a>
-
+											<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-46eb4f1"
+												data-id="46eb4f1" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-57760aea eael-wpforms-form-button-custom elementor-widget elementor-widget-eael-wpforms"
+														data-id="57760aea" data-element_type="widget"
+														data-widget_type="eael-wpforms.default">
+														<div class="elementor-widget-container">
+															<div
+																class="eael-contact-form eael-wpforms title-description-hide eael-contact-form-align-default">
+																<div class="eael-wpforms-heading">
+																	<h3
+																		class="eael-contact-form-title eael-wpforms-title">
+																		We would love to hear from you. </h3>
+																	<div
+																		class="eael-contact-form-description eael-wpforms-description">
+																		Reach out to us by filling out this contact
+																		form. We&#8217;ll get back to you as soon as
+																		possible.
+																	</div>
+																</div>
+																<div class="wpforms-container wpforms-container-full wpforms-render-modern"
+																	id="wpforms-2251">
+																	<form id="wpforms-form-2251"
+																		class="wpforms-validate wpforms-form wpforms-ajax-form"
+																		data-formid="2251" method="post"
+																		><noscript
+																			class="wpforms-error-noscript">Please enable
+																			JavaScript in your browser to complete this
+																			form.</noscript>
+																		<div class="wpforms-hidden"
+																			id="wpforms-error-noscript">Please enable
+																			JavaScript in your browser to complete this
+																			form.</div>
+																		<div class="wpforms-field-container">
+																			<div id="wpforms-2251-field_1-container"
+																				class="wpforms-field wpforms-field-name"
+																				data-field-id="1">
+																				<fieldset>
+																					<legend class="wpforms-field-label">
+																						Name <span
+																							class="wpforms-required-label"
+																							aria-hidden="true">*</span>
+																					</legend>
+																					<div
+																						class="wpforms-field-row wpforms-field-large">
+																						<div
+																							class="wpforms-field-row-block wpforms-first wpforms-one-half">
+																							<input type="text"
+																								id="wpforms-2251-field_1"
+																								class="wpforms-field-name-first wpforms-field-required"
+																								name="firstName"
+																								placeholder="First Name"
+																								aria-errormessage="wpforms-2251-field_1-error"
+																								required><label
+																								for="wpforms-2251-field_1"
+																								class="wpforms-field-sublabel after wpforms-sublabel-hide">First</label>
+																						</div>
+																						<div
+																							class="wpforms-field-row-block wpforms-one-half">
+																							<input type="text"
+																								id="wpforms-2251-field_1-last"
+																								class="wpforms-field-name-last wpforms-field-required"
+																								name="lastName"
+																								placeholder="Last Name"
+																								aria-errormessage="wpforms-2251-field_1-last-error"
+																								required><label
+																								for="wpforms-2251-field_1-last"
+																								class="wpforms-field-sublabel after wpforms-sublabel-hide">Last</label>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</div>
+																			<div id="wpforms-2251-field_2-container"
+																				class="wpforms-field wpforms-field-email"
+																				data-field-id="2"><label
+																					class="wpforms-field-label"
+																					for="wpforms-2251-field_2">Email
+																					<span class="wpforms-required-label"
+																						aria-hidden="true">*</span></label>
+                                                                                    <input
+																					type="email"
+																					id="wpforms-2251-field_2"
+																					class="wpforms-field-large wpforms-field-required"
+																					name="email"
+																					placeholder="Email"
+																					spellcheck="false"
+																					aria-errormessage="wpforms-2251-field_2-error"
+																					required></div>
+																			<div id="wpforms-2251-field_3-container"
+																				class="wpforms-field wpforms-field-phone"
+																				data-field-id="3"><label
+																					class="wpforms-field-label"
+																					for="wpforms-2251-field_3">Phone
+																					Number <span
+																						class="wpforms-required-label"
+																						aria-hidden="true">*</span></label><input
+																					type="tel" id="wpforms-2251-field_3"
+																					class="wpforms-field-large wpforms-field-required"
+																					data-rule-int-phone-field="true"
+																					name="phone"
+																					placeholder="Phone Number"
+																					aria-errormessage="wpforms-2251-field_3-error"
+																					required></div>
+																			<div id="wpforms-2251-field_4-container"
+																				class="wpforms-field wpforms-field-textarea"
+																				data-field-id="4"><label
+																					class="wpforms-field-label"
+																					for="wpforms-2251-field_4">Your
+																					Message</label><textarea
+																					id="wpforms-2251-field_4"
+																					class="wpforms-field-medium"
+																					name="message_req"
+																					placeholder="Your Message"
+																					aria-errormessage="wpforms-2251-field_4-error"></textarea>
+																			</div>
+																		</div><!-- .wpforms-field-container -->
+																		<div class="wpforms-submit-container"><input
+																				type="hidden" name="wpforms[id]"
+																				value="2251"><input type="hidden"
+																				name="wpforms[author]" value="4"><input
+																				type="hidden" name="wpforms[post_id]"
+																				value="236"><input type="hidden"
+																				class="wpforms-token"
+																				name="wpforms[token]"
+																				value="c1e3ae2f59cbe184916707e8f64c9123" /><button
+																				type="submit" name="submit_req"
+																				id="wpforms-submit-2251"
+																				class="wpforms-submit"
+																				data-alt-text="Sending..."
+																				data-submit-text="Submit"
+																				aria-live="assertive"
+																				value="wpforms-submit">Submit</button><img
+																				decoding="async"
+																				src="wp-content/plugins/wpforms/assets/images/submit-spin.svg"
+																				class="wpforms-submit-spinner"
+																				style="display: none;" width="26"
+																				height="26" alt="Loading"></div>
+																	</form>
+																</div> <!-- .wpforms-container -->
+															</div>
+														</div>
+													</div>
+												</div>
 											</div>
-
 										</div>
-
-									</div>
-
+									</section>
+									
 								</div>
 							</div>
 
@@ -2286,11 +2539,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-
-
-
+        
 		<style>
    .popup {
                 position: fixed;
@@ -2362,16 +2611,6 @@ function (event) {
 }
 );
 </script>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2566,7 +2805,8 @@ function (event) {
 												<li class="elementor-icon-list-item">
 													<span class="elementor-icon-list-icon">
 														<i aria-hidden="true" class="fas fa-map-marker-alt"></i> </span>
-													<span class="elementor-icon-list-text">Near Mahila Ashram School, Sharda Colony,Bhilwara (Rajasthan) 311001</span>
+													<span class="elementor-icon-list-text">Plot no. 98, Sindhi Colony,
+														near Jaljog Circle, Jodhpur, Rajasthan, 342003</span>
 												</li>
 											</ul>
 										</div>
@@ -2577,11 +2817,11 @@ function (event) {
 										<div class="elementor-widget-container">
 											<ul class="elementor-icon-list-items">
 												<li class="elementor-icon-list-item">
-													<a href="tel:9001655666">
+													<a href="tel:9929321144">
 
 														<span class="elementor-icon-list-icon">
 															<i aria-hidden="true" class="fas fa-phone-alt"></i> </span>
-														<span class="elementor-icon-list-text">(+91) 9001655666</span>
+														<span class="elementor-icon-list-text">(+91) 9929321144</span>
 													</a>
 												</li>
 											</ul>
@@ -2593,12 +2833,12 @@ function (event) {
 										<div class="elementor-widget-container">
 											<ul class="elementor-icon-list-items">
 												<li class="elementor-icon-list-item">
-													<a href="mailto:saptdhanya@gmail.com">
+													<a href="mailto:contact@.com">
 
 														<span class="elementor-icon-list-icon">
 															<i aria-hidden="true" class="fas fa-envelope"></i> </span>
 														<span
-															class="elementor-icon-list-text">saptdhanya@gmail.com</span>
+															class="elementor-icon-list-text">contact@.com</span>
 													</a>
 												</li>
 											</ul>
@@ -2608,313 +2848,6 @@ function (event) {
 										data-id="a322d2e" data-element_type="widget"
 										data-widget_type="social-icons.default">
 										<div class="elementor-widget-container">
-											<style>
-												/*! elementor - v3.20.0 - 10-04-2024 */
-												.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,
-												.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,
-												.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container {
-													line-height: 1;
-													font-size: 0
-												}
-
-												.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid {
-													display: inline-grid
-												}
-
-												.elementor-widget-social-icons .elementor-grid {
-													grid-column-gap: var(--grid-column-gap, 5px);
-													grid-row-gap: var(--grid-row-gap, 5px);
-													grid-template-columns: var(--grid-template-columns);
-													justify-content: var(--justify-content, center);
-													justify-items: var(--justify-content, center)
-												}
-
-												.elementor-icon.elementor-social-icon {
-													font-size: var(--icon-size, 25px);
-													line-height: var(--icon-size, 25px);
-													width: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em));
-													height: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em))
-												}
-
-												.elementor-social-icon {
-													--e-social-icon-icon-color: #fff;
-													display: inline-flex;
-													background-color: #69727d;
-													align-items: center;
-													justify-content: center;
-													text-align: center;
-													cursor: pointer
-												}
-
-												.elementor-social-icon i {
-													color: var(--e-social-icon-icon-color)
-												}
-
-												.elementor-social-icon svg {
-													fill: var(--e-social-icon-icon-color)
-												}
-
-												.elementor-social-icon:last-child {
-													margin: 0
-												}
-
-												.elementor-social-icon:hover {
-													opacity: .9;
-													color: #fff
-												}
-
-												.elementor-social-icon-android {
-													background-color: #a4c639
-												}
-
-												.elementor-social-icon-apple {
-													background-color: #999
-												}
-
-												.elementor-social-icon-behance {
-													background-color: #1769ff
-												}
-
-												.elementor-social-icon-bitbucket {
-													background-color: #205081
-												}
-
-												.elementor-social-icon-codepen {
-													background-color: #000
-												}
-
-												.elementor-social-icon-delicious {
-													background-color: #39f
-												}
-
-												.elementor-social-icon-deviantart {
-													background-color: #05cc47
-												}
-
-												.elementor-social-icon-digg {
-													background-color: #005be2
-												}
-
-												.elementor-social-icon-dribbble {
-													background-color: #ea4c89
-												}
-
-												.elementor-social-icon-elementor {
-													background-color: #d30c5c
-												}
-
-												.elementor-social-icon-envelope {
-													background-color: #ea4335
-												}
-
-												.elementor-social-icon-facebook,
-												.elementor-social-icon-facebook-f {
-													background-color: #3b5998
-												}
-
-												.elementor-social-icon-flickr {
-													background-color: #0063dc
-												}
-
-												.elementor-social-icon-foursquare {
-													background-color: #2d5be3
-												}
-
-												.elementor-social-icon-free-code-camp,
-												.elementor-social-icon-freecodecamp {
-													background-color: #006400
-												}
-
-												.elementor-social-icon-github {
-													background-color: #333
-												}
-
-												.elementor-social-icon-gitlab {
-													background-color: #e24329
-												}
-
-												.elementor-social-icon-globe {
-													background-color: #69727d
-												}
-
-												.elementor-social-icon-google-plus,
-												.elementor-social-icon-google-plus-g {
-													background-color: #dd4b39
-												}
-
-												.elementor-social-icon-houzz {
-													background-color: #7ac142
-												}
-
-												.elementor-social-icon-instagram {
-													background-color: #262626
-												}
-
-												.elementor-social-icon-jsfiddle {
-													background-color: #487aa2
-												}
-
-												.elementor-social-icon-link {
-													background-color: #818a91
-												}
-
-												.elementor-social-icon-linkedin,
-												.elementor-social-icon-linkedin-in {
-													background-color: #0077b5
-												}
-
-												.elementor-social-icon-medium {
-													background-color: #00ab6b
-												}
-
-												.elementor-social-icon-meetup {
-													background-color: #ec1c40
-												}
-
-												.elementor-social-icon-mixcloud {
-													background-color: #273a4b
-												}
-
-												.elementor-social-icon-odnoklassniki {
-													background-color: #f4731c
-												}
-
-												.elementor-social-icon-pinterest {
-													background-color: #bd081c
-												}
-
-												.elementor-social-icon-product-hunt {
-													background-color: #da552f
-												}
-
-												.elementor-social-icon-reddit {
-													background-color: #ff4500
-												}
-
-												.elementor-social-icon-rss {
-													background-color: #f26522
-												}
-
-												.elementor-social-icon-shopping-cart {
-													background-color: #4caf50
-												}
-
-												.elementor-social-icon-skype {
-													background-color: #00aff0
-												}
-
-												.elementor-social-icon-slideshare {
-													background-color: #0077b5
-												}
-
-												.elementor-social-icon-snapchat {
-													background-color: #fffc00
-												}
-
-												.elementor-social-icon-soundcloud {
-													background-color: #f80
-												}
-
-												.elementor-social-icon-spotify {
-													background-color: #2ebd59
-												}
-
-												.elementor-social-icon-stack-overflow {
-													background-color: #fe7a15
-												}
-
-												.elementor-social-icon-steam {
-													background-color: #00adee
-												}
-
-												.elementor-social-icon-stumbleupon {
-													background-color: #eb4924
-												}
-
-												.elementor-social-icon-telegram {
-													background-color: #2ca5e0
-												}
-
-												.elementor-social-icon-threads {
-													background-color: #000
-												}
-
-												.elementor-social-icon-thumb-tack {
-													background-color: #1aa1d8
-												}
-
-												.elementor-social-icon-tripadvisor {
-													background-color: #589442
-												}
-
-												.elementor-social-icon-tumblr {
-													background-color: #35465c
-												}
-
-												.elementor-social-icon-twitch {
-													background-color: #6441a5
-												}
-
-												.elementor-social-icon-twitter {
-													background-color: #1da1f2
-												}
-
-												.elementor-social-icon-viber {
-													background-color: #665cac
-												}
-
-												.elementor-social-icon-vimeo {
-													background-color: #1ab7ea
-												}
-
-												.elementor-social-icon-vk {
-													background-color: #45668e
-												}
-
-												.elementor-social-icon-weibo {
-													background-color: #dd2430
-												}
-
-												.elementor-social-icon-weixin {
-													background-color: #31a918
-												}
-
-												.elementor-social-icon-whatsapp {
-													background-color: #25d366
-												}
-
-												.elementor-social-icon-wordpress {
-													background-color: #21759b
-												}
-
-												.elementor-social-icon-x-twitter {
-													background-color: #000
-												}
-
-												.elementor-social-icon-xing {
-													background-color: #026466
-												}
-
-												.elementor-social-icon-yelp {
-													background-color: #af0606
-												}
-
-												.elementor-social-icon-youtube {
-													background-color: #cd201f
-												}
-
-												.elementor-social-icon-500px {
-													background-color: #0099e5
-												}
-
-												.elementor-shape-rounded .elementor-icon.elementor-social-icon {
-													border-radius: 10%
-												}
-
-												.elementor-shape-circle .elementor-icon.elementor-social-icon {
-													border-radius: 50%
-												}
-											</style>
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
@@ -2946,6 +2879,12 @@ function (event) {
 									</div>
 								</div>
 							</div>
+
+
+
+
+
+                            
 							<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-c1a6497"
 								data-id="c1a6497" data-element_type="column">
 								<div class="elementor-widget-wrap elementor-element-populated">
@@ -2956,10 +2895,7 @@ function (event) {
 									</div>
 									<div class="elementor-element elementor-element-21a95c9 elementor-widget elementor-widget-wd_list"
 										data-id="21a95c9" data-element_type="widget" data-widget_type="wd_list.default">
-										<div class="elementor-widget-container">
-											
-
-										</div>
+										
 									</div>
 								</div>
 							</div>
@@ -3005,15 +2941,7 @@ function (event) {
 													<a href="contactus.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
-												<li class="elementor-repeater-item-f93516b">
-
-													<span class="list-content">
-														Products </span>
-
-
-													<a href="products.php" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
+												
 											</ul>
 
 										</div>
@@ -3161,25 +3089,19 @@ function (event) {
 			</div>
 		</footer>
 	</div> <!-- end wrapper -->
-	
-
+	<div class="wd-close-side wd-fill"></div>
+	<a href="contactus.php#" class="scrollToTop" aria-label="Scroll to top button"></a>
 	<?php
- 	 require_once('headermobile.php');
-	?>
+  require_once('headermobile.php');
+?>
 
-	
-	<!--END MOBILE-NAV-->
-
-
-
-	
 	<div class="wcjfw-total-placeholder wcjfw-hidden">
 		<input type="hidden" id="wcjfw-cart-total" value="0">
 	</div>
 	<div id="qlwapp" class="qlwapp qlwapp-free qlwapp-bubble qlwapp-bottom-left qlwapp-desktop qlwapp-rounded">
 		<div class="qlwapp-container">
 
-			<a class="qlwapp-toggle" data-action="open" data-phone="9001655666" data-message="Hello!" role="button"
+			<a class="qlwapp-toggle" data-action="open" data-phone="9929321144" data-message="Hello!" role="button"
 				tabindex="0" target="_blank">
 				<i class="qlwapp-icon qlwapp-whatsapp-icon"></i>
 				<i class="qlwapp-close" data-action="close">&times;</i>
@@ -3236,9 +3158,13 @@ function (event) {
 	<script type="text/template" id="tmpl-unavailable-variation-template">
 	<p>Sorry, this product is unavailable. Please choose a different combination.</p>
 </script>
-	<link rel='stylesheet' id='wpo_min-footer-0-css'
-		href="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-dce42836.min.css" type='text/css'
-		media='all' />
+	<!-- ERROR: WP-Optimize Minify was not allowed to save its cache on - wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-eael-2361703876320.min.js --><!-- Please check if the path above is correct and ensure your server has write permission there! -->
+	<link rel='stylesheet' id='0-css'
+		href='https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,0,4000,7000,500&#038;family=Roboto:ital,wght@0,0,1001,1000,2001,2000,3001,3000,4001,4000,5001,5000,6001,6000,7001,7000,8001,8000,9001,900&#038;family=Roboto+Slab:ital,wght@0,0,1001,1000,2001,2000,3001,3000,4001,4000,5001,5000,6001,6000,7001,7000,8001,8000,9001,900&#038;family=Mulish:ital,wght@0,0,1001,1000,2001,2000,3001,3000,4001,4000,5001,5000,6001,6000,7001,7000,8001,8000,9001,900&#038;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&#038;display=swap'
+		type='text/css' media='all' />
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/uploads/essential-addons-elementor/eael-236.js"
+		id="eael-236-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-0-js-extra">
 /* <![CDATA[ */
 var wd_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_922703ab473fa9b909b138c94b1e78ba","fragment_name":"wc_fragments_922703ab473fa9b909b138c94b1e78ba","request_timeout":"5000"};
@@ -3249,8 +3175,8 @@ var wd_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 		id="wpo_min-footer-0-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-1-js-extra">
 /* <![CDATA[ */
-var cr_ajax_object = {"ajax_url":"https:\/\/\/wp-admin\/admin-ajax.php"};
-var cr_ajax_object = {"ajax_url":"https:\/\/\/wp-admin\/admin-ajax.php","disable_lightbox":"0"};
+var cr_ajax_object = {"ajax_url":"https:\/\/.com\/wp-admin\/admin-ajax.php"};
+var cr_ajax_object = {"ajax_url":"https:\/\/.com\/wp-admin\/admin-ajax.php","disable_lightbox":"0"};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
@@ -3267,7 +3193,7 @@ var cr_ajax_object = {"ajax_url":"https:\/\/\/wp-admin\/admin-ajax.php","disable
 		id="wpo_min-footer-4-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-5-js-extra">
 /* <![CDATA[ */
-var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"ajaxurl":"https:\/\/\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"ajaxurl":"https:\/\/.com\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
@@ -3288,44 +3214,52 @@ var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-woo-feed-facebook-pixel,1.0.0.min.js"
 		id="wpo_min-footer-8-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-jquery-tiptip8.7.0.min.js"
-		id="wpo_min-footer-9-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-qlwappe91de9a147a4b721ec5b.min.js"
-		id="wpo_min-footer-10-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-11-js-extra">
+		id="wpo_min-footer-9-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-10-js-extra">
 /* <![CDATA[ */
-var wc_timeline = {"url":"https:\/\/\/wp-admin\/admin-ajax.php","open_on_add":"0","cart_url":"https:\/\/\/cart\/","is_cart_page":"","goals_count":"0","has_carousel":"1"};
+var wc_timeline = {"url":"https:\/\/.com\/wp-admin\/admin-ajax.php","open_on_add":"0","cart_url":"https:\/\/.com\/cart\/","is_cart_page":"","goals_count":"0","has_carousel":"1"};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wc_j_upsellator_js3.4.7.min.js"
+		id="wpo_min-footer-10-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-11-js-extra">
+/* <![CDATA[ */
+var localize = {"ajaxurl":"https:\/\/.com\/wp-admin\/admin-ajax.php","nonce":"c3f482a333","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https:\/\/.com\/contact-us\/","cart_redirectition":"no","cart_page_url":"https:\/\/.com\/cart\/","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"ParticleThemesData":{"default":"{\"particles\":{\"number\":{\"value\":160,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":true,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"repulse\"},\"onclick\":{\"enable\":true,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nasa":"{\"particles\":{\"number\":{\"value\":250,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":1,\"random\":true,\"anim\":{\"enable\":true,\"speed\":1,\"opacity_min\":0,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":4,\"size_min\":0.3,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":1,\"direction\":\"none\",\"random\":true,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":600}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":250,\"size\":0,\"duration\":2,\"opacity\":0,\"speed\":3},\"repulse\":{\"distance\":400,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","bubble":"{\"particles\":{\"number\":{\"value\":15,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#1b1e34\"},\"shape\":{\"type\":\"polygon\",\"stroke\":{\"width\":0,\"color\":\"#000\"},\"polygon\":{\"nb_sides\":6},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":50,\"random\":false,\"anim\":{\"enable\":true,\"speed\":10,\"size_min\":40,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":200,\"color\":\"#ffffff\",\"opacity\":1,\"width\":2},\"move\":{\"enable\":true,\"speed\":8,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":false,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","snow":"{\"particles\":{\"number\":{\"value\":450,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#fff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":500,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":2},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"bottom\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":0.5}},\"bubble\":{\"distance\":400,\"size\":4,\"duration\":0.3,\"opacity\":1,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nyan_cat":"{\"particles\":{\"number\":{\"value\":150,\"density\":{\"enable\":false,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"star\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"http:\/\/wiki.lexisnexis.com\/academic\/images\/f\/fb\/Itunes_podcast_icon_300.jpg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":4,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":14,\"direction\":\"left\",\"random\":false,\"straight\":true,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":200,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}"},"eael_login_nonce":"c43a6cb3cb","eael_register_nonce":"28464dd208","eael_lostpassword_nonce":"006ba960db","eael_resetpassword_nonce":"e1da0778f4"};
+/* ]]> */
+</script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-eael-general5.9.15.min.js"
 		id="wpo_min-footer-11-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-pro-webpack-runtime3.20.0.min.js"
-		id="wpo_min-footer-12-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-webpack-runtime3.20.4.min.js"
 		id="wpo_min-footer-13-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-frontend-modules3.20.4.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-webpack-runtime3.20.4.min.js"
 		id="wpo_min-footer-14-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-pro-frontend3.20.0.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-frontend-modules3.20.4.min.js"
 		id="wpo_min-footer-15-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-waypoints4.0.2.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wp-i18n5e580eb46a90c2b997e6.min.js"
 		id="wpo_min-footer-16-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-jquery-ui-core1.13.2.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-pro-frontend3.20.0.min.js"
 		id="wpo_min-footer-17-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-frontend3.20.4.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-waypoints4.0.2.min.js"
 		id="wpo_min-footer-18-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-pro-elements-handlers3.20.0.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-jquery-ui-core1.13.2.min.js"
 		id="wpo_min-footer-19-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-20-js-extra">
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-elementor-frontend3.20.4.min.js"
+		id="wpo_min-footer-20-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-pro-elements-handlers3.20.0.min.js"
+		id="wpo_min-footer-21-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-22-js-extra">
 /* <![CDATA[ */
 var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"};
 var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"};
@@ -3333,37 +3267,29 @@ var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-elementor1.8.7.min.js"
-		id="wpo_min-footer-20-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-21-js-extra">
-
-</script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-woodmart-theme7.1.4.min.js"
-		id="wpo_min-footer-21-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-woocommerce-notices7.1.4.min.js"
 		id="wpo_min-footer-22-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-scrollbar7.1.4.min.js"
-		id="wpo_min-footer-23-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-woocommerce-wrapp-table7.1.4.min.js"
-		id="wpo_min-footer-24-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-25-js-extra">
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-23-js-extra">
 /* <![CDATA[ */
-var localize = {"ajaxurl":"https:\/\/\/wp-admin\/admin-ajax.php","nonce":"18f5fb8f9e","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https:\/\/\/my-account\/","cart_redirectition":"no","cart_page_url":"https:\/\/\/cart\/","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"ParticleThemesData":{"default":"{\"particles\":{\"number\":{\"value\":160,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":true,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"repulse\"},\"onclick\":{\"enable\":true,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nasa":"{\"particles\":{\"number\":{\"value\":250,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":1,\"random\":true,\"anim\":{\"enable\":true,\"speed\":1,\"opacity_min\":0,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":4,\"size_min\":0.3,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":1,\"direction\":\"none\",\"random\":true,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":600}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":250,\"size\":0,\"duration\":2,\"opacity\":0,\"speed\":3},\"repulse\":{\"distance\":400,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","bubble":"{\"particles\":{\"number\":{\"value\":15,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#1b1e34\"},\"shape\":{\"type\":\"polygon\",\"stroke\":{\"width\":0,\"color\":\"#000\"},\"polygon\":{\"nb_sides\":6},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":50,\"random\":false,\"anim\":{\"enable\":true,\"speed\":10,\"size_min\":40,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":200,\"color\":\"#ffffff\",\"opacity\":1,\"width\":2},\"move\":{\"enable\":true,\"speed\":8,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":false,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","snow":"{\"particles\":{\"number\":{\"value\":450,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#fff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":500,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":2},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"bottom\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":0.5}},\"bubble\":{\"distance\":400,\"size\":4,\"duration\":0.3,\"opacity\":1,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nyan_cat":"{\"particles\":{\"number\":{\"value\":150,\"density\":{\"enable\":false,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"star\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"http:\/\/wiki.lexisnexis.com\/academic\/images\/f\/fb\/Itunes_podcast_icon_300.jpg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":4,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":14,\"direction\":\"left\",\"random\":false,\"straight\":true,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":200,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}"},"eael_login_nonce":"a72fac3df5","eael_register_nonce":"a57e28adaf","eael_lostpassword_nonce":"05043b5222","eael_resetpassword_nonce":"4a5372780f"};
+var woodmart_settings = {"menu_storage_key":"woodmart_8ce3279f3268b69002b606679d8624f3","ajax_dropdowns_save":"1","photoswipe_close_on_scroll":"1","woocommerce_ajax_add_to_cart":"yes","variation_gallery_storage_method":"new","elementor_no_gap":"enabled","adding_to_cart":"Processing","added_to_cart":"Product was successfully added to your cart.","continue_shopping":"Continue shopping","view_cart":"View Cart","go_to_checkout":"Checkout","loading":"Loading...","countdown_days":"days","countdown_hours":"hr","countdown_mins":"min","countdown_sec":"sc","cart_url":"https:\/\/.com\/cart\/","ajaxurl":"https:\/\/.com\/wp-admin\/admin-ajax.php","add_to_cart_action":"popup","added_popup":"no","categories_toggle":"no","enable_popup":"no","popup_delay":"2000","popup_event":"time","popup_scroll":"1000","popup_pages":"0","promo_popup_hide_mobile":"no","product_images_captions":"no","ajax_add_to_cart":"1","all_results":"View all results","zoom_enable":"yes","ajax_scroll":"yes","ajax_scroll_class":".main-page-wrapper","ajax_scroll_offset":"100","infinit_scroll_offset":"300","product_slider_auto_height":"yes","product_slider_dots":"no","price_filter_action":"click","product_slider_autoplay":"","close":"Close (Esc)","share_fb":"Share on Facebook","pin_it":"Pin it","tweet":"Tweet","download_image":"Download image","off_canvas_column_close_btn_text":"Close","cookies_version":"1","header_banner_version":"1","promo_version":"1","header_banner_close_btn":"yes","header_banner_enabled":"no","whb_header_clone":"\n    <div class=\"whb-sticky-header whb-clone whb-main-header <%wrapperClasses%>\">\n        <div class=\"<%cloneClass%>\">\n            <div class=\"container\">\n                <div class=\"whb-flex-row whb-general-header-inner\">\n                    <div class=\"whb-column whb-col-left whb-visible-lg\">\n                        <%.site-logo%>\n                    <\/div>\n                    <div class=\"whb-column whb-col-center whb-visible-lg\">\n                        <%.wd-header-main-nav%>\n                    <\/div>\n                    <div class=\"whb-column whb-col-right whb-visible-lg\">\n                        <%.wd-header-my-account%>\n                        <%.wd-header-search:not(.wd-header-search-mobile)%>\n\t\t\t\t\t\t<%.wd-header-wishlist%>\n                        <%.wd-header-compare%>\n                        <%.wd-header-cart%>\n                        <%.wd-header-fs-nav%>\n                    <\/div>\n                    <%.whb-mobile-left%>\n                    <%.whb-mobile-center%>\n                    <%.whb-mobile-right%>\n                <\/div>\n            <\/div>\n        <\/div>\n    <\/div>\n","pjax_timeout":"5000","split_nav_fix":"","shop_filters_close":"no","woo_installed":"1","base_hover_mobile_click":"no","centered_gallery_start":"1","quickview_in_popup_fix":"","one_page_menu_offset":"150","hover_width_small":"1","is_multisite":"","current_blog_id":"1","swatches_scroll_top_desktop":"no","swatches_scroll_top_mobile":"no","lazy_loading_offset":"0","add_to_cart_action_timeout":"no","add_to_cart_action_timeout_number":"3","single_product_variations_price":"no","google_map_style_text":"Custom style","quick_shop":"yes","sticky_product_details_offset":"150","preloader_delay":"300","comment_images_upload_size_text":"Some files are too large. Allowed file size is 1 MB.","comment_images_count_text":"You can upload up to 3 images to your review.","single_product_comment_images_required":"no","comment_required_images_error_text":"Image is required.","comment_images_upload_mimes_text":"You are allowed to upload images only in png, jpeg formats.","comment_images_added_count_text":"Added %s image(s)","comment_images_upload_size":"1048576","comment_images_count":"3","search_input_padding":"no","comment_images_upload_mimes":{"jpg|jpeg|jpe":"image\/jpeg","png":"image\/png"},"home_url":"https:\/\/.com\/","shop_url":"https:\/\/.com\/products\/","age_verify":"no","banner_version_cookie_expires":"60","promo_version_cookie_expires":"7","age_verify_expires":"30","cart_redirect_after_add":"no","swatches_labels_name":"no","product_categories_placeholder":"Select a category","product_categories_no_results":"No matches found","cart_hash_key":"wc_cart_hash_922703ab473fa9b909b138c94b1e78ba","fragment_name":"wc_fragments_922703ab473fa9b909b138c94b1e78ba","photoswipe_template":"<div class=\"pswp\" aria-hidden=\"true\" role=\"dialog\" tabindex=\"-1\"><div class=\"pswp__bg\"><\/div><div class=\"pswp__scroll-wrap\"><div class=\"pswp__container\"><div class=\"pswp__item\"><\/div><div class=\"pswp__item\"><\/div><div class=\"pswp__item\"><\/div><\/div><div class=\"pswp__ui pswp__ui--hidden\"><div class=\"pswp__top-bar\"><div class=\"pswp__counter\"><\/div><button class=\"pswp__button pswp__button--close\" title=\"Close (Esc)\"><\/button> <button class=\"pswp__button pswp__button--share\" title=\"Share\"><\/button> <button class=\"pswp__button pswp__button--fs\" title=\"Toggle fullscreen\"><\/button> <button class=\"pswp__button pswp__button--zoom\" title=\"Zoom in\/out\"><\/button><div class=\"pswp__preloader\"><div class=\"pswp__preloader__icn\"><div class=\"pswp__preloader__cut\"><div class=\"pswp__preloader__donut\"><\/div><\/div><\/div><\/div><\/div><div class=\"pswp__share-modal pswp__share-modal--hidden pswp__single-tap\"><div class=\"pswp__share-tooltip\"><\/div><\/div><button class=\"pswp__button pswp__button--arrow--left\" title=\"Previous (arrow left)\"><\/button> <button class=\"pswp__button pswp__button--arrow--right\" title=\"Next (arrow right)>\"><\/button><div class=\"pswp__caption\"><div class=\"pswp__caption__center\"><\/div><\/div><\/div><\/div><\/div>","load_more_button_page_url":"yes","load_more_button_page_url_opt":"no","menu_item_hover_to_click_on_responsive":"no","clear_menu_offsets_on_resize":"yes","three_sixty_framerate":"60","three_sixty_prev_next_frames":"5","ajax_search_delay":"300","animated_counter_speed":"3000","site_width":"1222","cookie_secure_param":"1","slider_distortion_effect":"sliderWithNoise","current_page_builder":"elementor","collapse_footer_widgets":"yes","ajax_fullscreen_content":"yes","grid_gallery_control":"hover","grid_gallery_enable_arrows":"none","ajax_links":".wd-nav-product-cat a, .website-wrapper .widget_product_categories a, .widget_layered_nav_filters a, .woocommerce-widget-layered-nav a, .filters-area:not(.custom-content) a, body.post-type-archive-product:not(.woocommerce-account) .woocommerce-pagination a, body.tax-product_cat:not(.woocommerce-account) .woocommerce-pagination a, .wd-shop-tools a:not(.breadcrumb-link), .woodmart-woocommerce-layered-nav a, .woodmart-price-filter a, .wd-clear-filters a, .woodmart-woocommerce-sort-by a, .woocommerce-widget-layered-nav-list a, .wd-widget-stock-status a, .widget_nav_mega_menu a, .wd-products-shop-view a, .wd-products-per-page a, .category-grid-item a, .wd-cat a, body[class*=\"tax-pa_\"] .woocommerce-pagination a","wishlist_expanded":"no","wishlist_show_popup":"enable","wishlist_page_nonce":"394bd16b4c","wishlist_fragments_nonce":"fc9c04501f","wishlist_remove_notice":"Do you really want to remove these products?","wishlist_hash_name":"woodmart_wishlist_hash_cd293198e35f34019acb34031f535867","wishlist_fragment_name":"woodmart_wishlist_fragments_cd293198e35f34019acb34031f535867","frequently_bought":"1ec5b1960b","is_criteria_enabled":"","summary_criteria_ids":"","myaccount_page":"https:\/\/.com\/my-account\/","vimeo_library_url":"https:\/\/.com\/wp-content\/themes\/woodmart\/js\/libs\/vimeo-player.min.js","reviews_criteria_rating_required":"no","is_rating_summary_filter_enabled":""};
+var woodmart_page_css = {"wd-widget-nav-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/widget-nav.min.css","wd-widget-product-cat-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woo-widget-product-cat.min.css","wd-wp-gutenberg-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/wp-gutenberg.min.css","wd-elementor-base-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/int-elem-base.min.css","wd-elementor-pro-base-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/int-elementor-pro.min.css","wd-woocommerce-base-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woocommerce-base.min.css","wd-mod-star-rating-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/mod-star-rating.min.css","wd-woo-el-track-order-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woo-el-track-order.min.css","wd-woo-gutenberg-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woo-gutenberg.min.css","wd-header-base-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/header-base.min.css","wd-mod-tools-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/mod-tools.min.css","wd-header-elements-base-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/header-el-base.min.css","wd-header-search-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/header-el-search.min.css","wd-header-search-form-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/header-el-search-form.min.css","wd-wd-search-results-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/wd-search-results.min.css","wd-wd-search-form-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/wd-search-form.min.css","wd-header-my-account-dropdown-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/header-el-my-account-dropdown.min.css","wd-woo-opt-social-login-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woo-opt-social-login.min.css","wd-woo-mod-login-form-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woo-mod-login-form.min.css","wd-header-my-account-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/header-el-my-account.min.css","wd-header-cart-side-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/header-el-cart-side.min.css","wd-woo-mod-quantity-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woo-mod-quantity.min.css","wd-header-cart-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/header-el-cart.min.css","wd-widget-shopping-cart-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woo-widget-shopping-cart.min.css","wd-widget-product-list-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/woo-widget-product-list.min.css","wd-page-title-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/page-title.min.css","wd-widget-collapse-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/opt-widget-collapse.min.css","wd-footer-base-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/footer-base.min.css","wd-section-title-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/el-section-title.min.css","wd-list-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/el-list.min.css","wd-scroll-top-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/opt-scrolltotop.min.css","wd-cookies-popup-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/opt-cookies.min.css","wd-bottom-toolbar-css":"https:\/\/.com\/wp-content\/themes\/woodmart\/css\/parts\/opt-bottom-toolbar.min.css"};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-eael-general5.9.15.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-woodmart-theme7.1.4.min.js"
+		id="wpo_min-footer-23-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-woocommerce-notices7.1.4.min.js"
+		id="wpo_min-footer-24-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-scrollbar7.1.4.min.js"
 		id="wpo_min-footer-25-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="https://stats.wp.com/e-202415.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="jetpack-stats-js-after">
 /* <![CDATA[ */
 _stq = window._stq || [];
-_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"217092730\",\"post\":\"233\",\"tz\":\"5.5\",\"srv\":\"\",\"j\":\"1:13.3.1\"}") ]);
-_stq.push([ "clickTrackerInit", "217092730", "233" ]);
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"217092730\",\"post\":\"236\",\"tz\":\"5.5\",\"srv\":\".com\",\"j\":\"1:13.3.1\"}") ]);
+_stq.push([ "clickTrackerInit", "217092730", "236" ]);
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
@@ -3382,19 +3308,19 @@ _stq.push([ "clickTrackerInit", "217092730", "233" ]);
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-ajax-search7.1.4.min.js"
 		id="wpo_min-footer-31-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-mini-cart-quantity7.1.4.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-login-dropdown7.1.4.min.js"
 		id="wpo_min-footer-32-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-woocommerce-quantity7.1.4.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-mini-cart-quantity7.1.4.min.js"
 		id="wpo_min-footer-33-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-on-remove-from-cart7.1.4.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-woocommerce-quantity7.1.4.min.js"
 		id="wpo_min-footer-34-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-mobile-search7.1.4.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-on-remove-from-cart7.1.4.min.js"
 		id="wpo_min-footer-35-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-login-tabs7.1.4.min.js"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-mobile-search7.1.4.min.js"
 		id="wpo_min-footer-36-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-widget-collapse7.1.4.min.js"
@@ -3416,7 +3342,7 @@ _stq.push([ "clickTrackerInit", "217092730", "233" ]);
 		id="wpo_min-footer-42-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-43-js-extra">
 /* <![CDATA[ */
-var wc_add_to_cart_variation_params = {"wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=233","i18n_no_matching_variations_text":"Sorry, no products matched your selection. Please choose a different combination.","i18n_make_a_selection_text":"Please select some product options before adding this product to your cart.","i18n_unavailable_text":"Sorry, this product is unavailable. Please choose a different combination."};
+var wc_add_to_cart_variation_params = {"wc_ajax_url":"\/?wc-ajax=%%endpoint%%&jcart_page_id=236","i18n_no_matching_variations_text":"Sorry, no products matched your selection. Please choose a different combination.","i18n_make_a_selection_text":"Please select some product options before adding this product to your cart.","i18n_unavailable_text":"Sorry, this product is unavailable. Please choose a different combination."};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
@@ -3430,6 +3356,32 @@ var wc_single_product_params = {"i18n_required_rating_text":"Please select a rat
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wc-single-product8.7.0.min.js"
 		id="wpo_min-footer-44-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-validation1.19.5.min.js"
+		id="wpo_min-footer-45-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-maskedinput5.0.7-beta.29.min.js"
+		id="wpo_min-footer-46-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-mailcheck1.1.2.min.js"
+		id="wpo_min-footer-47-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-punycode1.0.0.min.js"
+		id="wpo_min-footer-48-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-generic-utils1.8.7.min.js"
+		id="wpo_min-footer-49-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms1.8.7.min.js"
+		id="wpo_min-footer-50-js"></script>
+	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
+		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wpforms-modern1.8.7.min.js"
+		id="wpo_min-footer-51-js"></script>
+	<script data-wpmeteor-nooptimize="true" type='text/javascript'>
+		/* <![CDATA[ */
+		var wpforms_settings = { "val_required": "This field is required.", "val_email": "Please enter a valid email address.", "val_email_suggestion": "Did you mean {suggestion}?", "val_email_suggestion_title": "Click to accept this suggestion.", "val_email_restricted": "This email address is not allowed.", "val_number": "Please enter a valid number.", "val_number_positive": "Please enter a valid positive number.", "val_minimum_price": "Amount entered is less than the required minimum.", "val_confirm": "Field values do not match.", "val_checklimit": "You have exceeded the number of allowed selections: {#}.", "val_limit_characters": "{count} of {limit} max characters.", "val_limit_words": "{count} of {limit} max words.", "val_recaptcha_fail_msg": "Google reCAPTCHA verification failed, please try again later.", "val_turnstile_fail_msg": "Cloudflare Turnstile verification failed, please try again later.", "val_inputmask_incomplete": "Please fill out the field in required format.", "uuid_cookie": "1", "locale": "en", "wpforms_plugin_url": "https:\/\/.com\/wp-content\/plugins\/wpforms\/", "gdpr": "", "ajaxurl": "https:\/\/.com\/wp-admin\/admin-ajax.php", "mailcheck_enabled": "1", "mailcheck_domains": [], "mailcheck_toplevel_domains": ["dev"], "is_ssl": "1", "page_title": "Contact Us", "page_id": "236", "currency_code": "USD", "currency_thousands": ",", "currency_decimals": "2", "currency_decimal": ".", "currency_symbol": "$", "currency_symbol_pos": "left", "val_requiredpayment": "Payment is required.", "val_creditcard": "Please enter a valid credit card number.", "css_vars": ["field-border-radius", "field-background-color", "field-border-color", "field-text-color", "label-color", "label-sublabel-color", "label-error-color", "button-border-radius", "button-background-color", "button-text-color", "page-break-color", "field-size-input-height", "field-size-input-spacing", "field-size-font-size", "field-size-line-height", "field-size-padding-h", "field-size-checkbox-size", "field-size-sublabel-spacing", "field-size-icon-size", "label-size-font-size", "label-size-line-height", "label-size-sublabel-font-size", "label-size-sublabel-line-height", "button-size-font-size", "button-size-height", "button-size-padding-h", "button-size-margin-top"], "val_post_max_size": "The total size of the selected files {totalSize} MB exceeds the allowed limit {maxSize} MB.", "val_time12h": "Please enter time in 12-hour AM\/PM format (eg 8:45 AM).", "val_time24h": "Please enter time in 24-hour format (eg 22:45).", "val_time_limit": "Please enter time between {minTime} and {maxTime}.", "val_url": "Please enter a valid URL.", "val_fileextension": "File type is not allowed.", "val_filesize": "File exceeds max size allowed. File was not uploaded.", "post_max_size": "2147483648", "isModernMarkupEnabled": "1", "formErrorMessagePrefix": "Form error message", "errorMessagePrefix": "Error message", "submitBtnDisabled": "Submit button is disabled during form submission.", "val_password_strength": "A stronger password is required. Consider using upper and lower case letters, numbers, and symbols.", "val_phone": "Please enter a valid phone number.", "indicatorStepsPattern": "Step {current} of {total}", "entry_preview_iframe_styles": ["https:\/\/.com\/wp-includes\/js\/tinymce\/skins\/lightgray\/content.min.css?ver=6.5.2", "https:\/\/.com\/wp-includes\/css\/dashicons.min.css?ver=6.5.2", "https:\/\/.com\/wp-includes\/js\/tinymce\/skins\/wordpress\/wp-content.css?ver=6.5.2", "https:\/\/.com\/wp-content\/plugins\/wpforms\/assets\/pro\/css\/fields\/richtext\/editor-content.min.css"] }
+		/* ]]> */
+	</script>
 
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript">
 jQuery(document).ready(function($) {
@@ -3440,4 +3392,4 @@ $('.checkout_coupon').show();
 
 </html>
 
-<!-- WP Optimize page cache - https://getwpo.com - page NOT cached -->
+<!-- Cached by WP-Optimize (gzip) - https://getwpo.com - Last modified: April 13, 2024 11:54 PM (UTC:5.5) -->

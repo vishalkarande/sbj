@@ -1192,9 +1192,9 @@ if(isset($_POST['add_to_cart'])) {
           },
           {
             "@type": "Person",
-            "@id": "/author/pragssaltyjodhpur/",
+            "@id": "/author//",
             "name": "SBJNamkeens",
-            "url": "/author/pragssaltyjodhpur/",
+            "url": "/author//",
             "image": {
               "@type": "ImageObject",
               "@id": "https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g",
@@ -1204,7 +1204,7 @@ if(isset($_POST['add_to_cart'])) {
             },
             "sameAs": [
               "",
-              "https://www.facebook.com/pragssaltyjodhpur"
+              "https://www.facebook.com/"
             ],
             "worksFor": { "@id": "/#organization" }
           },
@@ -1215,7 +1215,7 @@ if(isset($_POST['add_to_cart'])) {
             "datePublished": "2023-05-19T06:06:02+05:30",
             "dateModified": "2024-04-06T19:51:49+05:30",
             "author": {
-              "@id": "/author/pragssaltyjodhpur/",
+              "@id": "/author//",
               "name": "SBJNamkeens"
             },
             "publisher": { "@id": "/#organization" },
@@ -1778,7 +1778,7 @@ if(isset($_POST['add_to_cart'])) {
     <script
       type="javascript/blocked"
       data-wpmeteor-type="text/javascript"
-      data-wpmeteor-src="https://stats.wp.com/s-202415.js"
+      data-wpmeteor-src=""
       id="woocommerce-analytics-js"
       defer="defer"
       data-wp-strategy="defer"

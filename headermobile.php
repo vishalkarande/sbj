@@ -43,7 +43,7 @@
 			</li>
 			
 			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1389 item-level-0"><a
-					href="../index.html@p=236" class="woodmart-nav-link"><span class="nav-link-text">Contact
+					href="contactus.php" class="woodmart-nav-link"><span class="nav-link-text">Contact
 						Us</span></a></li>
 
 
