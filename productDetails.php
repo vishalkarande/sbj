@@ -10,7 +10,9 @@ if(isset($_GET["pop"]) && isset($_GET["mes"])) {
 	  $message="Added to Cart. Continue Shopping";
 	}elseif($pop==1 && $mes==2){
 	  $message="Thank you for Making Order";
-	}else{
+	}elseif($pop==1 && $mes==3){
+		$message="Already Present in cart ";
+	  }else{
 	  $pop=0;
 	}
   }else{
@@ -55,13 +57,14 @@ if(isset($_POST['add_to_cart'])) {
     if(isset($_SESSION['cart'][$product_id])) {
       // If yes, update the quantity
       $_SESSION['cart'][$product_id] += $quantity;
-
+	  header("Location: {$_SERVER['PHP_SELF']}?id={$proID}&pop=1&mes=3");
   } else {
       // If not, add the product to the session
       $_SESSION['cart'][$product_id] = $quantity;
+	  header("Location: {$_SERVER['PHP_SELF']}?id={$proID}&pop=1&mes=1");
 
   }
-  header("Location: {$_SERVER['PHP_SELF']}?id=$proID");
+
   exit();
   }
 
