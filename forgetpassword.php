@@ -40,7 +40,7 @@ if(isset($_POST['restpass'])) {
         $token= rand(100000,999999);
             if($QueryFire->upDateTable("users",' email="'.trim(strip_tags($_POST['username'])).'"', array('access_token'=>$token,'is_verified'=>1))) {
 		    $to = $data['email'];
-            $subject = 'Welcome to SBJ Namkeens. You have successfully created your profile.';
+            $subject = 'Welcome to Saptdhanya. You have successfully created your profile.';
             $mail = new PHPMailer(true);
             
             $mail->isSMTP();
@@ -60,7 +60,7 @@ if(isset($_POST['restpass'])) {
               $template = str_replace('%name%', $data['name'] , $template);
               $template = str_replace('%data%', "Your Password Change Code ".$token." . </a><br><br> For any help kindly contact us at info@granostore.com" , $template);
               $template = str_replace('%link2%', 'https://saptdhanya.com/' , $template);
-              $template = str_replace('%link2text%', 'SBJ Namkeens' , $template);
+              $template = str_replace('%link2text%', 'Saptdhanya' , $template);
               $mail->isHTML(true); 
               $mailContent = $template;
               $mail->Body = $mailContent; 

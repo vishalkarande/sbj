@@ -18,7 +18,7 @@ if(isset($_GET['token'])) {
             //set session
             $_SESSION['user'] = $data;
             $to = $data['email'];
-            $subject = 'Welcome to SBJ Namkeens. You have successfully created your profile.';
+            $subject = 'Welcome to Saptdhanya. You have successfully created your profile.';
             $mail = new PHPMailer(true);
         
             $mail->isSMTP();
@@ -38,7 +38,7 @@ if(isset($_GET['token'])) {
               $template = str_replace('%name%', $data['name'] , $template);
               $template = str_replace('%data%', "You have verified your account on <a href='index.php'>Saptdhanya</a><br><br> For any help kindly contact us at info@granostore.com" , $template);
               $template = str_replace('%link2%', 'https://saptdhanya.com/' , $template);
-              $template = str_replace('%link2text%', 'SBJ Namkeens' , $template);
+              $template = str_replace('%link2text%', 'Saptdhanya' , $template);
               $mail->isHTML(true); 
               $mailContent = $template;
               $mail->Body = $mailContent; 

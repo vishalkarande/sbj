@@ -1111,24 +1111,24 @@ if(isset($_POST['add_to_cart'])) {
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
 	<title>
-		Buy Deliciously Crunchy Roasted Snacks &amp; Sweets- SBJNamkeens
+		Buy Deliciously Crunchy Roasted Snacks &amp; Sweets- Saptdhanya
 	</title>
 	<meta name="description"
-		content="Explore our tasty roasted millet snacks and sweets at SBJNamkeens! Upgrade your snacking experience today." />
+		content="Explore our tasty roasted millet snacks and sweets at Saptdhanya! Upgrade your snacking experience today." />
 	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
 	<link rel="canonical" href="index.html" />
 	<link rel="next" href="page/2/index.html" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Buy Deliciously Crunchy Roasted Snacks &amp; Sweets- SBJNamkeens" />
+	<meta property="og:title" content="Buy Deliciously Crunchy Roasted Snacks &amp; Sweets- Saptdhanya" />
 	<meta property="og:description"
-		content="Explore our tasty roasted millet snacks and sweets at SBJNamkeens! Upgrade your snacking experience today." />
+		content="Explore our tasty roasted millet snacks and sweets at Saptdhanya! Upgrade your snacking experience today." />
 
-	<meta property="og:site_name" content="SBJNamkeens" />
+	<meta property="og:site_name" content="Saptdhanya" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Buy Deliciously Crunchy Roasted Snacks &amp; Sweets- SBJNamkeens" />
+	<meta name="twitter:title" content="Buy Deliciously Crunchy Roasted Snacks &amp; Sweets- Saptdhanya" />
 	<meta name="twitter:description"
-		content="Explore our tasty roasted millet snacks and sweets at SBJNamkeens! Upgrade your snacking experience today." />
+		content="Explore our tasty roasted millet snacks and sweets at Saptdhanya! Upgrade your snacking experience today." />
 
 	<!-- /Rank Math WordPress SEO plugin -->
 
@@ -1136,9 +1136,9 @@ if(isset($_POST['add_to_cart'])) {
 	<link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
 	<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
 
-	<link rel="alternate" type="application/rss+xml" title="SBJNamkeens &raquo; Comments Feed"
+	<link rel="alternate" type="application/rss+xml" title="Saptdhanya &raquo; Comments Feed"
 		href="../comments/feed/index.html" />
-	<link rel="alternate" type="application/rss+xml" title="SBJNamkeens &raquo; Products Feed" href="feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="Saptdhanya &raquo; Products Feed" href="feed/index.html" />
 	<style id="jetpack-sharing-buttons-style-inline-css" type="text/css">
 		.jetpack-sharing-buttons__services-list {
 			display: flex;
@@ -2894,7 +2894,7 @@ function (event) {
 												class="title-wrapper set-mb-s reset-last-child wd-title-color-default wd-title-style-default wd-title-size-default text-center">
 												<div class="liner-continer">
 													<h4 class="woodmart-title-container title wd-fontsize-l">
-														© 2024 SBJNamkeens™. All Rights Reserved<br />
+														© 2024 Saptdhanya™. All Rights Reserved<br />
 													</h4>
 												</div>
 											</div>

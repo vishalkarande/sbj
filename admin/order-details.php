@@ -14,11 +14,13 @@ if(!empty($_POST['order_id'])) {
     }
   }
   $order = $QueryFire->getAllData('orders',' id= "'.$_POST['order_id'].'"')[0];
+
+
   $user = $QueryFire->getAllData('users',' id= "'.$order['user_id'].'"')[0];
   $address = array('address'=>$user['address'],'pincode'=>$user['pincode'],'name'=>$user['name'],'mobile_no'=>$user['mobile_no'],'street'=>'','city'=>'','state'=>'');
-  if($order['address_id'] != 0) {
-    $address = $QueryFire->getAllData('user_addresses',' id= "'.$order['address_id'].'"')[0];
-  }
+  // if($order['address_id'] != 0) {
+  //   $address = $QueryFire->getAllData('user_addresses',' id= "'.$order['address_id'].'"')[0];
+  // }
   $filters = $params = array();
   ?>
   <div class="card">
@@ -31,43 +33,43 @@ if(!empty($_POST['order_id'])) {
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
             <label class="label">Customer Name</label>
-            <input type="text" class="form-control" readonly name="name" value="<?php echo trim($address['name']);?>">
+            <input type="text" class="form-control" readonly name="name" value="<?php echo trim($order['user_name']);?>">
           </div>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
             <label class=" form-control-label">Customer Mobile</label>
-            <input type="text"  class="form-control" readonly name="customer_mobile" value="<?php echo trim($address['mobile_no']);?>">
+            <input type="text"  class="form-control" readonly name="customer_mobile" value="<?php echo trim($order['phone_number']);?>">
           </div>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
             <label class=" form-control-label">Customer Address</label>
-            <input type="text"  class="form-control" readonly name="customer_address" value="<?php echo trim($address['address']);?>">
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <label class=" form-control-label">City</label>
-            <input type="text"  class="form-control" readonly name="customer_address" value="<?php echo trim($address['state']);?>">
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <label class=" form-control-label">Street</label>
-            <input type="text"  class="form-control" readonly name="street" value="<?php echo trim($address['street']);?>">
+            <input type="text"  class="form-control" readonly name="customer_address" value="<?php echo trim($order['address']);?>">
           </div>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
             <label class=" form-control-label">State</label>
-            <input type="text"  class="form-control" readonly name="customer_address" value="<?php echo trim($address['state']);?>">
+            <input type="text"  class="form-control" readonly name="customer_address" value="<?php echo trim($order['state']);?>">
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label class=" form-control-label">Email</label>
+            <input type="text"  class="form-control" readonly name="street" value="<?php echo trim($order['email']);?>">
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label class=" form-control-label">Payment Status</label>
+            <input type="text"  class="form-control" readonly name="customer_address" value="<?php echo ($order['is_paid'] == 1) ? "paid" : "Not paid";?>">
           </div>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
             <label class=" form-control-label">Pincode</label>
-            <input type="text"  class="form-control" readonly name="pincode" value="<?php echo trim($address['pincode']);?>">
+            <input type="text"  class="form-control" readonly name="pincode" value="<?php echo trim($order['pincode']);?>">
           </div>
         </div>
       </div>
@@ -79,21 +81,23 @@ if(!empty($_POST['order_id'])) {
               <th>Product Name</th>
               <th>Qty</th>
               <th>Price</th>
-              <th>Discount</th>
+            
               <th>Subtotal</th>
             </tr>
           </thead>
           <tbody>
             <?php 
             $grandTotal=0;
-            foreach($products as $value) { ?>
+            foreach($products as $value) { 
+         
+              ?>
                 <tr>
                   <td>
                     <?php echo ucwords($value['name']) ?>
                     <?php 
                     $filter = array_values(array_filter($order_products,function($a) use($value) {
                         return $value['id']==$a['product_id'];
-                    }))[0];
+                    }))[0];                 
                     $pkey = array_search($filter['param_value_id'],array_column($value['params'],'id')); 
                     echo '<br><strong>'.$value['params'][$pkey]['param'].' </strong>: '.$value['params'][$pkey]['param_value'].' '.$value['params'][$pkey]['param_meter'];
                     ?>
@@ -101,9 +105,9 @@ if(!empty($_POST['order_id'])) {
                   <td>
                     <?php echo $filter['qty'];?>
                   </td>
-                  <td><?php echo $filter['price'];?></td>
-                  <td><?php echo$filter['discount'];?></td>
-                  <td><?php echo $subtotal = ($filter['qty'] * ( $filter['price'] - ($filter['price']* $filter['discount']/100)) ) ;$grandTotal+= $subtotal;?> </td>
+                  <td><?php echo $value['params'][0]['price'];?></td>
+                  
+                  <td><?php echo $subtotal = ($filter['qty'] *  $value['params'][0]['price'] ) ;$grandTotal+= $subtotal;?> </td>
                 </tr>
             <?php } ?>
           </tbody>
@@ -112,17 +116,11 @@ if(!empty($_POST['order_id'])) {
               <td colspan="4" class="text-right"><strong>Sub Total : </strong></td>
               <td><?php echo $grandTotal;?></td>
             </tr>
-            <tr>
-              <td colspan="4" class="text-right"><strong>Delivery Charge : </strong></td>
-              <td><?php echo $order['delivery_charge'];?></td>
-            </tr>
-            <tr>
-              <td colspan="4" class="text-right"><strong>Coupon Discount : </strong></td>
-              <td><?php echo $discount = $grandTotal*$order['discount']/100;?></td>
-            </tr>
+            
+           
             <tr>
               <td colspan="4" class="text-right"><strong>Grand Total : </strong></td>
-              <td><?php echo ($grandTotal + $order['delivery_charge'])-$discount;?></td>
+              <td><?php echo ($order['grand_total']);?></td>
             </tr>
           </tfoot>
         </table>

@@ -168,10 +168,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="coupons" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'coupons' ) ? 'active': ''; ?>">
+          <a href="social" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'social' ) ? 'active': ''; ?>">
             <i class="fas fa-percent nav-icon"></i>
             <p>
-              Coupons
+            social
             </p>
           </a>
         </li>

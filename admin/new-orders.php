@@ -31,6 +31,7 @@ if(!empty($_POST['order_id'])) {
     }
 }
 $orders = $QueryFire->getAllData('','','SELECT o.id,o.is_paid,o.date,o.delivery_charge, o.delivery_date,o.status,( (op.grand_total - (o.discount*op.grand_total/100) ) + o.delivery_charge) as grand_total,u.name,u.mobile_no  FROM orders as o JOIN (select order_id, sum( (price*qty) - (price*qty*(discount/100)) ) as grand_total from order_has_products GROUP BY order_id ) as op ON op.order_id=o.id  LEFT JOIN users as u ON u.id=o.user_id WHERE o.is_deleted=0 and o.status="in-process" ORDER BY o.id desc');
+
 ?>
   <section class="content-header">
     <div class="container-fluid">

@@ -4,7 +4,7 @@ require_once('admin/query.php');
 if (!isset($_SESSION['user'])) {
 	echo "<script>window.location.href='login.php';</script>";
 }else{
-	$orders=$QueryFire->getAllData('orders',' user_id='.$_SESSION['user']['id'].' ORDER BY id desc');
+	$orders=$QueryFire->getAllData('orders',' user_id='.$_SESSION['user']['id'].' and is_paid=1 ORDER BY id desc');
 
 }
 	

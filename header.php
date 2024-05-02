@@ -1083,10 +1083,10 @@ if(isset($_POST['add_to_cart'])) {
     </script>
 
     <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-    <title>SBJNamkeens - Buy Roasted Millet Snacks and Sweets Online</title>
+    <title>Saptdhanya - Buy Roasted Millet Snacks and Sweets Online</title>
     <meta
       name="description"
-      content="Indulge in the authentic flavors of India! Buy SBJNamkeens 100% roasted millet snacks, sweets, and namkeen online for a delicious taste of tradition"
+      content="Indulge in the authentic flavors of India! Buy Saptdhanya 100% roasted millet snacks, sweets, and namkeen online for a delicious taste of tradition"
     />
     <meta
       name="robots"
@@ -1097,14 +1097,14 @@ if(isset($_POST['add_to_cart'])) {
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="SBJNamkeens - Buy Roasted Millet Snacks and Sweets Online"
+      content="Saptdhanya - Buy Roasted Millet Snacks and Sweets Online"
     />
     <meta
       property="og:description"
-      content="Indulge in the authentic flavors of India! Buy SBJNamkeens 100% roasted millet snacks, sweets, and namkeen online for a delicious taste of tradition"
+      content="Indulge in the authentic flavors of India! Buy Saptdhanya 100% roasted millet snacks, sweets, and namkeen online for a delicious taste of tradition"
     />
    
-    <meta property="og:site_name" content="SBJNamkeens" />
+    <meta property="og:site_name" content="Saptdhanya" />
     <meta property="og:updated_time" content="2024-04-06T19:51:49+05:30" />
     <meta
       property="og:image"
@@ -1118,7 +1118,7 @@ if(isset($_POST['add_to_cart'])) {
     <meta property="og:image:height" content="413" />
     <meta
       property="og:image:alt"
-      content="SBJNamkeens Banner - 100% roasted millet snacks"
+      content="Saptdhanya Banner - 100% roasted millet snacks"
     />
     <meta property="og:image:type" content="image/webp" />
     <meta
@@ -1132,18 +1132,18 @@ if(isset($_POST['add_to_cart'])) {
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="SBJNamkeens - Buy Roasted Millet Snacks and Sweets Online"
+      content="Saptdhanya - Buy Roasted Millet Snacks and Sweets Online"
     />
     <meta
       name="twitter:description"
-      content="Indulge in the authentic flavors of India! Buy SBJNamkeens 100% roasted millet snacks, sweets, and namkeen online for a delicious taste of tradition"
+      content="Indulge in the authentic flavors of India! Buy Saptdhanya 100% roasted millet snacks, sweets, and namkeen online for a delicious taste of tradition"
     />
     <meta
       name="twitter:image"
       content="/wp-content/uploads/2024/02/Order-Now-91-9001655666-1024x413.webp"
     />
     <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="SBJNamkeens" />
+    <meta name="twitter:data1" content="Saptdhanya" />
     <meta name="twitter:label2" content="Time to read" />
     <meta name="twitter:data2" content="2 minutes" />
     <script type="application/ld+json" class="rank-math-schema">
@@ -1153,13 +1153,13 @@ if(isset($_POST['add_to_cart'])) {
           {
             "@type": "Organization",
             "@id": "/#organization",
-            "name": "SBJNamkeens"
+            "name": "Saptdhanya"
           },
           {
             "@type": "WebSite",
             "@id": "/#website",
             "url": "",
-            "name": "SBJNamkeens",
+            "name": "Saptdhanya",
             "publisher": { "@id": "/#organization" },
             "inLanguage": "en-US",
             "potentialAction": {
@@ -1180,7 +1180,7 @@ if(isset($_POST['add_to_cart'])) {
             "@type": "WebPage",
             "@id": "/#webpage",
             "url": "/",
-            "name": "SBJNamkeens - Buy Roasted Millet Snacks and Sweets Online",
+            "name": "Saptdhanya - Buy Roasted Millet Snacks and Sweets Online",
             "datePublished": "2023-05-19T06:06:02+05:30",
             "dateModified": "2024-04-06T19:51:49+05:30",
             "about": { "@id": "/#organization" },
@@ -1193,13 +1193,13 @@ if(isset($_POST['add_to_cart'])) {
           {
             "@type": "Person",
             "@id": "/author//",
-            "name": "SBJNamkeens",
+            "name": "Saptdhanya",
             "url": "/author//",
             "image": {
               "@type": "ImageObject",
               "@id": "https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g",
               "url": "https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g",
-              "caption": "SBJNamkeens",
+              "caption": "Saptdhanya",
               "inLanguage": "en-US"
             },
             "sameAs": [
@@ -1210,17 +1210,17 @@ if(isset($_POST['add_to_cart'])) {
           },
           {
             "@type": "Article",
-            "headline": "SBJNamkeens - Buy Roasted Millet Snacks and Sweets Online",
+            "headline": "Saptdhanya - Buy Roasted Millet Snacks and Sweets Online",
             "keywords": "Namkeen,Snacks,Sweets,Chips",
             "datePublished": "2023-05-19T06:06:02+05:30",
             "dateModified": "2024-04-06T19:51:49+05:30",
             "author": {
               "@id": "/author//",
-              "name": "SBJNamkeens"
+              "name": "Saptdhanya"
             },
             "publisher": { "@id": "/#organization" },
-            "description": "Indulge in the authentic flavors of India! Buy SBJNamkeens 100% roasted millet snacks, sweets, and namkeen online for a delicious taste of tradition",
-            "name": "SBJNamkeens - Buy Roasted Millet Snacks and Sweets Online",
+            "description": "Indulge in the authentic flavors of India! Buy Saptdhanya 100% roasted millet snacks, sweets, and namkeen online for a delicious taste of tradition",
+            "name": "Saptdhanya - Buy Roasted Millet Snacks and Sweets Online",
             "@id": "/#richSnippet",
             "isPartOf": { "@id": "/#webpage" },
             "image": {
@@ -1240,13 +1240,13 @@ if(isset($_POST['add_to_cart'])) {
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="SBJNamkeens &raquo; Feed"
+      title="Saptdhanya &raquo; Feed"
       href="feed/index.html"
     />
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="SBJNamkeens &raquo; Comments Feed"
+      title="Saptdhanya &raquo; Comments Feed"
       href="comments/feed/index.html"
     />
     <style id="jetpack-sharing-buttons-style-inline-css" type="text/css">

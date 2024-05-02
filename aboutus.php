@@ -27,18 +27,18 @@ $data = $QueryFire->getAllData('pageandcontents','id=1')[0];
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript">window._wca = window._wca || [];</script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-	<title>About SBJNamkeens: Your Journey into Irresistible Flavors</title>
+	<title>About Saptdhanya: Your Journey into Irresistible Flavors</title>
 	<meta name="description"
-		content="Discover the creativity and passion that go into SBJNamkeens. Find out about our commitment to providing nutritious meals and true flavors." />
+		content="Discover the creativity and passion that go into Saptdhanya. Find out about our commitment to providing nutritious meals and true flavors." />
 	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
 	<link rel="canonical" href="aboutus.php" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="About SBJNamkeens: Your Journey into Irresistible Flavors" />
+	<meta property="og:title" content="About Saptdhanya: Your Journey into Irresistible Flavors" />
 	<meta property="og:description"
-		content="Discover the creativity and passion that go into SBJNamkeens. Find out about our commitment to providing nutritious meals and true flavors." />
+		content="Discover the creativity and passion that go into Saptdhanya. Find out about our commitment to providing nutritious meals and true flavors." />
 	<meta property="og:url" content="about-us/" />
-	<meta property="og:site_name" content="SBJNamkeens" />
+	<meta property="og:site_name" content="Saptdhanya" />
 	<meta property="article:author" content="https://www.facebook.com/" />
 	<meta property="og:updated_time" content="2023-11-27T21:47:56+05:30" />
 	<meta property="og:image"
@@ -52,22 +52,22 @@ $data = $QueryFire->getAllData('pageandcontents','id=1')[0];
 	<meta property="article:published_time" content="2023-05-19T06:26:17+05:30" />
 	<meta property="article:modified_time" content="2023-11-27T21:47:56+05:30" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="About SBJNamkeens: Your Journey into Irresistible Flavors" />
+	<meta name="twitter:title" content="About Saptdhanya: Your Journey into Irresistible Flavors" />
 	<meta name="twitter:description"
-		content="Discover the creativity and passion that go into SBJNamkeens. Find out about our commitment to providing nutritious meals and true flavors." />
+		content="Discover the creativity and passion that go into Saptdhanya. Find out about our commitment to providing nutritious meals and true flavors." />
 	<meta name="twitter:image"
 		content="wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg" />
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="1 minute" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":"SBJNamkeens"},{"@type":"WebSite","@id":"#website","url":"","name":"SBJNamkeens","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg","url":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"about-us/#webpage","url":"about-us/","name":"About SBJNamkeens: Your Journey into Irresistible Flavors","datePublished":"2023-05-19T06:26:17+05:30","dateModified":"2023-11-27T21:47:56+05:30","isPartOf":{"@id":"#website"},"primaryImageOfPage":{"@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg"},"inLanguage":"en-US"},{"@type":"Person","@id":"author//","name":"SBJNamkeens","url":"author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"SBJNamkeens","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"About SBJNamkeens: Your Journey into Irresistible Flavors","keywords":"about,SBJNamkeens","datePublished":"2023-05-19T06:26:17+05:30","dateModified":"2023-11-27T21:47:56+05:30","author":{"@id":"author//","name":"SBJNamkeens"},"publisher":{"@id":"#organization"},"description":"Discover\u00a0the creativity and passion that go into SBJNamkeens. Find out about our commitment to providing nutritious meals and true flavors.","name":"About SBJNamkeens: Your Journey into Irresistible Flavors","@id":"about-us/#richSnippet","isPartOf":{"@id":"about-us/#webpage"},"image":{"@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"about-us/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"#website","url":"","name":"Saptdhanya","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg","url":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"about-us/#webpage","url":"about-us/","name":"About Saptdhanya: Your Journey into Irresistible Flavors","datePublished":"2023-05-19T06:26:17+05:30","dateModified":"2023-11-27T21:47:56+05:30","isPartOf":{"@id":"#website"},"primaryImageOfPage":{"@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg"},"inLanguage":"en-US"},{"@type":"Person","@id":"author//","name":"Saptdhanya","url":"author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"About Saptdhanya: Your Journey into Irresistible Flavors","keywords":"about,Saptdhanya","datePublished":"2023-05-19T06:26:17+05:30","dateModified":"2023-11-27T21:47:56+05:30","author":{"@id":"author//","name":"Saptdhanya"},"publisher":{"@id":"#organization"},"description":"Discover\u00a0the creativity and passion that go into Saptdhanya. Find out about our commitment to providing nutritious meals and true flavors.","name":"About Saptdhanya: Your Journey into Irresistible Flavors","@id":"about-us/#richSnippet","isPartOf":{"@id":"about-us/#webpage"},"image":{"@id":"wp-content/uploads/2023/06/350796912_929944481417648_3935483572900069223_n.jpg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"about-us/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='https://stats.wp.com/' />
 	<link rel='dns-prefetch' href='https://www.googletagmanager.com/' />
 	<link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
-	<link rel="alternate" type="application/rss+xml" title="SBJNamkeens &raquo; Feed" href="../feed/index.html" />
-	<link rel="alternate" type="application/rss+xml" title="SBJNamkeens &raquo; Comments Feed"
+	<link rel="alternate" type="application/rss+xml" title="Saptdhanya &raquo; Feed" href="../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="Saptdhanya &raquo; Comments Feed"
 		href="../comments/feed/index.html" />
 	<style id='jetpack-sharing-buttons-style-inline-css' type='text/css'>
 		.jetpack-sharing-buttons__services-list {
@@ -1700,7 +1700,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 												<div class="liner-continer">
 													<h4 class="woodmart-title-container title wd-fontsize-l">© 2024
-														SBJNamkeens™. All Rights
+														Saptdhanya™. All Rights
 														Reserved<br />
 													</h4>
 												</div>

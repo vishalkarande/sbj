@@ -40,9 +40,17 @@ if(isset($_GET["pop"]) && isset($_GET["mes"])) {
 if(isset($_POST['login'])) {
     $data = $QueryFire->getAllData('users',' email="'.trim(strip_tags($_POST['username'])).'" and password ="'.md5(trim(strip_tags($_POST['password']))).'"');
     if(!empty($data[0])) {
+		
 		$data = $data[0];
-		$_SESSION['user'] = $data;
-		echo "<script>window.location.href = 'index.php';</script>";
+		if($data["is_verified"]==1){
+			echo "<script> alert('Please Verify your enmail. Link is sent to your Mail.');window.location.href='login.php';</script>";
+			exit();
+		}else{
+			$_SESSION['user'] = $data;
+			echo "<script>window.location.href = 'index.php';</script>";
+
+		}
+		
 	}else{
 		header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=4");
 		exit();
@@ -68,7 +76,7 @@ if(isset($_POST['register'])) {
 		$data['is_verified'] = 0;
 		
 		$to = $data['email'];
-		$subject = 'Welcome to SBJ Namkeens. You have successfully created your profile.';
+		$subject = 'Welcome to Saptdhanya. You have successfully created your profile.';
 		$mail = new PHPMailer(true);
 
 		$mail->isSMTP();
@@ -85,7 +93,7 @@ if(isset($_POST['register'])) {
 		$mail->addAddress($to); 
 		$template = file_get_contents('verify_template.php');
 		$template = str_replace('%name%', $data['name'] , $template);
-		$template = str_replace('%link2text%', 'SBJ Namkeens' , $template);
+		$template = str_replace('%link2text%', 'Saptdhanya' , $template);
 		$template = str_replace('%link2%', 'https://saptdhanya.com' , $template);
 		$template = str_replace('%link%', 'https://saptdhanya.com/verify/'.$data['access_token'] , $template);
 		$mail->isHTML(true); 
@@ -3146,7 +3154,7 @@ function (event) {
 
 												<div class="liner-continer">
 													<h4 class="woodmart-title-container title wd-fontsize-l">© 2024
-														SBJNamkeens™. All Rights Reserved<br />
+														Saptdhanya™. All Rights Reserved<br />
 													</h4>
 												</div>
 

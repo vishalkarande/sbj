@@ -96,18 +96,18 @@ if(isset($_POST['add_to_cart'])) {
 	</script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-	<title>Aalu Wafers + Salty Vinegar Crunch - SBJNamkeens</title>
+	<title>Aalu Wafers + Salty Vinegar Crunch - Saptdhanya</title>
 	<meta name="description"
 		content="Introducing our irresistible combo pack: &quot;Salty Vinegar Crunch &amp; Aloo Wafer Chips!&quot; Indulge in the perfect balance of tangy vinegar and crispy goodness, paired with the classic taste of our delectable Aloo Wafer Chips. Get ready for a flavor explosion in every bite! Order now and satisfy your cravings with this irresistible combination." />
 	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
 	<link rel="canonical" href="index.php" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="product" />
-	<meta property="og:title" content="Aalu Wafers + Salty Vinegar Crunch - SBJNamkeens" />
+	<meta property="og:title" content="Aalu Wafers + Salty Vinegar Crunch - Saptdhanya" />
 	<meta property="og:description"
 		content="Introducing our irresistible combo pack: &quot;Salty Vinegar Crunch &amp; Aloo Wafer Chips!&quot; Indulge in the perfect balance of tangy vinegar and crispy goodness, paired with the classic taste of our delectable Aloo Wafer Chips. Get ready for a flavor explosion in every bite! Order now and satisfy your cravings with this irresistible combination." />
 
-	<meta property="og:site_name" content="SBJNamkeens" />
+	<meta property="og:site_name" content="Saptdhanya" />
 	<meta property="og:updated_time" content="2024-03-21T21:36:34+05:30" />
 	<meta property="og:image" content="wp-content/uploads/2023/07/combo-6-2.webp" />
 	<meta property="og:image:secure_url" content="wp-content/uploads/2023/07/combo-6-2.webp" />
@@ -119,7 +119,7 @@ if(isset($_POST['add_to_cart'])) {
 	<meta property="product:price:currency" content="INR" />
 	<meta property="product:availability" content="instock" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Aalu Wafers + Salty Vinegar Crunch - SBJNamkeens" />
+	<meta name="twitter:title" content="Aalu Wafers + Salty Vinegar Crunch - Saptdhanya" />
 	<meta name="twitter:description"
 		content="Introducing our irresistible combo pack: &quot;Salty Vinegar Crunch &amp; Aloo Wafer Chips!&quot; Indulge in the perfect balance of tangy vinegar and crispy goodness, paired with the classic taste of our delectable Aloo Wafer Chips. Get ready for a flavor explosion in every bite! Order now and satisfy your cravings with this irresistible combination." />
 	<meta name="twitter:image" content="wp-content/uploads/2023/07/combo-6-2.webp" />
@@ -133,11 +133,11 @@ if(isset($_POST['add_to_cart'])) {
 	<link rel='dns-prefetch' href='https://www.google.com/' />
 	<link rel='dns-prefetch' href='https://www.googletagmanager.com/' />
 	<link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
-	<link rel="alternate" type="application/rss+xml" title="SBJNamkeens &raquo; Feed" href="../../../feed/index.html" />
-	<link rel="alternate" type="application/rss+xml" title="SBJNamkeens &raquo; Comments Feed"
+	<link rel="alternate" type="application/rss+xml" title="Saptdhanya &raquo; Feed" href="../../../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="Saptdhanya &raquo; Comments Feed"
 		href="../../../comments/feed/index.html" />
 	<link rel="alternate" type="application/rss+xml"
-		title="SBJNamkeens &raquo; Aalu Wafers + Salty Vinegar Crunch Comments Feed" href="feed/index.html" />
+		title="Saptdhanya &raquo; Aalu Wafers + Salty Vinegar Crunch Comments Feed" href="feed/index.html" />
 	<style id='jetpack-sharing-buttons-style-inline-css' type='text/css'>
 		.jetpack-sharing-buttons__services-list {
 			display: flex;
@@ -2272,7 +2272,7 @@ function (event) {
 
 												<div class="liner-continer">
 													<h4 class="woodmart-title-container title wd-fontsize-l">© 2024
-														SBJNamkeens™. All Rights Reserved<br />
+														Saptdhanya™. All Rights Reserved<br />
 													</h4>
 												</div>
 

@@ -4,8 +4,14 @@ if(isset($_POST['login'])) {
     $data = $QueryFire->getAllData('users',' email="'.trim(strip_tags($_POST['username'])).'" and password ="'.md5(trim(strip_tags($_POST['password']))).'"');
     if(!empty($data[0])) {
 		$data = $data[0];
+		if($data["is_verified"]==1){
+			echo "<script> alert('Please Verify your enmail. Link is sent to your Mail.');window.location.href='login.php';</script>";
+			exit();
+		}else{
+		
 		$_SESSION['user'] = $data;
 		echo "<script>window.location.href = 'index.php';</script>";
+		}
 }else{
 	echo "<script>window.location.href = 'login.php?pop=1&mes=4';</script>";
 
@@ -67,7 +73,7 @@ if(isset($_POST['trackOrder'])) {
 					<div class="whb-column whb-col-left whb-visible-lg">
 						<div class="site-logo">
 							<a href="index.php" class="wd-logo wd-main-logo" rel="home">
-								<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="SBJNamkeens"
+								<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="Saptdhanya"
 									style="max-width: 250px;" /> </a>
 						</div>
 					</div>
@@ -290,7 +296,7 @@ if(isset($_POST['trackOrder'])) {
 					<div class="whb-column whb-mobile-center whb-hidden-lg">
 						<div class="site-logo">
 							<a href="index.php" class="wd-logo wd-main-logo" rel="home">
-								<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="SBJNamkeens"
+								<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="Saptdhanya"
 									style="max-width: 149px;" /> </a>
 						</div>
 					</div>
