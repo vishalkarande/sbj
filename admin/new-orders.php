@@ -22,7 +22,7 @@ if(!empty($_POST['order_id'])) {
       $subject = 'Your order on Saptdhanya has been '.ucfirst($status);
         $headers= "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: Admin <info@Saptdhanya.com>' . "\r\n";
+        $headers .= 'From: Admin <saptdhanya@gmail.com>' . "\r\n";
         $template = file_get_contents('../mail_template.php');
         $template = str_replace('%name%', ucwords($order['name']) , $template);
         $template = str_replace('%data%', "Your order #GS".$_POST['order_id']." on Saptdhanya is ".$_POST['user_action'] , $template);

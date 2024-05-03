@@ -6,7 +6,11 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 }else{
     $cart_value=0;
 }
-
+$social = $QueryFire->getAllData('coupons',' 1');
+$socialArray = array();
+foreach($social as $soc){
+	$socialArray[$soc['code']]=$soc['discount'];
+}
 if(isset($_GET["pop"]) && isset($_GET["mes"])) {
     $pop=$_GET["pop"];
     $mes=$_GET['mes'];
@@ -1100,7 +1104,6 @@ if(isset($_POST['submit_req'])) {
 		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://.com/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"https://.com/#website","url":"https://.com","name":"Saptdhanya","publisher":{"@id":"https://.com/#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg","url":"wp-content/plugins/wpforms/assets/images/submit-spin.svg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://.com/contact-us/#webpage","url":"https://.com/contact-us/","name":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","datePublished":"2023-05-19T06:26:11+05:30","dateModified":"2023-12-29T18:58:40+05:30","isPartOf":{"@id":"https://.com/#website"},"primaryImageOfPage":{"@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://.com/author//","name":"Saptdhanya","url":"https://.com/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["https://.com","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"https://.com/#organization"}},{"@type":"Article","headline":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","keywords":"Contact,Saptdhanya","datePublished":"2023-05-19T06:26:11+05:30","dateModified":"2023-12-29T18:58:40+05:30","author":{"@id":"https://.com/author//","name":"Saptdhanya"},"publisher":{"@id":"https://.com/#organization"},"description":"Have a question or craving for our delicious namkeen treats? Contact us at Saptdhanya and let your taste buds experience pure delight!","name":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","@id":"https://.com/contact-us/#richSnippet","isPartOf":{"@id":"https://.com/contact-us/#webpage"},"image":{"@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://.com/contact-us/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
-	<link rel='dns-prefetch' href='https://stats.wp.com/' />
 	<link rel='dns-prefetch' href='https://www.googletagmanager.com/' />
 	<link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
 	<link rel="alternate" type="application/rss+xml" title="Saptdhanya &raquo; Feed" href="../feed/index.html" />
@@ -1727,11 +1730,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
 	<!-- End Google Tag Manager snippet added by Site Kit -->
-	<link rel="icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-32x32.png" sizes="32x32" />
-	<link rel="icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" sizes="192x192" />
-	<link rel="apple-touch-icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
-	<meta name="msapplication-TileImage"
-		content="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
+	
 	<style type="text/css" id="wp-custom-css">
 		.sku_wrapper {
 			display: none !important;
@@ -2010,7 +2009,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																	</h5>
 																	<p class="elementor-icon-box-description">
 																		<a
-																			href="mailto:contact@.com">contact@.com</a>
+																			href="mailto:saptdhanya@gmail.com">saptdhanya@gmail.com</a>
 																	</p>
 																</div>
 															</div>
@@ -2825,12 +2824,12 @@ function (event) {
 										<div class="elementor-widget-container">
 											<ul class="elementor-icon-list-items">
 												<li class="elementor-icon-list-item">
-													<a href="mailto:contact@.com">
+													<a href="mailto:saptdhanya@gmail.com">
 
 														<span class="elementor-icon-list-icon">
 															<i aria-hidden="true" class="fas fa-envelope"></i> </span>
 														<span
-															class="elementor-icon-list-text">contact@.com</span>
+															class="elementor-icon-list-text">saptdhanya@gmail.com</span>
 													</a>
 												</li>
 											</ul>

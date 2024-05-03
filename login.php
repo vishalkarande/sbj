@@ -74,7 +74,7 @@ if(isset($_POST['register'])) {
 		$data['is_verified'] = 0;
 		
 		$to = $data['email'];
-		$subject = 'Welcome to Saptdhanya. You have successfully created your profile.';
+		$subject = 'Welcome to Saptdhanya. Verify your profile.';
 		$mail = new PHPMailer(true);
 
 		$mail->isSMTP();
@@ -1918,10 +1918,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
 	<!-- End Google Tag Manager snippet added by Site Kit -->
-	<link rel="icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-32x32.png" sizes="32x32" />
-	<link rel="icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" sizes="192x192" />
-	<link rel="apple-touch-icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
-	<meta name="msapplication-TileImage" content="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
 	<style type="text/css" id="wp-custom-css">
 		.sku_wrapper {
 			display: none !important;

@@ -1977,24 +1977,7 @@ if(isset($_POST['add_to_cart'])) {
     </script>
 
     <!-- End Google Tag Manager snippet added by Site Kit -->
-    <link
-      rel="icon"
-      href="wp-content/uploads/2024/01/slazzer-edit-image-1-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png"
-      sizes="192x192"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png"
-    />
-    <meta
-      name="msapplication-TileImage"
-      content="/wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png"
-    />
+ 
     <style type="text/css" id="wp-custom-css">
       			.sku_wrapper{
       	display: none !important;

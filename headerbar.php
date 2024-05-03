@@ -75,7 +75,7 @@ if(isset($_POST['trackOrder'])) {
 						<div class="site-logo">
 							<a href="index.php" class="wd-logo wd-main-logo" rel="home">
 								<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="Saptdhanya"
-									style="max-width: 250px;" /> </a>
+									style="max-width: 150px;" /> </a>
 						</div>
 					</div>
 					<div class="whb-column whb-col-center whb-visible-lg">
@@ -298,7 +298,7 @@ if(isset($_POST['trackOrder'])) {
 						<div class="site-logo">
 							<a href="index.php" class="wd-logo wd-main-logo" rel="home">
 								<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt="Saptdhanya"
-									style="max-width: 149px;" /> </a>
+									style="max-width: 129px;" /> </a>
 						</div>
 					</div>
 					<div class="whb-column whb-mobile-right whb-hidden-lg">

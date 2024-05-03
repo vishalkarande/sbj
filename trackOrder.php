@@ -783,12 +783,7 @@ foreach($social as $soc){
       /* ]]> */
     </script>
 
-	<!-- End Google Tag Manager snippet added by Site Kit -->
-	<link rel="icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-32x32.png" sizes="32x32" />
-	<link rel="icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" sizes="192x192" />
-	<link rel="apple-touch-icon" href="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
-	<meta name="msapplication-TileImage" content="wp-content/uploads/2024/01/slazzer-edit-image-1-300x300.png" />
-	<style type="text/css" id="wp-custom-css">
+<style type="text/css" id="wp-custom-css">
 		.sku_wrapper {
 			display: none !important;
 		}
@@ -964,7 +959,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="site-logo">
 									<a href="index.php" class="wd-logo wd-main-logo" rel="home">
 										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt=""
-											style="max-width: 250px" />
+											style="max-width: 150px" />
 									</a>
 								</div>
 							</div>
@@ -1091,7 +1086,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="site-logo">
 									<a href="index.php" class="wd-logo wd-main-logo" rel="home">
 										<img src="wp-content/uploads/2024/01/slazzer-edit-image-1.png" alt=""
-											style="max-width: 149px" />
+											style="max-width: 129px" />
 									</a>
 								</div>
 							</div>
@@ -1485,7 +1480,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 														<span class="elementor-icon-list-icon">
 															<i aria-hidden="true" class="fas fa-envelope"></i> </span>
-														<span class="elementor-icon-list-text">contact@</span>
+														<span class="elementor-icon-list-text">saptdhanya@gmail.com</span>
 													</a>
 												</li>
 											</ul>
