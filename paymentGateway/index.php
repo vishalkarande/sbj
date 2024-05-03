@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>How to Integrate Razorpay payment gateway in PHP | tutorialswebsite.com</title>
+<title>How to Integrate Razorpay payment gateway in PHP | saptdhanya.com</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="form-group">
-                        
+                        <input type="hidden" class="form-control" name="order_id" id="order_id" value="<?=$product['id'] ?>">
                             <input type="hidden" class="form-control" name="billing_name" id="billing_name" value="<?=$product['user_name'] ?>">
                         </div>
                         <div class="form-group">
@@ -69,17 +69,19 @@ let billing_name = $('#billing_name').val();
   var shipping_name = $('#billing_name').val();
 	var shipping_mobile = $('#billing_mobile').val();
 	var shipping_email = $('#billing_email').val();
+    var order_id = $('#order_id').val();
 var paymentOption= "netbanking";
 var payAmount = $('#payAmount').val();
-payAmount=1;	
+//payAmount=1;	
 var request_url="submitpayment.php";
 		var formData = {
-			billing_name:billing_name,
+			billing_name:billing_name, 
 			billing_mobile:billing_mobile,
 			billing_email:billing_email,
 			shipping_name:shipping_name,
 			shipping_mobile:shipping_mobile,
 			shipping_email:shipping_email,
+            order_id:order_id,
 			paymentOption:paymentOption,
 			payAmount:payAmount,
 			action:'payOrder'
@@ -92,7 +94,7 @@ var request_url="submitpayment.php";
 			dataType: 'json',
 			encode:true,
 		}).done(function(data){
-		
+		var ref_id=data.userData.order_ref;
 		if(data.res=='success'){
 				var orderID=data.order_number;
 				var orderNumber=data.order_number;
@@ -100,18 +102,18 @@ var request_url="submitpayment.php";
     "key": "rzp_live_vIiWgzpuf8q8fJ", // Enter the Key ID generated from the Dashboard
     "amount": data.userData.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
-    "name": "Tutorialswebsite", //your business name
+    "name": "saptdhanya", //your business name
     "description": data.userData.description,
-    "image": "https://www.tutorialswebsite.com/wp-content/uploads/2022/02/cropped-logo-tw.png",
+    "image": "https://www.saptdhanya.com/wp-content/uploads/2022/02/cropped-logo-tw.png",
     "order_id": data.userData.rpay_order_id, //This is a sample Order ID. Pass 
     "handler": function (response){
- 
-    window.location.replace("payment-success.php?oid="+orderID+"&rp_payment_id="+response.razorpay_payment_id+"&rp_signature="+response.razorpay_signature);
+        console.log(response);
+   window.location.replace("payment-success.php?oid="+orderID+"&rp_payment_id="+response.razorpay_payment_id+"&rp_signature="+response.razorpay_signature+"&ref_id="+ref_id);
  
     },
     "modal": {
     "ondismiss": function(){
-         window.location.replace("payment-success.php?oid="+orderID);
+         window.location.replace("payment-success.php?oid="+orderID+"&ref_id="+ref_id);
      }
 },
     "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
@@ -120,7 +122,7 @@ var request_url="submitpayment.php";
         "contact": data.userData.mobile //Provide the customer's phone number for better conversion rates 
     },
     "notes": {
-        "address": "Tutorialswebsite"
+        "address": "saptdhanya"
     },
     "config": {
     "display": {

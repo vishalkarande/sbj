@@ -55,8 +55,14 @@ if(isset($_POST['placeOrder'])) {
 		}
 
     }
+	if($success == 'Success'){
+		echo "<script>window.location.href='paymentGateway/index.php?orderId=" . $order_param['order_id'] . "';</script>";
+	}else{
+		echo "<script>window.location.href='index.php';</script>";
+	}
 
-	echo "<script>window.location.href='paymentGateway/index.php?orderId=" . $order_param['order_id'] . "';</script>";
+	
+	
 
 }
 

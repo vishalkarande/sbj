@@ -31,7 +31,6 @@ $authAPIkey="Basic ".base64_encode($razorpay_test_key.":".$razorpay_test_secret_
 
 // Set transaction details
 $order_id = uniqid(); 
-
 $billing_name=$_POST['billing_name'];
 $billing_mobile=$_POST['billing_mobile'];
 $billing_email=$_POST['billing_email'];
@@ -40,7 +39,7 @@ $shipping_mobile=$_POST['shipping_mobile'];
 $shipping_email=$_POST['shipping_email'];
 $paymentOption=$_POST['paymentOption'];
 $payAmount=$_POST['payAmount'];
-
+$orderRef=$_POST['order_id'];
 $note="Payment of amount Rs. ".$payAmount;
 
 $postdata=array(
@@ -85,7 +84,8 @@ $dataArr=array(
 	'rpay_order_id'=>$rpay_order_id,
 	'name'=>$billing_name,
 	'email'=>$billing_email,
-	'mobile'=>$billing_mobile
+	'mobile'=>$billing_mobile,
+  'order_ref'=>$orderRef
 );
 
 

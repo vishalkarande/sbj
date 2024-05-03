@@ -33,7 +33,7 @@ if(!empty($_POST['order_id'])) {
       $msg = 'Unable to accept order.';
     }
 }
-$orders = $QueryFire->getAllData('','','SELECT o.id,o.is_paid,o.date,o.delivery_charge, o.delivery_date,o.status,( (op.grand_total - (o.discount*op.grand_total/100) ) + o.delivery_charge) as grand_total,u.name,u.mobile_no  FROM orders as o JOIN (select order_id, sum( (price*qty) - (price*qty*(discount/100)) ) as grand_total from order_has_products GROUP BY order_id ) as op ON op.order_id=o.id  LEFT JOIN users as u ON u.id=o.user_id WHERE o.is_deleted=0 and o.status="in-process" ORDER BY o.id desc');
+$orders = $QueryFire->getAllData('','','SELECT o.id,o.is_paid,o.date,o.delivery_charge, o.delivery_date,o.status,o.grand_total as gt,( (op.grand_total - (o.discount*op.grand_total/100) ) + o.delivery_charge) as grand_total,u.name,u.mobile_no  FROM orders as o JOIN (select order_id, sum( (price*qty) - 0 ) as grand_total from order_has_products GROUP BY order_id ) as op ON op.order_id=o.id  LEFT JOIN users as u ON u.id=o.user_id WHERE o.is_deleted=0 and o.status="in-process" ORDER BY o.id desc');
 
 ?>
   <section class="content-header">
@@ -91,7 +91,7 @@ $orders = $QueryFire->getAllData('','','SELECT o.id,o.is_paid,o.date,o.delivery_
                     <td><?php echo $cnt++;?></td>
                     <td><?php echo ucwords($order['name']);?></td>
                     <td><?php echo strip_tags($order['mobile_no']);?></td>
-                    <td><?php echo $order['grand_total'];?></td>
+                    <td><?php echo $order['gt'];?></td>
                     <td><?php echo date('d-m-Y',strtotime($order['date']));?></td>
                     <td><?php echo $order['is_paid']?'Yes':'No'?></td>
                     <td>
