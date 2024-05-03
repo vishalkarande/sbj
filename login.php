@@ -40,15 +40,13 @@ if(isset($_GET["pop"]) && isset($_GET["mes"])) {
 if(isset($_POST['login'])) {
     $data = $QueryFire->getAllData('users',' email="'.trim(strip_tags($_POST['username'])).'" and password ="'.md5(trim(strip_tags($_POST['password']))).'"');
     if(!empty($data[0])) {
-		
 		$data = $data[0];
-		if($data["is_verified"]==1){
-			echo "<script> alert('Please Verify your enmail. Link is sent to your Mail.');window.location.href='login.php';</script>";
+		if($data["is_verified"]==0){
+			echo "<script> alert('Please Verify your email. Link is sent to your Mail.');window.location.href='login.php';</script>";
 			exit();
 		}else{
 			$_SESSION['user'] = $data;
 			echo "<script>window.location.href = 'index.php';</script>";
-
 		}
 		
 	}else{

@@ -86,7 +86,7 @@ if(isset($_POST['changePassword']) && isset($_GET['id']) ) {
     $data = $QueryFire->getAllData('users',' id='.$_GET['id'].' and access_token="'.trim(strip_tags($_POST['otp'])).'"');
     if(!empty($data)) {
       $data=$data[0];
-        if($QueryFire->upDateTable("users",' access_token="'.trim(strip_tags($_POST['otp'])).'"', array('access_token'=>'','password'=>md5(trim(strip_tags($_POST['newpass'])))))) {
+        if($QueryFire->upDateTable("users",' id='.$_GET['id'].' and access_token="'.trim(strip_tags($_POST['otp'])).'"', array('access_token'=>'','password'=>md5(trim(strip_tags($_POST['newpass'])))))) {
             $msg = 'You have successfully Reset your Password.';            
             //set session
               
