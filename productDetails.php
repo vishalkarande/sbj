@@ -599,8 +599,7 @@ if(isset($_POST['add_to_cart'])) {
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-wp-polyfillwp-hooks3.15.02810c76e705dd1a53b18.min.js"
 		id="wpo_min-header-3-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" data-wpmeteor-src="https://stats.wp.com/w.js"
-		id="woo-tracks-js"></script>
+
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jquery-core3.7.1.min.js"
 		id="wpo_min-header-5-js"></script>
@@ -748,7 +747,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				s = b.getElementsByTagName(e)[0];
 				s.parentNode.insertBefore(t, s)
 			}(window, document, 'script',
-				'https://connect.facebook.net/en_US/fbevents.js');
+				'');
 			fbq('init', '1962479990797312');
 					fbq( 'track', 'PageView' );
 				</script>
@@ -1204,7 +1203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														<span class="wd-label share-title">Share:</span>
 
 														<a rel="noopener noreferrer nofollow"
-															href="https://www.facebook.com/sharer/sharer.php?u=products/combos/aalu-wafers-salty-vinegar-crunch/"
+															href="<?=$socialArray["Facebook"] ?>sharer/sharer.php?u=products/combos/aalu-wafers-salty-vinegar-crunch/"
 															target="_blank" class=" wd-social-icon social-facebook"
 															aria-label="Facebook social link">
 															<span class="wd-icon"></span>
@@ -2046,29 +2045,24 @@ function (event) {
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="https://www.facebook.com/"
+														href="<?=$socialArray["Facebook"] ?>"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i> </a>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-62f5036"
-														href="https://www.instagram.com/prags_salty/" target="_blank">
+														href="<?=$socialArray["instagram"] ?>" target="_blank">
 														<span class="elementor-screen-only">Instagram</span>
 														<i class="fab fa-instagram"></i> </a>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-														href="https://youtube.com/@" target="_blank">
+														href="<?=$socialArray["youtube"] ?>" target="_blank">
 														<span class="elementor-screen-only">Youtube</span>
 														<i class="fab fa-youtube"></i> </a>
 												</span>
-												<span class="elementor-grid-item">
-													<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-2745444"
-														href="https://in.pinterest.com/prags_salty/" target="_blank">
-														<span class="elementor-screen-only">Pinterest</span>
-														<i class="fab fa-pinterest"></i> </a>
-												</span>
+												
 											</div>
 										</div>
 									</div>
@@ -2465,8 +2459,7 @@ var localize = {"ajaxurl":"https:\/\/\/wp-admin\/admin-ajax.php","nonce":"c3f482
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-eael-general5.9.15.min.js"
 		id="wpo_min-footer-32-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/e-202415.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+	
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="jetpack-stats-js-after">
 /* <![CDATA[ */
 _stq = window._stq || [];

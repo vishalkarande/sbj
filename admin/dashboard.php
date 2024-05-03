@@ -83,32 +83,8 @@ $data = $QueryFire->getAllData('','','SELECT sum(ohp.qty) AS sold,(ohp.price- (o
             <a href="products" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-pink">
-            <div class="inner">
-              <h3><?= $brands ?></h3>
-              <p>Brands</p>
-            </div>
-            <div class="icon">
-              <i class="far fa-flag"></i>
-            </div>
-            <a href="brands" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-purple">
-            <div class="inner">
-              <h3><?= $uploaded_lists ?></h3>
-              <p>Uploaded Lists</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-cloud-upload-alt"></i>
-            </div>
-            <a href="uploaded-lists" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
+        
+        
         <!-- ./col -->
       </div>
       <?php if(!empty($data)) { ?>

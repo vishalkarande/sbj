@@ -39,7 +39,9 @@ $retailors = $QueryFire->getAllData('coupons',' is_deleted=0 order by id desc');
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Manage Coupons <button class="btn btn-primary dev-add float-right">Add Social</button></h1>
+          <h1>Manage Social
+             <!-- <button class="btn btn-primary dev-add float-right">Add Social</button> -->
+            </h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -60,8 +62,8 @@ $retailors = $QueryFire->getAllData('coupons',' is_deleted=0 order by id desc');
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Code</th>
-                  <th>Discount</th>
+                  <th>Social</th>
+                  <th>URL</th>
                   <th>Active</th>
                   <th>Added On</th>
                   <th>Action</th>
@@ -102,15 +104,15 @@ $retailors = $QueryFire->getAllData('coupons',' is_deleted=0 order by id desc');
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label for="name">Code:</label>
+              <label for="name">Social:</label>
               <input class="form-control category" name="code" required placeholder="Enter coupon code" type="text">
             </div>
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="form-group">
-                      <label for="name">Discount:</label>
+                      <label for="name">URL:</label>
                       <div class="input-group">
-                          <input type="text" class="form-control discountT" name="discount" placeholder="Discount" aria-label="Discount" aria-describedby="basic-addon1" max="99" >
+                          <input type="text" class="form-control discountT" name="discount" placeholder="URL" aria-label="Discount" aria-describedby="basic-addon1"  >
                           <div class="input-group-append">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-percent"></i></span>
                           </div>
@@ -148,7 +150,7 @@ $appendScript = '
           code: "required",
           discount: {
               required:true,
-              number:true,
+             
           }
         },
         messages: {

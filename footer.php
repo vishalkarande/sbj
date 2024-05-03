@@ -576,32 +576,26 @@
 									<div class="elementor-social-icons-wrapper elementor-grid">
 										<span class="elementor-grid-item">
 											<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-												href="https://www.facebook.com/" target="_blank">
+												href="<?=$socialArray["Facebook"] ?>" target="_blank">
 												<span class="elementor-screen-only">Facebook</span>
 												<i class="fab fa-facebook"></i>
 											</a>
 										</span>
 										<span class="elementor-grid-item">
 											<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-62f5036"
-												href="https://www.instagram.com/prags_salty/" target="_blank">
+												href="<?=$socialArray["instagram"] ?>" target="_blank">
 												<span class="elementor-screen-only">Instagram</span>
 												<i class="fab fa-instagram"></i>
 											</a>
 										</span>
 										<span class="elementor-grid-item">
 											<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-												href="https://youtube.com/@" target="_blank">
+												href="<?=$socialArray["youtube"] ?>" target="_blank">
 												<span class="elementor-screen-only">Youtube</span>
 												<i class="fab fa-youtube"></i>
 											</a>
 										</span>
-										<span class="elementor-grid-item">
-											<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-2745444"
-												href="https://in.pinterest.com/prags_salty/" target="_blank">
-												<span class="elementor-screen-only">Pinterest</span>
-												<i class="fab fa-pinterest"></i>
-											</a>
-										</span>
+										
 									</div>
 								</div>
 							</div>

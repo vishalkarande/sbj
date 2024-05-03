@@ -7,6 +7,12 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
     $cart_value=0;
 }
 
+$social = $QueryFire->getAllData('coupons',' 1');
+$socialArray = array();
+foreach($social as $soc){
+	$socialArray[$soc['code']]=$soc['discount'];
+}
+
 if(isset($_GET["pop"]) && isset($_GET["mes"])) {
   $pop=$_GET["pop"];
   $mes=$_GET['mes'];
@@ -1204,7 +1210,7 @@ if(isset($_POST['add_to_cart'])) {
             },
             "sameAs": [
               "",
-              "https://www.facebook.com/"
+              "<?=$socialArray["Facebook"] ?>"
             ],
             "worksFor": { "@id": "/#organization" }
           },
@@ -1715,12 +1721,7 @@ if(isset($_POST['add_to_cart'])) {
       data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-wp-polyfillwp-hooks3.15.02810c76e705dd1a53b18.min.js"
       id="wpo_min-header-3-js"
     ></script>
-    <script
-      type="javascript/blocked"
-      data-wpmeteor-type="text/javascript"
-      data-wpmeteor-src="https://stats.wp.com/w.js"
-      id="woo-tracks-js"
-    ></script>
+   
     <script
       type="javascript/blocked"
       data-wpmeteor-type="text/javascript"
@@ -1953,7 +1954,7 @@ if(isset($_POST['add_to_cart'])) {
       	s = b.getElementsByTagName(e)[0];
       	s.parentNode.insertBefore(t, s)
       }(window, document, 'script',
-      	'https://connect.facebook.net/en_US/fbevents.js');
+      	'');
       fbq('init', '1962479990797312');
       		fbq( 'track', 'PageView' );
     </script>

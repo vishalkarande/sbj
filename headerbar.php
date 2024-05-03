@@ -1,5 +1,10 @@
 <?php 
-
+$social = $QueryFire->getAllData('coupons',' 1');
+$socialArray = array();
+foreach($social as $soc){
+	$socialArray[$soc['code']]=$soc['discount'];
+}
+$data_discount = $QueryFire->getAllData('pageandcontents','id=3')[0];
 if(isset($_POST['login'])) {
     $data = $QueryFire->getAllData('users',' email="'.trim(strip_tags($_POST['username'])).'" and password ="'.md5(trim(strip_tags($_POST['password']))).'"');
     if(!empty($data[0])) {
@@ -47,9 +52,7 @@ if(isset($_POST['trackOrder'])) {
 					<div class="whb-column whb-col-center whb-visible-lg">
 
 						<div class="wd-header-text set-cont-mb-s reset-last-child ">
-							<h5 style="text-align: center;"><span style="color: #ffffff;">Navratri Sale Live! Flat 10%
-									off on
-									orders above ₹499. Code: "NAVRATRI"</span></h5>
+							<h5 style="text-align: center;"><span style="color: #ffffff;"><?= html_entity_decode($data_discount['text'])?></span></h5>
 						</div>
 					</div>
 					<div class="whb-column whb-col-right whb-visible-lg whb-empty-column">
@@ -57,9 +60,7 @@ if(isset($_POST['trackOrder'])) {
 					<div class="whb-column whb-col-mobile whb-hidden-lg">
 
 						<div class="wd-header-text set-cont-mb-s reset-last-child ">
-							<h5 style="text-align: center;"><span style="color: #ffffff;">Navratri Sale Live! Flat 10%
-									off on
-									orders above ₹499. Code: "NAVRATRI</span></h5>
+							<h5 style="text-align: center;"><span style="color: #ffffff;"><?= html_entity_decode($data_discount['text'])?></span></h5>
 						</div>
 					</div>
 				</div>

@@ -15,16 +15,19 @@ if(!empty($_POST['order_id'])) {
     }
     if($QueryFire->upDateTable("orders","id=".$_POST['order_id'],array('status'=>$_POST['user_action']))) {
       $msg = 'Order has been '.$status;
-      $order = $QueryFire->getAllData('','','SELECT o.id,o.is_paid,o.date,o.delivery_charge, o.delivery_date,o.status,op.grand_total,u.name,u.mobile_no,u.email  FROM orders as o JOIN (select order_id, sum( (price*qty) - (price*qty*(discount/100)) ) as grand_total from order_has_products GROUP BY order_id ) as op ON op.order_id=o.id  LEFT JOIN users as u ON u.id=o.user_id WHERE o.id='.$_POST['order_id'])[0];
-        $subject = 'Your order on Granostore has been '.ucfirst($status);
+      $order = $QueryFire->getAllData('','','SELECT o.id,o.is_paid,o.date,o.delivery_charge, o.delivery_date,o.status,op.grand_total,u.name,u.mobile_no,u.email  FROM orders as o JOIN (select order_id, sum( (price*qty)) as grand_total from order_has_products GROUP BY order_id ) as op ON op.order_id=o.id  LEFT JOIN users as u ON u.id=o.user_id WHERE o.id='.$_POST['order_id'])[0];
+      pr($order);  
+      exit();
+      
+      $subject = 'Your order on Saptdhanya has been '.ucfirst($status);
         $headers= "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: Admin <info@granostore.com>' . "\r\n";
+        $headers .= 'From: Admin <info@Saptdhanya.com>' . "\r\n";
         $template = file_get_contents('../mail_template.php');
         $template = str_replace('%name%', ucwords($order['name']) , $template);
-        $template = str_replace('%data%', "Your order #GS".$_POST['order_id']." on Granostore is ".$_POST['user_action'] , $template);
+        $template = str_replace('%data%', "Your order #GS".$_POST['order_id']." on Saptdhanya is ".$_POST['user_action'] , $template);
         $template = str_replace('%link2%', base_url , $template);
-        $template = str_replace('%link2text%', 'Granostore' , $template);
+        $template = str_replace('%link2text%', 'Saptdhanya' , $template);
         mail($order['email'],$subject,$template ,$headers);
     } else {
       $msg = 'Unable to accept order.';

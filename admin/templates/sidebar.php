@@ -26,22 +26,22 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="ad-sliders" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'ad sliders' ) ? 'active': ''; ?>">
             <i class="far fa-images nav-icon"></i>
             <p>
               Ad Sliders
             </p>
           </a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a href="uploaded-lists" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'uploaded lists' ) ? 'active': ''; ?>">
             <i class="fas fa-cloud-upload-alt nav-icon"></i>
             <p>
               Uploaded Lists
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item has-treeview <?php echo (isset($active_tab) && trim($active_tab) == 'orders' ) ? 'menu-open': ''; ?>">
           <a href="#" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'orders' ) ? 'active': ''; ?>">
             <i class="nav-icon fas fa-shopping-basket"></i>
@@ -136,7 +136,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item has-treeview <?php echo (isset($active_tab) && trim($active_tab) == 'faqs' ) ? 'menu-open': ''; ?>">
+        <!-- <li class="nav-item has-treeview <?php echo (isset($active_tab) && trim($active_tab) == 'faqs' ) ? 'menu-open': ''; ?>">
           <a href="#" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'faqs' ) ? 'active': ''; ?>">
             <i class="fas fa-question nav-icon"></i>
             <p>
@@ -158,15 +158,15 @@
               </a>
             </li>
             </ul>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a href="brands" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'brands' ) ? 'active': ''; ?>">
             <i class="far fa-flag nav-icon"></i>
             <p>
               Brands
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="social" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'social' ) ? 'active': ''; ?>">
             <i class="fas fa-percent nav-icon"></i>
@@ -175,14 +175,14 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="pincodes" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'pincodes' ) ? 'active': ''; ?>">
             <i class="fas fa-truck-loading nav-icon"></i>
             <p>
               Pincodes
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="testimonials" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'testimonials' ) ? 'active': ''; ?>">
             <i class="far fa-images nav-icon"></i>
@@ -199,14 +199,14 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="clients" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'clients' ) ? 'active': ''; ?>">
             <i class="fas fa-user-friends nav-icon"></i>
             <p>
               Clients
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="about-us" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'about us' ) ? 'active': ''; ?>">
             <i class="far fa-address-card nav-icon"></i>
@@ -215,38 +215,38 @@
             </p>
           </a>
         </li>
-     <li class="nav-item">
+     <!-- <li class="nav-item">
           <a href="why-marwadimart" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'why marwadimart') ? 'active': ''; ?>">
             <i class="far fa-address-card nav-icon"></i>
             <p>
             Why Marwadi Mart
             </p>
           </a>
-        </li>
-         <li class="nav-item">
+        </li> -->
+         <!-- <li class="nav-item">
           <a href="mission" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'mission' ) ? 'active': ''; ?>">
             <i class="far fa-address-card nav-icon"></i>
             <p>
               Mission
             </p>
           </a>
-        </li>
-         <li class="nav-item">
+        </li> -->
+         <!-- <li class="nav-item">
           <a href="vision" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'vision' ) ? 'active': ''; ?>">
             <i class="far fa-address-card nav-icon"></i>
             <p>
              Vision
             </p>
           </a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a href="privacy-policy" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'privacy policy' ) ? 'active': ''; ?>">
             <i class="fas fa-user-lock nav-icon"></i>
             <p>
               Privacy Policy
             </p>
           </a>
-        </li>
+        </li> -->
         <!--<li class="nav-item">
           <a href="return-policy" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'return policy' ) ? 'active': ''; ?>">
             <i class="fas fa-undo nav-icon"></i>
@@ -255,14 +255,14 @@
             </p>
           </a>
         </li> -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="terms-and-conditions" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'terms and conditions' ) ? 'active': ''; ?>">
             <i class="fas fa-gavel nav-icon"></i>
             <p>
               Terms & Condition
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="offer-and-discounts" class="nav-link <?php echo (isset($active_tab) && trim($active_tab) == 'special offers' ) ? 'active': ''; ?>">
             <i class="fas fa-percent nav-icon"></i>

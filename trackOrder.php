@@ -7,7 +7,12 @@ if (!isset($_SESSION['user'])) {
 	$orders=$QueryFire->getAllData('orders',' user_id='.$_SESSION['user']['id'].' and is_paid=1 ORDER BY id desc');
 
 }
-	
+$data_discount = $QueryFire->getAllData('pageandcontents','id=3')[0];
+$social = $QueryFire->getAllData('coupons',' 1');
+$socialArray = array();
+foreach($social as $soc){
+	$socialArray[$soc['code']]=$soc['discount'];
+}
 
 ?>
 
@@ -31,14 +36,14 @@ if (!isset($_SESSION['user'])) {
 	<title>Track your order </title>
 	<meta name="description" content="Order Tracking" />
 	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-	<link rel="canonical" href="track-order/" />
+	<link rel="canonical" href="trackOrder.php" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="Track your order " />
 	<meta property="og:description" content="Order Tracking" />
-	<meta property="og:url" content="track-order/" />
+	<meta property="og:url" content="trackOrder.php" />
 	<meta property="og:site_name" content="" />
-	<meta property="article:author" content="https://www.facebook.com/" />
+	<meta property="article:author" content="<?=$socialArray["Facebook"] ?>" />
 	<meta property="og:updated_time" content="2023-08-17T10:27:45+05:30" />
 	<meta property="article:published_time" content="2023-06-15T03:21:20+05:30" />
 	<meta property="article:modified_time" content="2023-08-17T10:27:45+05:30" />
@@ -66,8 +71,8 @@ if (!isset($_SESSION['user'])) {
           },
           {
             "@type": "WebPage",
-            "@id": "track-order/#webpage",
-            "url": "track-order/",
+            "@id": "trackOrder.php#webpage",
+            "url": "trackOrder.php",
             "name": "Track your order ",
             "datePublished": "2023-06-15T03:21:20+05:30",
             "dateModified": "2023-08-17T10:27:45+05:30",
@@ -88,7 +93,7 @@ if (!isset($_SESSION['user'])) {
             },
             "sameAs": [
               "",
-              "https://www.facebook.com/"
+              "<?=$socialArray["Facebook"] ?>"
             ],
             "worksFor": { "@id": "#organization" }
           },
@@ -104,13 +109,13 @@ if (!isset($_SESSION['user'])) {
             "publisher": { "@id": "#organization" },
             "description": "Order Tracking",
             "name": "Track your order ",
-            "@id": "track-order/#richSnippet",
+            "@id": "trackOrder.php#richSnippet",
             "isPartOf": {
-              "@id": "track-order/#webpage"
+              "@id": "trackOrder.php#webpage"
             },
             "inLanguage": "en-US",
             "mainEntityOfPage": {
-              "@id": "track-order/#webpage"
+              "@id": "trackOrder.php#webpage"
             }
           }
         ]
@@ -616,8 +621,7 @@ if (!isset($_SESSION['user'])) {
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-wp-polyfillwp-hooks3.15.02810c76e705dd1a53b18.min.js"
 		id="wpo_min-header-3-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" data-wpmeteor-src="https://stats.wp.com/w.js"
-		id="woo-tracks-js"></script>
+
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jquery-core3.7.1.min.js"
 		id="wpo_min-header-5-js"></script>
@@ -757,7 +761,7 @@ if (!isset($_SESSION['user'])) {
       	s = b.getElementsByTagName(e)[0];
       	s.parentNode.insertBefore(t, s)
       }(window, document, 'script',
-      	'https://connect.facebook.net/en_US/fbevents.js');
+      	'');
       fbq('init', '1962479990797312');
       		fbq( 'track', 'PageView' );
     </script>
@@ -934,9 +938,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									type="text/css" media="all" />
 								<div class="wd-header-text set-cont-mb-s reset-last-child">
 									<h5 style="text-align: center">
-										<span style="color: #ffffff">Navratri Sale Live! Flat 10% off on orders above
-											₹499.
-											Code: "NAVRATRI"</span>
+										<span style="color: #ffffff"><?= html_entity_decode($data_discount['text'])?></span>
 									</h5>
 								</div>
 							</div>
@@ -1463,11 +1465,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<div class="elementor-widget-container">
 											<ul class="elementor-icon-list-items">
 												<li class="elementor-icon-list-item">
-													<a href="tel:9929321144">
+													<a href="tel:90016 55666">
 
 														<span class="elementor-icon-list-icon">
 															<i aria-hidden="true" class="fas fa-phone-alt"></i> </span>
-														<span class="elementor-icon-list-text">(+91) 9929321144</span>
+														<span class="elementor-icon-list-text">(+91) 90016 55666</span>
 													</a>
 												</li>
 											</ul>
@@ -1479,7 +1481,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<div class="elementor-widget-container">
 											<ul class="elementor-icon-list-items">
 												<li class="elementor-icon-list-item">
-													<a href="mailto:contact@">
+													<a href="mailto:saptdhanya@gmail.com">
 
 														<span class="elementor-icon-list-icon">
 															<i aria-hidden="true" class="fas fa-envelope"></i> </span>
@@ -1803,29 +1805,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="https://www.facebook.com/"
+														href="<?=$socialArray["Facebook"] ?>"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i> </a>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-62f5036"
-														href="https://www.instagram.com/prags_salty/" target="_blank">
+														href="<?=$socialArray["instagram"] ?>" target="_blank">
 														<span class="elementor-screen-only">Instagram</span>
 														<i class="fab fa-instagram"></i> </a>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-														href="https://youtube.com/@" target="_blank">
+														href="<?=$socialArray["youtube"] ?>" target="_blank">
 														<span class="elementor-screen-only">Youtube</span>
 														<i class="fab fa-youtube"></i> </a>
 												</span>
-												<span class="elementor-grid-item">
-													<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-2745444"
-														href="https://in.pinterest.com/prags_salty/" target="_blank">
-														<span class="elementor-screen-only">Pinterest</span>
-														<i class="fab fa-pinterest"></i> </a>
-												</span>
+												
 											</div>
 										</div>
 									</div>
@@ -1974,21 +1971,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<div class="elementor-widget-container">
 											<ul
 												class="wd-list color-scheme-custom wd-fontsize-xs wd-list-type-icon wd-list-style-default wd-justify-left">
-												<li class="elementor-repeater-item-1402af2">
-
-													<span class="list-content">
-														FAQ’s </span>
-
-
-													<a href="faqs/" class="wd-fill" aria-label="List item link"></a>
-												</li>
+												
 												<li class="elementor-repeater-item-c77fc22">
 
 													<span class="list-content">
 														Track Your Order </span>
 
 
-													<a href="track-order/" class="wd-fill"
+													<a href="trackOrder.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-c373d8d">
@@ -1997,33 +1987,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														Privacy Policy </span>
 
 
-													<a href="privacy-policy/" class="wd-fill"
+													<a href="policy.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
-												<li class="elementor-repeater-item-1540aa8">
-
-													<span class="list-content">
-														Return Policy </span>
-
-
-													<a href="refund-and-returns-policy/" class="wd-fill"
-														aria-label="List item link"></a>
-												</li>
-												<li class="elementor-repeater-item-02e96b0">
-
-													<span class="list-content">
-														Shipping Policy </span>
-
-
-													<a href="shipping/" class="wd-fill" aria-label="List item link"></a>
-												</li>
+												
+												
 												<li class="elementor-repeater-item-f93516b">
 
 													<span class="list-content">
 														Terms & Conditions </span>
 
 
-													<a href="terms-conditions/" class="wd-fill"
+													<a href="terms.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 											</ul>
@@ -2129,7 +2104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<div id="qlwapp" class="qlwapp qlwapp-free qlwapp-bubble qlwapp-bottom-left qlwapp-desktop qlwapp-rounded">
 		<div class="qlwapp-container">
 
-			<a class="qlwapp-toggle" data-action="open" data-phone="9929321144" data-message="Hello!" role="button"
+			<a class="qlwapp-toggle" data-action="open" data-phone="90016 55666" data-message="Hello!" role="button"
 				tabindex="0" target="_blank">
 				<i class="qlwapp-icon qlwapp-whatsapp-icon"></i>
 				<i class="qlwapp-close" data-action="close">&times;</i>
@@ -2307,8 +2282,7 @@ var localize = {"ajaxurl":"https:\/\/\/wp-admin\/admin-ajax.php","nonce":"18f5fb
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-eael-general5.9.15.min.js"
 		id="wpo_min-footer-24-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/e-202415.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+	
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="jetpack-stats-js-after">
 /* <![CDATA[ */
 _stq = window._stq || [];

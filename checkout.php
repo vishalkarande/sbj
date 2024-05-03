@@ -90,7 +90,7 @@ if(isset($_POST['placeOrder'])) {
 	<meta property="og:title" content="Checkout " />
 	<meta property="og:url" content="checkout/" />
 	<meta property="og:site_name" content="" />
-	<meta property="article:author" content="https://www.facebook.com/" />
+	<meta property="article:author" content="<?=$socialArray["Facebook"] ?>" />
 	<meta property="og:updated_time" content="2023-11-26T04:53:34+05:30" />
 	<meta property="article:published_time" content="2023-05-19T06:24:27+05:30" />
 	<meta property="article:modified_time" content="2023-11-26T04:53:34+05:30" />
@@ -99,7 +99,7 @@ if(isset($_POST['placeOrder'])) {
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="Less than a minute" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":""},{"@type":"WebSite","@id":"#website","url":"","name":"","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"checkout/#webpage","url":"checkout/","name":"Checkout ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-11-26T04:53:34+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author//","name":"","url":"author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"Checkout ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-11-26T04:53:34+05:30","author":{"@id":"author//","name":""},"publisher":{"@id":"#organization"},"name":"Checkout ","@id":"checkout/#richSnippet","isPartOf":{"@id":"checkout/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"checkout/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":""},{"@type":"WebSite","@id":"#website","url":"","name":"","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"checkout/#webpage","url":"checkout/","name":"Checkout ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-11-26T04:53:34+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author//","name":"","url":"author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"Checkout ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-11-26T04:53:34+05:30","author":{"@id":"author//","name":""},"publisher":{"@id":"#organization"},"name":"Checkout ","@id":"checkout/#richSnippet","isPartOf":{"@id":"checkout/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"checkout/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='//stats.wp.com' />
@@ -933,7 +933,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				s = b.getElementsByTagName(e)[0];
 				s.parentNode.insertBefore(t, s)
 			}(window, document, 'script',
-				'https://connect.facebook.net/en_US/fbevents.js');
+				'');
 			fbq('init', '1962479990797312');
 					fbq( 'track', 'InitiateCheckout' );
 				</script>
@@ -2341,28 +2341,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<div class="elementor-social-icons-wrapper elementor-grid">
 											<span class="elementor-grid-item">
 												<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-													href="https://www.facebook.com/" target="_blank">
+													href="<?=$socialArray["Facebook"] ?>" target="_blank">
 													<span class="elementor-screen-only">Facebook</span>
 													<i class="fab fa-facebook"></i> </a>
 											</span>
 											<span class="elementor-grid-item">
 												<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-62f5036"
-													href="https://www.instagram.com/prags_salty/" target="_blank">
+													href="<?=$socialArray["instagram"] ?>" target="_blank">
 													<span class="elementor-screen-only">Instagram</span>
 													<i class="fab fa-instagram"></i> </a>
 											</span>
 											<span class="elementor-grid-item">
 												<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-													href="https://youtube.com/@" target="_blank">
+													href="<?=$socialArray["youtube"] ?>" target="_blank">
 													<span class="elementor-screen-only">Youtube</span>
 													<i class="fab fa-youtube"></i> </a>
 											</span>
-											<span class="elementor-grid-item">
-												<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-2745444"
-													href="https://in.pinterest.com/prags_salty/" target="_blank">
-													<span class="elementor-screen-only">Pinterest</span>
-													<i class="fab fa-pinterest"></i> </a>
-											</span>
+										
 										</div>
 									</div>
 								</div>
@@ -2800,8 +2795,7 @@ var localize = {"ajaxurl":"https:\/\/\/wp-admin\/admin-ajax.php","nonce":"18f5fb
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=5.9.15"
 		id="eael-general-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/e-202415.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+	
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="jetpack-stats-js-after">
 /* <![CDATA[ */
 _stq = window._stq || [];

@@ -1057,7 +1057,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 		content="As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and" />
 	<meta property="og:url" content="/-conditions/" />
 	<meta property="og:site_name" content="Saptdhanya" />
-	<meta property="article:author" content="https://www.facebook.com/pragssaltyjodhpur" />
+	<meta property="article:author" content="<?=$socialArray["Facebook"] ?>pragssaltyjodhpur" />
 	<meta property="og:updated_time" content="2023-06-15T03:04:57+05:30" />
 	<meta property="article:published_time" content="2023-06-15T03:03:40+05:30" />
 	<meta property="article:modified_time" content="2023-06-15T03:04:57+05:30" />
@@ -1068,7 +1068,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="2 minutes" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"/#website","url":"","name":"Saptdhanya","publisher":{"@id":"/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"/-conditions/#webpage","url":"/-conditions/","name":" &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","isPartOf":{"@id":"/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"/author/pragssaltyjodhpur/","name":"Saptdhanya","url":"/author/pragssaltyjodhpur/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/pragssaltyjodhpur"],"worksFor":{"@id":"/#organization"}},{"@type":"Article","headline":" &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","author":{"@id":"/author/pragssaltyjodhpur/","name":"Saptdhanya"},"publisher":{"@id":"/#organization"},"description":"As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and","name":" &amp; Conditions - Saptdhanya","@id":"/-conditions/#richSnippet","isPartOf":{"@id":"/-conditions/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"/-conditions/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"/#website","url":"","name":"Saptdhanya","publisher":{"@id":"/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"/-conditions/#webpage","url":"/-conditions/","name":" &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","isPartOf":{"@id":"/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"/author/pragssaltyjodhpur/","name":"Saptdhanya","url":"/author/pragssaltyjodhpur/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>pragssaltyjodhpur"],"worksFor":{"@id":"/#organization"}},{"@type":"Article","headline":" &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","author":{"@id":"/author/pragssaltyjodhpur/","name":"Saptdhanya"},"publisher":{"@id":"/#organization"},"description":"As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and","name":" &amp; Conditions - Saptdhanya","@id":"/-conditions/#richSnippet","isPartOf":{"@id":"/-conditions/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"/-conditions/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='https://stats.wp.com/' />
@@ -1538,8 +1538,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-wp-polyfillwp-hooks3.15.02810c76e705dd1a53b18.min.js"
 		id="wpo_min-header-3-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" data-wpmeteor-src="https://stats.wp.com/w.js"
-		id="woo-tracks-js"></script>
+
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jquery-core3.7.1.min.js"
 		id="wpo_min-header-5-js"></script>
@@ -1676,7 +1675,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				s = b.getElementsByTagName(e)[0];
 				s.parentNode.insertBefore(t, s)
 			}(window, document, 'script',
-				'https://connect.facebook.net/en_US/fbevents.js');
+				'');
 			fbq('init', '1962479990797312');
 					fbq( 'track', 'PageView' );
 				</script>
@@ -2206,11 +2205,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<div class="elementor-widget-container">
 											<ul class="elementor-icon-list-items">
 												<li class="elementor-icon-list-item">
-													<a href="tel:9929321144">
+													<a href="tel:90016 55666">
 
 														<span class="elementor-icon-list-icon">
 															<i aria-hidden="true" class="fas fa-phone-alt"></i> </span>
-														<span class="elementor-icon-list-text">(+91) 9929321144</span>
+														<span class="elementor-icon-list-text">(+91) 90016 55666</span>
 													</a>
 												</li>
 											</ul>
@@ -2547,29 +2546,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="https://www.facebook.com/pragssaltyjodhpur"
+														href="<?=$socialArray["Facebook"] ?>pragssaltyjodhpur"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i> </a>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-62f5036"
-														href="https://www.instagram.com/prags_salty/" target="_blank">
+														href="<?=$socialArray["instagram"] ?>" target="_blank">
 														<span class="elementor-screen-only">Instagram</span>
 														<i class="fab fa-instagram"></i> </a>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-														href="https://youtube.com/@PRagsSalty" target="_blank">
+														href="<?=$socialArray["youtube"] ?>" target="_blank">
 														<span class="elementor-screen-only">Youtube</span>
 														<i class="fab fa-youtube"></i> </a>
 												</span>
-												<span class="elementor-grid-item">
-													<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-2745444"
-														href="https://in.pinterest.com/prags_salty/" target="_blank">
-														<span class="elementor-screen-only">Pinterest</span>
-														<i class="fab fa-pinterest"></i> </a>
-												</span>
+												
 											</div>
 										</div>
 									</div>
@@ -2731,7 +2725,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												<li class="elementor-repeater-item-f93516b">
 
 													<span class="list-content">
-														 & Conditions </span>
+														Terms & Conditions </span>
 
 
 													<a href=".php" class="wd-fill"
@@ -2799,7 +2793,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<div id="qlwapp" class="qlwapp qlwapp-free qlwapp-bubble qlwapp-bottom-left qlwapp-desktop qlwapp-rounded">
 		<div class="qlwapp-container">
 
-			<a class="qlwapp-toggle" data-action="open" data-phone="9929321144" data-message="Hello!" role="button"
+			<a class="qlwapp-toggle" data-action="open" data-phone="90016 55666" data-message="Hello!" role="button"
 				tabindex="0" target="_blank">
 				<i class="qlwapp-icon qlwapp-whatsapp-icon"></i>
 				<i class="qlwapp-close" data-action="close">&times;</i>
@@ -2980,8 +2974,7 @@ var localize = {"ajaxurl":"https:\/\/pragssalty.com\/wp-admin\/admin-ajax.php","
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-eael-general5.9.15.min.js"
 		id="wpo_min-footer-24-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/e-202415.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+	
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="jetpack-stats-js-after">
 /* <![CDATA[ */
 _stq = window._stq || [];

@@ -1086,7 +1086,7 @@ if(isset($_POST['submit_req'])) {
 		content="Have a question or craving for our delicious namkeen treats? Contact us at Saptdhanya and let your taste buds experience pure delight!" />
 	<meta property="og:url" content="https://.com/contact-us/" />
 	<meta property="og:site_name" content="Saptdhanya" />
-	<meta property="article:author" content="https://www.facebook.com/" />
+	<meta property="article:author" content="<?=$socialArray["Facebook"] ?>" />
 	<meta property="og:updated_time" content="2023-12-29T18:58:40+05:30" />
 	<meta property="article:published_time" content="2023-05-19T06:26:11+05:30" />
 	<meta property="article:modified_time" content="2023-12-29T18:58:40+05:30" />
@@ -1097,7 +1097,7 @@ if(isset($_POST['submit_req'])) {
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="Less than a minute" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://.com/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"https://.com/#website","url":"https://.com","name":"Saptdhanya","publisher":{"@id":"https://.com/#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg","url":"wp-content/plugins/wpforms/assets/images/submit-spin.svg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://.com/contact-us/#webpage","url":"https://.com/contact-us/","name":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","datePublished":"2023-05-19T06:26:11+05:30","dateModified":"2023-12-29T18:58:40+05:30","isPartOf":{"@id":"https://.com/#website"},"primaryImageOfPage":{"@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://.com/author//","name":"Saptdhanya","url":"https://.com/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["https://.com","https://www.facebook.com/"],"worksFor":{"@id":"https://.com/#organization"}},{"@type":"Article","headline":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","keywords":"Contact,Saptdhanya","datePublished":"2023-05-19T06:26:11+05:30","dateModified":"2023-12-29T18:58:40+05:30","author":{"@id":"https://.com/author//","name":"Saptdhanya"},"publisher":{"@id":"https://.com/#organization"},"description":"Have a question or craving for our delicious namkeen treats? Contact us at Saptdhanya and let your taste buds experience pure delight!","name":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","@id":"https://.com/contact-us/#richSnippet","isPartOf":{"@id":"https://.com/contact-us/#webpage"},"image":{"@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://.com/contact-us/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://.com/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"https://.com/#website","url":"https://.com","name":"Saptdhanya","publisher":{"@id":"https://.com/#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg","url":"wp-content/plugins/wpforms/assets/images/submit-spin.svg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://.com/contact-us/#webpage","url":"https://.com/contact-us/","name":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","datePublished":"2023-05-19T06:26:11+05:30","dateModified":"2023-12-29T18:58:40+05:30","isPartOf":{"@id":"https://.com/#website"},"primaryImageOfPage":{"@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://.com/author//","name":"Saptdhanya","url":"https://.com/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["https://.com","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"https://.com/#organization"}},{"@type":"Article","headline":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","keywords":"Contact,Saptdhanya","datePublished":"2023-05-19T06:26:11+05:30","dateModified":"2023-12-29T18:58:40+05:30","author":{"@id":"https://.com/author//","name":"Saptdhanya"},"publisher":{"@id":"https://.com/#organization"},"description":"Have a question or craving for our delicious namkeen treats? Contact us at Saptdhanya and let your taste buds experience pure delight!","name":"Contact the best namkeen, roasted, sweets &amp; fox nuts in India","@id":"https://.com/contact-us/#richSnippet","isPartOf":{"@id":"https://.com/contact-us/#webpage"},"image":{"@id":"wp-content/plugins/wpforms/assets/images/submit-spin.svg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://.com/contact-us/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='https://stats.wp.com/' />
@@ -1567,8 +1567,7 @@ if(isset($_POST['submit_req'])) {
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-wp-polyfillwp-hooks3.15.02810c76e705dd1a53b18.min.js"
 		id="wpo_min-header-3-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" data-wpmeteor-src="https://stats.wp.com/w.js"
-		id="woo-tracks-js"></script>
+	
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-header-jquery-core3.7.1.min.js"
 		id="wpo_min-header-5-js"></script>
@@ -1705,7 +1704,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				s = b.getElementsByTagName(e)[0];
 				s.parentNode.insertBefore(t, s)
 			}(window, document, 'script',
-				'https://connect.facebook.net/en_US/fbevents.js');
+				'');
 			fbq('init', '1962479990797312');
 					fbq( 'track', 'PageView' );
 				</script>
@@ -1988,7 +1987,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																			Phone Number </span>
 																	</h5>
 																	<p class="elementor-icon-box-description">
-																		<a href=" tel:919929321144">(+91) 9929321144</a>
+																		<a href=" tel:9190016 55666">(+91) 90016 55666</a>
 																	</p>
 																</div>
 															</div>
@@ -2339,7 +2338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 															<div class="elementor-social-icons-wrapper elementor-grid">
 																<span class="elementor-grid-item">
 																	<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-9ce0797"
-																		href="https://www.facebook.com/"
+																		href="<?=$socialArray["Facebook"] ?>"
 																		target="_blank" rel="noopener">
 																		<span
 																			class="elementor-screen-only">Facebook-f</span>
@@ -2347,7 +2346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																</span>
 																<span class="elementor-grid-item">
 																	<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-2d6913e"
-																		href="https://www.instagram.com/prags_salty/"
+																		href="<?=$socialArray["instagram"] ?>"
 																		target="_blank" rel="noopener">
 																		<span
 																			class="elementor-screen-only">Instagram</span>
@@ -2355,20 +2354,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																</span>
 																<span class="elementor-grid-item">
 																	<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-aeb8307"
-																		href="https://youtube.com/@"
+																		href="<?=$socialArray["youtube"] ?>"
 																		target="_blank" rel="noopener">
 																		<span
 																			class="elementor-screen-only">Youtube</span>
 																		<i class="fab fa-youtube"></i> </a>
 																</span>
-																<span class="elementor-grid-item">
-																	<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-8b797cd"
-																		href="https://in.pinterest.com/prags_salty/"
-																		target="_blank" rel="noopener">
-																		<span
-																			class="elementor-screen-only">Pinterest</span>
-																		<i class="fab fa-pinterest"></i> </a>
-																</span>
+																
 															</div>
 														</div>
 													</div>
@@ -2817,11 +2809,11 @@ function (event) {
 										<div class="elementor-widget-container">
 											<ul class="elementor-icon-list-items">
 												<li class="elementor-icon-list-item">
-													<a href="tel:9929321144">
+													<a href="tel:90016 55666">
 
 														<span class="elementor-icon-list-icon">
 															<i aria-hidden="true" class="fas fa-phone-alt"></i> </span>
-														<span class="elementor-icon-list-text">(+91) 9929321144</span>
+														<span class="elementor-icon-list-text">(+91) 90016 55666</span>
 													</a>
 												</li>
 											</ul>
@@ -2851,29 +2843,24 @@ function (event) {
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="https://www.facebook.com/"
+														href="<?=$socialArray["Facebook"] ?>"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i> </a>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-62f5036"
-														href="https://www.instagram.com/prags_salty/" target="_blank">
+														href="<?=$socialArray["instagram"] ?>" target="_blank">
 														<span class="elementor-screen-only">Instagram</span>
 														<i class="fab fa-instagram"></i> </a>
 												</span>
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-														href="https://youtube.com/@" target="_blank">
+														href="<?=$socialArray["youtube"] ?>" target="_blank">
 														<span class="elementor-screen-only">Youtube</span>
 														<i class="fab fa-youtube"></i> </a>
 												</span>
-												<span class="elementor-grid-item">
-													<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-2745444"
-														href="https://in.pinterest.com/prags_salty/" target="_blank">
-														<span class="elementor-screen-only">Pinterest</span>
-														<i class="fab fa-pinterest"></i> </a>
-												</span>
+												
 											</div>
 										</div>
 									</div>
@@ -3101,7 +3088,7 @@ function (event) {
 	<div id="qlwapp" class="qlwapp qlwapp-free qlwapp-bubble qlwapp-bottom-left qlwapp-desktop qlwapp-rounded">
 		<div class="qlwapp-container">
 
-			<a class="qlwapp-toggle" data-action="open" data-phone="9929321144" data-message="Hello!" role="button"
+			<a class="qlwapp-toggle" data-action="open" data-phone="90016 55666" data-message="Hello!" role="button"
 				tabindex="0" target="_blank">
 				<i class="qlwapp-icon qlwapp-whatsapp-icon"></i>
 				<i class="qlwapp-close" data-action="close">&times;</i>
@@ -3283,8 +3270,7 @@ var woodmart_page_css = {"wd-widget-nav-css":"https:\/\/.com\/wp-content\/themes
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
 		data-wpmeteor-src="wp-content/cache/wpo-minify/1713030549/assets/wpo-minify-footer-wd-scrollbar7.1.4.min.js"
 		id="wpo_min-footer-25-js"></script>
-	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
-		data-wpmeteor-src="https://stats.wp.com/e-202415.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+	
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="jetpack-stats-js-after">
 /* <![CDATA[ */
 _stq = window._stq || [];

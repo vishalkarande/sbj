@@ -81,24 +81,22 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                         class="elementor-container elementor-column-gap-default"
                       >
 
-                      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
                       <div class="carousel-inner">
-                        <?php foreach($slider as $slide){
+                        <?php $counts=0; foreach($slider as $slide){
                         ?>
-                        <div class="carousel-item active">
+                        <div class="carousel-item <?php if($counts==0){?> active <?php }?>">
                           <img src="images/sliders/<?php echo $slide['image_name']?>" class="d-block w-100" alt="...">
                         </div>
-                        <?php } ?>
+                        <?php
+                      $counts=1;
+                      } ?>
                       </div>
                     </div>
 
 
     </div>
                     </section>
-
-
-
-
 
 
                     

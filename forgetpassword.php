@@ -58,7 +58,7 @@ if(isset($_POST['restpass'])) {
 
               $template = file_get_contents('mail_template.php');
               $template = str_replace('%name%', $data['name'] , $template);
-              $template = str_replace('%data%', "Your Password Change Code ".$token." . </a><br><br> For any help kindly contact us at info@granostore.com" , $template);
+              $template = str_replace('%data%', "Your Password Change Code ".$token." . </a><br><br> For any help kindly contact us at info@Saptdhanya.com" , $template);
               $template = str_replace('%link2%', 'https://saptdhanya.com/' , $template);
               $template = str_replace('%link2text%', 'Saptdhanya' , $template);
               $mail->isHTML(true); 

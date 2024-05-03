@@ -53,7 +53,7 @@ if(isset($_GET['remove']) && isset($_SESSION['cart'][$_GET['remove']])) {
 	<meta property="og:title" content="Cart " />
 	
 	<meta property="og:site_name" content="" />
-	<meta property="article:author" content="https://www.facebook.com/" />
+	<meta property="article:author" content="<?=$socialArray["Facebook"] ?>" />
 	<meta property="og:updated_time" content="2023-06-15T13:57:57+05:30" />
 	<meta property="article:published_time" content="2023-05-19T06:24:27+05:30" />
 	<meta property="article:modified_time" content="2023-06-15T13:57:57+05:30" />
@@ -62,7 +62,7 @@ if(isset($_GET['remove']) && isset($_SESSION['cart'][$_GET['remove']])) {
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="Less than a minute" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":""},{"@type":"WebSite","@id":"#website","url":"","name":"","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"cart/#webpage","url":"cart/","name":"Cart ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author//","name":"","url":"author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"","inLanguage":"en-US"},"sameAs":["","https://www.facebook.com/"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"Cart ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","author":{"@id":"author//","name":""},"publisher":{"@id":"#organization"},"name":"Cart ","@id":"cart/#richSnippet","isPartOf":{"@id":"cart/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"cart/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#organization","name":""},{"@type":"WebSite","@id":"#website","url":"","name":"","publisher":{"@id":"#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"cart/#webpage","url":"cart/","name":"Cart ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","isPartOf":{"@id":"#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"author//","name":"","url":"author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"#organization"}},{"@type":"Article","headline":"Cart ","datePublished":"2023-05-19T06:24:27+05:30","dateModified":"2023-06-15T13:57:57+05:30","author":{"@id":"author//","name":""},"publisher":{"@id":"#organization"},"name":"Cart ","@id":"cart/#richSnippet","isPartOf":{"@id":"cart/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"cart/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='//stats.wp.com' />
@@ -1035,7 +1035,7 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
 																	<?=$params_val["param_value"]?>
                                                                         </label>
 																	<input type="number" class="count" min="0" max=""
-																		value="<?=$quantity?>"
+																		value="<?=$quantity?>" readonly
 																		name="quantity[<?=$product_id?>]">
 
 																	<input type="button" value="+" class="plus" />
@@ -1189,7 +1189,7 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
 						countElements[index].value = count + 1;
 						const price = parseInt(priceElements[index].textContent);
 						const totalPrice = (count + 1) * price;
-						totalPriceElements[index].textContent = '$' + totalPrice;
+						totalPriceElements[index].textContent =  totalPrice;
 						total += price;
 						totalElement.textContent = total;
 					});
@@ -1798,28 +1798,23 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
 									<div class="elementor-social-icons-wrapper elementor-grid">
 										<span class="elementor-grid-item">
 											<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-												href="https://www.facebook.com/" target="_blank">
+												href="<?=$socialArray["Facebook"] ?>" target="_blank">
 												<span class="elementor-screen-only">Facebook</span>
 												<i class="fab fa-facebook"></i> </a>
 										</span>
 										<span class="elementor-grid-item">
 											<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-62f5036"
-												href="https://www.instagram.com/prags_salty/" target="_blank">
+												href="<?=$socialArray["instagram"] ?>" target="_blank">
 												<span class="elementor-screen-only">Instagram</span>
 												<i class="fab fa-instagram"></i> </a>
 										</span>
 										<span class="elementor-grid-item">
 											<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f00cb28"
-												href="https://youtube.com/@" target="_blank">
+												href="<?=$socialArray["youtube"] ?>" target="_blank">
 												<span class="elementor-screen-only">Youtube</span>
 												<i class="fab fa-youtube"></i> </a>
 										</span>
-										<span class="elementor-grid-item">
-											<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-2745444"
-												href="https://in.pinterest.com/prags_salty/" target="_blank">
-												<span class="elementor-screen-only">Pinterest</span>
-												<i class="fab fa-pinterest"></i> </a>
-										</span>
+										
 									</div>
 								</div>
 							</div>
