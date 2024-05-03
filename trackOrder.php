@@ -985,7 +985,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										</li>
 										<li id="menu-item-1389"
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1389 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="contact-us/" class="woodmart-nav-link"><span
+											<a href="contactus.php" class="woodmart-nav-link"><span
 													class="nav-link-text">Contact Us</span></a>
 										</li>
 									</ul>
@@ -1059,7 +1059,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									type="text/css" media="all" />
 								<div
 									class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener whb-5u866sftq6yga790jxf3">
-									<a href="cart/" title="Shopping cart">
+									<a href="cart.php" title="Shopping cart">
 										<span class="wd-tools-icon wd-icon-alt">
 											<span class="wd-cart-number wd-tools-count">8 <span>items</span></span>
 										</span>
@@ -1199,6 +1199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																			data-sortable="true">Total Amount</th>
 																		<th data-field="note" data-sortable="true">Order
 																			Date</th>
+																			<th data-field="note" data-sortable="true">Status</th>
 																	</tr>
 																</thead>
 																<tbody>
@@ -1221,6 +1222,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																		</td>
 																		<td>
 																			<?=$row["date"] ?>
+																		</td>
+																		<td>
+																			<?=$row["status"] ?>
 																		</td>
 
 																	</tr>
@@ -1873,7 +1877,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														About Us </span>
 
 
-													<a href="about-us/" class="wd-fill" aria-label="List item link"></a>
+													<a href="aboutus.php" class="wd-fill" aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-c77fc22">
 
@@ -1881,7 +1885,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														Contact Us </span>
 
 
-													<a href="contact-us/" class="wd-fill"
+													<a href="contactus.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 												<li class="elementor-repeater-item-f93516b">
@@ -2058,14 +2062,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		href="wp-content/themes/woodmart/css/parts/opt-bottom-toolbar.min.css?ver=7.1.4" type="text/css" media="all" />
 	<div class="wd-toolbar wd-toolbar-label-show">
 		<div class="wd-toolbar-shop wd-toolbar-item wd-tools-element">
-			<a href="products/">
+			<a href="products.php">
 				<span class="wd-tools-icon"></span>
 				<span class="wd-toolbar-label">
 					Shop </span>
 			</a>
 		</div>
 		<div class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener" title="My cart">
-			<a href="cart/">
+			<a href="cart.php">
 				<span class="wd-tools-icon wd-icon-alt">
 					<span class="wd-cart-number wd-tools-count">8 <span>items</span></span>
 				</span>
