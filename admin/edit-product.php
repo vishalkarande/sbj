@@ -31,18 +31,10 @@ if(isset($_POST['submit'])) {
     $arr = array();
     $arr['slug'] = $slug;
     $arr['name'] = trim(strip_tags($_REQUEST['name']));
-    $arr['trendings'] = trim(strip_tags($_REQUEST['trendings']));
     $arr['meta_title'] = trim(strip_tags($_REQUEST['meta_title']));
     $arr['meta_description'] = trim(strip_tags($_REQUEST['meta_description']));
-    $arr['cat_id'] = trim(strip_tags($_REQUEST['cat_id']));
     $arr['is_show'] = trim(strip_tags($_REQUEST['is_show']));
     $arr['item_code'] = trim(strip_tags($_REQUEST['item_code']));
-    $arr['brand_id'] = trim(strip_tags($_REQUEST['brand_id']));
-    $arr['is_mm_special'] = trim(strip_tags($_REQUEST['is_mm_special']));
-    $_REQUEST['sub_category'] = trim(strip_tags($_REQUEST['sub_category']));
-    if(!empty($_REQUEST['sub_category'])) {
-      $arr['cat_id'] = $_REQUEST['sub_category'];
-    }
     $arr['details'] = htmlentities(addslashes($_POST['details']));
     if(isset($_FILES) && !empty($_FILES['file_upload']['tmp_name'])) {
       $ret = $QueryFire->fileUpload($_FILES['file_upload'],'../images/products/');
@@ -79,12 +71,9 @@ $sub = $QueryFire->getAllData('categories',' is_show=1 and level=2 and is_delete
 $images = $QueryFire->getAllData('products_has_images',' product_id='.$_REQUEST['product_id']);
 $params = $QueryFire->getAllData('product_has_params','is_deleted=0 order by name');
 $product = $QueryFire->getAllData('products','id='.$_REQUEST['product_id'])[0];
-$product_cat = array_values(array_filter($categories,function($a) use($product){return $product['cat_id']==$a['id'];}))[0];
-$main_cat = $product_cat['parent_id']==0?$product['cat_id']:$product_cat['parent_id'];
-$sub_cat = $product_cat['parent_id']==0?'':$product_cat['id'];
 $categories = array_values(array_filter($categories,function($a) {return $a['level']==1;}));
 unset($product_cat);
-$param_values = $QueryFire->getAllData('product_params_values',' id in('.$product['param_value_id'].')');
+// $param_values = $QueryFire->getAllData('product_params_values',' id in('.$product['param_value_id'].')');
 $brands = $QueryFire->getAllData('brands',' is_show=1 order by name');
 ?>
   <section class="content-header">
@@ -117,63 +106,11 @@ $brands = $QueryFire->getAllData('brands',' is_show=1 order by name');
                     <input type="text" name="name" value="<?= $product['name']?>" class="form-control" placeholder="Enter Product Name">
                   </div>
                 </div>
-                <div class="col-sm-2 col-md-2 col-xs-6">
-                  <div class="form-group">
-                    <label for="trendings">Show on Home</label>
-                    <select class="form-control" name="trendings">
-                      <option value="1" <?= $product['trendings']==1?'selected':''?>>Yes</option>
-                      <option value="0" <?= $product['trendings']==0?'selected':''?>>No</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-2 col-md-2 col-xs-6">
-                  <div class="form-group">
-                    <label for="is_mm_special">MM Special</label>
-                    <select class="form-control" name="is_mm_special">
-                      <option value="1">Yes</option>
-                      <option value="0">No</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-3 col-md-3 col-xs-12">
-                  <div class="form-group">
-                    <label for="brand_id"> Brand</label>
-                    <select class="form-control" name="brand_id">
-                      <option value=""> -- Select brand -- </option>
-                      <?php if(!empty($brands)) {
-                        foreach($brands as $brand) {
-                          echo '<option value="'.$brand['id'].'" '.($product['brand_id'] == $brand['id']?'selected':'').' >'.$brand['name'].'</option>';
-                        }
-                      } ?>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-5 col-md-5 col-xs-12">
-                  <div class="form-group">
-                    <label for="cat_id"> Category</label>
-                    <select class="form-control category" name="cat_id">
-                      <option value=""> -- Select Category -- </option>
-                      <?php if(!empty($categories)) {
-                        foreach($categories as $cat) {
-                          echo '<option value="'.$cat['id'].'" >'.$cat['name'].'</option>';
-                        }
-                      } ?>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-5 col-md-5 col-xs-12 sub_category ">
-                  <div class="form-group">
-                    <label for="sub_category">Sub Category</label>
-                    <select name="sub_category" class="form-control">
-                      <option value=""> -- Select Sub Category -- </option>
-                       <?php if(!empty($sub)) {
-                        foreach($sub as $sub) {
-                          echo '<option value="'.$sub['id'].'" >'.$sub['name'].'</option>';
-                        }
-                      } ?>
-                    </select>
-                  </div>
-                </div>
+               
+                
+               
+               
+                
                 <div class="col-sm-2 col-md-2 col-xs-6">
                   <div class="form-group">
                     <label for="is_show">Is Show</label>
@@ -287,7 +224,7 @@ $appendScript = '
         $(".act").val("remove");
         $("#editHomeSlider").modal("show");
       });
-      var sub_category="'.$sub_cat.'";
+      var sub_category="";
       $(".category").on("change",function(){
         $.ajax({
           url:"query",
@@ -298,7 +235,7 @@ $appendScript = '
               $(".sub_category").removeClass("hide");
               $(".sub_category select").html(response);
               if(sub_category!="") {
-                $(".sub_category select").val('.$sub_cat.').trigger("change");
+                $(".sub_category select").val().trigger("change");
                 sub_category="";
               }
             } else {
@@ -307,7 +244,6 @@ $appendScript = '
           }
         });
       });
-      $(".category").val('.$main_cat.').trigger("change");
       $(".summernote").summernote({
         height: 250,
         fontNames: ["Arial", "Arial Black", "Comic Sans MS", "Courier New","Times New Roman","Century","Verdana","Vrinda","Candara","Tahoma","Georgia","Impact","Helvetica","Neutra Text TF","Lucida Console"],

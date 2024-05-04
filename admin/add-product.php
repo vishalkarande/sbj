@@ -22,23 +22,16 @@ if(isset($_POST['submit'])) {
         $arr = array();
         $arr['slug'] = $slug;
         $arr['name'] = trim(strip_tags($_REQUEST['name']));
-        $arr['trendings'] = trim(strip_tags($_REQUEST['trendings']));
         //$arr['price'] = trim(strip_tags($_REQUEST['price']));
         //$arr['qty'] = trim(strip_tags($_REQUEST['qty']));
         $arr['meta_title'] = trim(strip_tags($_REQUEST['meta_title']));
         $arr['meta_description'] = trim(strip_tags($_REQUEST['meta_description']));
         //$arr['param_value'] = trim(strip_tags($_REQUEST['param_value']));
         //$arr['param_value_id'] = implode(',',$_REQUEST['param_value_id']);
-        //$arr['discount'] = trim(strip_tags($_REQUEST['discount']));
-        $arr['cat_id'] = trim(strip_tags($_REQUEST['cat_id']));
+        // $arr['cat_id'] = trim(strip_tags($_REQUEST['cat_id']));
         $arr['is_show'] = trim(strip_tags($_REQUEST['is_show']));
         $arr['item_code'] = trim(strip_tags($_REQUEST['item_code']));
-        $arr['brand_id'] = trim(strip_tags($_REQUEST['brand_id']));
-        $arr['is_mm_special'] = trim(strip_tags($_REQUEST['is_mm_special']));
-        $_REQUEST['sub_category'] = trim(strip_tags($_REQUEST['sub_category']));
-        if(!empty($_REQUEST['sub_category'])) {
-          $arr['cat_id'] = $_REQUEST['sub_category'];
-        }
+        
         $arr['image_name'] = $ret['image_name'];
         $arr['details'] = htmlentities(addslashes($_POST['details']));
         if($QueryFire->insertData('products',$arr)) {
@@ -46,18 +39,21 @@ if(isset($_POST['submit'])) {
           $last_id = $QueryFire->getLastInsertId();
           $inventory = array();
           $inventory['product_id'] = $last_id;
-          foreach($_REQUEST['param_value'] as $key=>$value) {
-            if(!empty($_POST['param_value'][$key]) && !empty($_POST['qty'][$key]) && !empty($_POST['price'][$key]) && !empty($_POST['rate'][$key]) && !empty($_POST['param_value_id'][$key])) {
-                $inventory['param_value'] = $_POST['param_value'][$key];
-                $inventory['purchase_qty'] = $inventory['qty'] = $_POST['qty'][$key];
-                $inventory['price'] = $_POST['price'][$key];
-                $inventory['purchase_rate'] = $_POST['rate'][$key];
-                $inventory['param_value_id'] = $_POST['param_value_id'][$key];
-                $inventory['discount'] = $_POST['discount'][$key];
-                $QueryFire->insertData('inventry',$inventory);
-    		    $QueryFire->insertData('inventry_log',$inventory);
-            }
-          }
+          $key=0;
+
+          if(!empty( !empty($_POST['qty'][$key]) && !empty($_POST['price'][$key]) && !empty($_POST['rate'][$key]) )) {
+            //$inventory['param_value'] = $_POST['param_value'][$key];
+            $inventory['purchase_qty'] = $inventory['qty'] = $_POST['qty'][$key];
+            $inventory['price'] = $_POST['price'][$key];
+            $inventory['purchase_rate'] = $_POST['rate'][$key];
+            $inventory['param_value_id'] = $_POST['param_value_id'][$key];
+            $inventory['discount'] = $_POST['discount'][$key];
+            $QueryFire->insertData('inventry',$inventory);
+        $QueryFire->insertData('inventry_log',$inventory);
+        }else{
+          print("issue");
+        }
+
           //now insert images into db
           if(isset($_FILES) && !empty($_FILES['images']['tmp_name'][0])) {
             $ret1 = $QueryFire->multipleFileUpload($_FILES['images'],'../images/products/');
@@ -79,8 +75,6 @@ if(isset($_POST['submit'])) {
       $msg = 'Product already exists.';
   }
 }
-$categories = $QueryFire->getAllData('categories',' is_show=1 and level=1 and is_deleted=0 order by name');
-$brands = $QueryFire->getAllData('brands',' is_show=1 order by name');
 $params = $QueryFire->getAllData('product_has_params','is_deleted=0 order by name');
 ?>
   <section class="content-header">
@@ -113,58 +107,11 @@ $params = $QueryFire->getAllData('product_has_params','is_deleted=0 order by nam
                     <input type="text" name="name" class="form-control" placeholder="Enter Product Name">
                   </div>
                 </div>
-                <div class="col-sm-2 col-md-2 col-xs-6">
-                  <div class="form-group">
-                    <label for="trendings">Show on Home</label>
-                    <select class="form-control" name="trendings">
-                      <option value="1">Yes</option>
-                      <option value="0">No</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-2 col-md-2 col-xs-6">
-                  <div class="form-group">
-                    <label for="is_mm_special">MM Special</label>
-                    <select class="form-control" name="is_mm_special">
-                      <option value="1">Yes</option>
-                      <option value="0">No</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-3 col-md-3 col-xs-12">
-                  <div class="form-group">
-                    <label for="brand_id"> Brand</label>
-                    <select class="form-control" name="brand_id">
-                      <option value=""> -- Select brand -- </option>
-                      <?php if(!empty($brands)) {
-                        foreach($brands as $brand) {
-                          echo '<option value="'.$brand['id'].'">'.$brand['name'].'</option>';
-                        }
-                      } ?>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-5 col-md-5 col-xs-12">
-                  <div class="form-group">
-                    <label for="cat_id"> Category</label>
-                    <select class="form-control category" name="cat_id">
-                      <option value=""> -- Select Category -- </option>
-                      <?php if(!empty($categories)) {
-                        foreach($categories as $cat) {
-                          echo '<option value="'.$cat['id'].'">'.$cat['name'].'</option>';
-                        }
-                      } ?>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-5 col-md-5 col-xs-12 sub_category hide">
-                  <div class="form-group">
-                    <label for="sub_category">Sub Category</label>
-                    <select name="sub_category" class="form-control ">
-                      <option value=""> -- Select Sub Category -- </option>
-                    </select>
-                  </div>
-                </div>
+                
+                
+                
+                
+                
                 <div class="col-12 col-md-12">
                     <div class="row">
                         <div class="col-sm-3 col-md-3 col-xs-12">
@@ -187,13 +134,7 @@ $params = $QueryFire->getAllData('product_has_params','is_deleted=0 order by nam
                             </select>
                           </div>
                         </div>
-                        <div class="col-sm-3 col-md-3 col-xs-12">
-                          <div class="form-group">
-                            <label for="param_value"> Parameter Value</label>
-                            <input type="text" name="param_value[]" placeholder="Enter param value" class="form-control">
-                            </select>
-                          </div>
-                        </div>
+                     
                         <div class="col-sm-3 col-md-3 col-xs-6">
                           <div class="form-group">
                             <label for="qty">Quantity</label>
@@ -240,82 +181,7 @@ $params = $QueryFire->getAllData('product_has_params','is_deleted=0 order by nam
                           </div>
                         </div>
                     </div>
-                    <div class="row copyMe hide">
-                        <div class="col-sm-3 col-md-3 col-xs-12">
-                          <div class="form-group">
-                            <label for="param_id"> Parameter</label>
-                            <select class="form-control param" required name="param_id[]">
-                              <option value=""> Select Parameter</option>
-                              <?php if(!empty($params)) {
-                                foreach($params as $param) {
-                                  echo '<option value="'.$param['id'].'">'.$param['name'].'</option>';
-                                }
-                              } ?>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-sm-3 col-md-3 col-xs-12">
-                          <div class="form-group">
-                            <label for="param_id"> Select Parameter Unit</label>
-                            <select class="form-control param_value_id" data-placeholder="Select Parameter Unit" style="width: 100%;" name="param_value_id[]">
-                                <option value="">Select Parameter Unit</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-sm-3 col-md-3 col-xs-12">
-                          <div class="form-group">
-                            <label for="param_value"> Parameter Value</label>
-                            <input type="text" required name="param_value[]" placeholder="Enter param value" class="form-control">
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-sm-3 col-md-3 col-xs-6">
-                          <div class="form-group">
-                            <label for="qty">Quantity</label>
-                            <input type="text" required name="qty[]" class="form-control" placeholder="Enter Product Quantity">
-                          </div>
-                        </div>
-                        <div class="col-sm-3 col-md-3 col-xs-6">
-                          <div class="form-group">
-                            <label for="price">Sales Price</label>
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-rupee-sign"></i></span>
-                              </div>
-                              <input type="text" required name="price[]" class="form-control" placeholder="Enter sales price">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-3 col-md-3 col-xs-6">
-                          <div class="form-group">
-                            <label for="price"> Purchase Price</label>
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-rupee-sign"></i></span>
-                              </div>
-                              <input type="text" required name="rate[]" class="form-control" placeholder="Enter purchas price">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-3 col-md-3 col-xs-6">
-                          <div class="form-group">
-                            <label for="discount"> Discount</label>
-                            <div class="input-group">
-                              <input type="text" name="discount[]" class="form-control" placeholder="Enter Discount" value="0">
-                              <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-percent"></i></span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-3 col-md-3 col-xs-6">
-                          <div class="form-group">
-                            <label>&nbsp;</label><br>
-                            <button class="btn btn-default btn-add-row" type="button"> Add More</button>
-                            <button class="btn btn-default btn-remove-row" type="button"> Remove</button>
-                          </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-sm-2 col-md-2 col-xs-6">
                   <div class="form-group">

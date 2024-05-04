@@ -41,7 +41,7 @@ $products = $QueryFire->getAllData('products',' is_deleted=0 ','SELECT p.*,c.nam
                   <th>Item Code</th>
                   <th>Name</th>
                   <th>Description</th>
-                  <th>Category</th>
+                 
                   <th>Image</th>
                   <th>Action</th>
                 </tr>
@@ -53,7 +53,7 @@ $products = $QueryFire->getAllData('products',' is_deleted=0 ','SELECT p.*,c.nam
                     <td><?php echo $product['item_code'];?></td>
                     <td><?php echo ucfirst($product['name']);?></td>
                     <td><?= makeShortString(strip_tags(html_entity_decode($product['details'])),200)?></td>
-                    <td><?php echo ucfirst($product['category']);?></td>
+                    
                     <td><img src="../images/products/<?= $product['image_name']?>" class="img-thumbnail img-responsive" /></td>
                     <td>
                       <a href="edit-product?product_id=<?php echo $product['id'];?>" class="btn btn-info btn-xs"> Edit</a> 
