@@ -110,30 +110,30 @@
                 <p>Param Values</p>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="categories" class="nav-link <?php echo (isset($active_sub_tab) && trim($active_sub_tab) == 'categories' ) ? 'active': ''; ?>">
                 <i class="fas fa-th-list nav-icon"></i>
                 <p>Categories</p>
               </a>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
               <a href="sub-categories" class="nav-link <?php echo (isset($active_sub_tab) && trim($active_sub_tab) == 'sub categories' ) ? 'active': ''; ?>">
                 <i class="far fa-list-alt nav-icon"></i>
                 <p>Sub Categories</p>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a href="products" class="nav-link <?php echo (isset($active_sub_tab) && trim($active_sub_tab) == 'products' ) ? 'active': ''; ?>">
                 <i class="fas fa-shopping-cart nav-icon"></i>
                 <p>Products</p>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="reviews" class="nav-link <?php echo (isset($active_sub_tab) && trim($active_sub_tab) == 'reviews' ) ? 'active': ''; ?>">
                 <i class="fas fa-comments nav-icon"></i>
                 <p>Reviews</p>
               </a>
-            </li>
+            </li> -->
           </ul>
         </li>
         <!-- <li class="nav-item has-treeview <?php echo (isset($active_tab) && trim($active_tab) == 'faqs' ) ? 'menu-open': ''; ?>">
