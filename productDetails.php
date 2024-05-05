@@ -1016,13 +1016,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																	</figure>
 																</div>
 															</figure>
-															<div class="product-additional-galleries">
-																<div
-																	class="wd-show-product-gallery-wrap wd-action-btn wd-style-icon-bg-text wd-gallery-btn">
-																	<a href="index.php" rel="nofollow"
-																		class="woodmart-show-product-gallery"><a href="index.php"><span>Click
-																			to enlarge</span></a></a></div>
-															</div>
+													
 															
 														</div>
 
