@@ -187,9 +187,9 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                               decoding="async"
                                               width="1024"
                                               height="1024"
-                                              src="wp-content/uploads/2023/11/roasted-1-min-1024x1024.webp"
+                                              src="images/products/<?= $prod["image_name"] ?>"
                                               class="attachment-large size-large wp-image-10725"
-                                              alt=" roasted category"
+                                              alt="<?= $prod["name"] ?>"
                                               
                                               sizes="(max-width: 1024px) 100vw, 1024px"
                                             />
@@ -201,12 +201,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                             <mark class="count">(11)</mark>
                                           </h3>
 
-                                          <div class="more-products">
-                                            <a
-                                              href="products.php"
-                                              >11 products</a
-                                            >
-                                          </div>
+                                        
                                         </div>
 
                                         <a
@@ -417,7 +412,7 @@ $about_us = $QueryFire->getAllData('pageandcontents','id=1')[0];
                                               decoding="async"
                                               width="1080"
                                               height="1080"
-                                              src="wp-content/uploads/2023/07/combo-6-2.webp"
+                                              src="images/products/<?= $row["image_name"] ?>"
                                               class="attachment-full size-full wp-image-11232"
                                               alt="<?= $row["name"]?>"
                                               

@@ -913,8 +913,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 													cellspacing="0">
 													<thead>
 														<tr>
-															<th class="product-remove"><span
-																	class="screen-reader-text">Remove item</span></th>
+															<!-- <th class="product-remove"><span
+																	class="screen-reader-text">Remove item</span></th> -->
 															<th class="product-thumbnail"><span
 																	class="screen-reader-text">Thumbnail image</span>;
 															</th>
@@ -952,21 +952,21 @@ foreach($orders as $item){
 
 														<tr class="woocommerce-cart-form__cart-item cart_item">
 
-															<td class="">
+															<!-- <td class="">
 																<a  class="" aria-label="Remove this item"
 																	
 																	></a>
-															</td>
+															</td> -->
 
 															<td class="product-thumbnail">
 																<a
                                                                 href="productDetails.php?id=<?=$product_id?>"><img
 																		fetchpriority="high" decoding="async"
 																		width="300" height="300"
-																		src="wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-300x300.webp"
+																		src="images/products/<?= $productDetail["image_name"] ?>"
 																		class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-																		alt="Cornflakes Crunch - roasted healthy snacks - "
-																		srcset="wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-300x300.webp 300w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-1024x1024.webp 1024w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-150x150.webp 150w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-768x767.webp 768w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-1536x1534.webp 1536w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-600x599.webp 600w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-32x32.webp 32w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822.webp 1745w"
+																		alt="<?= $productDetail["name"] ?>"
+																		srcset="images/products/<?= $productDetail["image_name"] ?>"
 																		sizes="(max-width: 300px) 100vw, 300px" /></a>
 															</td>
 
@@ -1000,8 +1000,8 @@ foreach($orders as $item){
 																	<?=$productDetail["param_value"]?>
 																	<?=$params_val["param_value"]?>
                                                                         </label>
-																	<input type="number" class="count" min="0" max=""
-																		value="<?=$quantity?>"
+																	<input type="number" class="count" min="0" max="" disabled
+																		value="<?=$quantity?>" style="color:#000000"
 																		name="quantity[<?=$product_id?>]">
 
 																	<input style="display:None" type="button" value="+" class="plus" />

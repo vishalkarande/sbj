@@ -21,6 +21,8 @@ if(isset($_POST['empty_cart'])) {
 if(isset($_GET['remove']) && isset($_SESSION['cart'][$_GET['remove']])) {
     // Remove the product from the cart
     unset($_SESSION['cart'][$_GET['remove']]);
+	echo "<script> alert('Removed.');window.location.href='cart.php';</script>";
+		
 }
 ?>
 <!DOCTYPE html>
@@ -2009,10 +2011,10 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
                                                                 href="productDetails.php?id=<?=$product_id?>"><img
 																		fetchpriority="high" decoding="async"
 																		width="300" height="300"
-																		src="wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-300x300.webp"
+																		src="images/products/<?= $productDetail["image_name"] ?>"
 																		class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
 																		alt="Cornflakes Crunch - roasted healthy snacks - "
-																		srcset="wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-300x300.webp 300w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-1024x1024.webp 1024w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-150x150.webp 150w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-768x767.webp 768w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-1536x1534.webp 1536w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-600x599.webp 600w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822-32x32.webp 32w, wp-content/uploads/2023/06/cornflakes-crunch-1-scaled-e1702985729822.webp 1745w"
+																		srcset="images/products/<?= $productDetail["image_name"] ?> 1745w"
 																		sizes="(max-width: 300px) 100vw, 300px" /></a>
 															</td>
 
@@ -2214,7 +2216,7 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
 							countElements[index].value = count - 1;
 							const price = parseInt(priceElements[index].textContent);
 							const totalPrice = (count - 1) * price;
-							totalPriceElements[index].textContent = '$' + totalPrice;
+							totalPriceElements[index].textContent =  totalPrice;
 							total -= price;
 							totalElement.textContent = total;
 						}
@@ -2280,7 +2282,7 @@ foreach($_SESSION['cart'] as $product_id => $quantity){
 <footer class="footer-container color-scheme-light">
 	<div class="container main-footer">
 		<link rel="stylesheet" id="elementor-post-2129-css"
-			href="wp-content/uploads/elementor/css/post-2129.css?ver=1712761393" type="text/css" media="all">
+			href="wp-content/uploads/elementor/css/post-2129.css" type="text/css" media="all">
 		<div data-elementor-type="wp-post" data-elementor-id="2129" class="elementor elementor-2129"
 			data-elementor-post-type="cms_block">
 			<section data-particle_enable="false" data-particle-mobile-disabled="false"

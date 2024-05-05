@@ -1105,12 +1105,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="container">
 					<ul class="wd-checkout-steps">
 						<li class="step-cart step-inactive">
-							<a href="cart/">
+							<a href="cart.php">
 								<span>Shopping cart</span>
 							</a>
 						</li>
 						<li class="step-checkout step-active">
-							<a href="checkout/">
+							<a href="checkout.php">
 								<span>Checkout</span>
 							</a>
 						</li>
@@ -1569,9 +1569,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																												decoding="async"
 																												width="300"
 																												height="300"
-																												src="wp-content/uploads/2023/07/combo-6-2-300x300.webp"
+																												src="images/products/<?= $productDetail["image_name"] ?>"
 																												class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-																												alt="combo offer - Aalu Wafers + Salty Vinegar Crunch"
+																												alt="<?= $productDetail["name"] ?>"
 																												sizes="(max-width: 300px) 100vw, 300px" /></a>
 																									</div>
 																									<div
@@ -1613,6 +1613,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																														<?=$params_val["param_value"]?>
 																													</label><br />
 																													<input
+																														disabled
 																														type="number"
 																														class="count"
 																														min="0"
@@ -1727,7 +1728,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							const totalElement = document.getElementById("total");
 							const hiddenTotalElement = document.getElementById("hidden-total");
 
-							console.log(countElements);
+							
 
 
 							let total = 0;

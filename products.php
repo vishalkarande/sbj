@@ -2059,7 +2059,7 @@ function (event) {
 									<div class="product-element-top wd-quick-shop">
 										<a href="productDetails.php?id=<?=$row["id"]?>" class="product-image-link">
 											<img fetchpriority="high" width="300" height="300"
-												src="wp-content/uploads/2023/06/Aalu-Papdi-1-300x300.webp"
+												src="images/products/<?= $row["image_name"] ?>"
 												class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-image-1810"
 												alt="" decoding="async" sizes="(max-width: 300px) 100vw, 300px" />
 										</a>
