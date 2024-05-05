@@ -24,10 +24,13 @@ $productDetail = $QueryFire->getAllData(
     "",
     "",
     "SELECT * FROM `products` as p JOIN `inventry` as i ON p.id=i.product_id where p.id=" .$proID." and p.is_show=1 and p.is_deleted=0;")[0];
+
 $params_val=$QueryFire->getAllData('product_params_values',' id='.$productDetail["param_value_id"].';')[0];
 $params=$QueryFire->getAllData('product_has_params',' id='.$params_val["param_id"].';')[0];
 
 $productsAll=$QueryFire->getAllData('','','SELECT * FROM `products` as p JOIN `inventry` as i ON p.id=i.product_id where p.is_show=1 and p.is_deleted=0 limit 8;');
+
+
 
 
 if(isset($_POST['add_to_cart'])) {
@@ -94,6 +97,8 @@ if(isset($_POST['add_to_cart'])) {
 		//0.1.47
 
 	</script>
+</script><script  type="javascript/blocked" data-wpmeteor-type="text/javascript" >window.MSInputMethodContext && document.documentMode && document.write('<script src="wp-content/themes/woodmart/js/libs/ie11CustomProperties.min.js"><\/script>');</script>
+		<script  type="javascript/blocked" data-wpmeteor-type="text/javascript" >window._wca = window._wca || [];</script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
 	<title>Aalu Wafers + Salty Vinegar Crunch - Saptdhanya</title>
@@ -990,19 +995,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																data-hide_pagination_control="yes">
 																<div class="product-image-wrap">
 																	<figure
-																		data-thumb="wp-content/uploads/2023/07/combo-6-2-150x150.webp"
+																		data-thumb="images/products/<?= $productDetail["image_name"] ?>"
 																		class="woocommerce-product-gallery__image"><a
 																			data-elementor-open-lightbox="no"
-																			href="wp-content/uploads/2023/07/combo-6-2.webp"><img
+																			href="images/products/<?= $productDetail["image_name"] ?>"><img
 																				fetchpriority="high" width="600"
 																				height="600"
-																				src="wp-content/uploads/2023/07/combo-6-2-600x600.webp"
+																				src="images/products/<?= $productDetail["image_name"] ?>"
 																				class="wp-post-image wp-post-image"
 																				alt="combo offer - Aalu Wafers + Salty Vinegar Crunch"
 																				title="Aalu Wafers + Salty Vinegar Crunch"
 																				data-caption=""
-																				data-src="wp-content/uploads/2023/07/combo-6-2.webp"
-																				data-large_image="wp-content/uploads/2023/07/combo-6-2.webp"
+																				data-src="images/products/<?= $productDetail["image_name"] ?>"
+																				data-large_image="images/products/<?= $productDetail["image_name"] ?>"
 																				data-large_image_width="1080"
 																				data-large_image_height="1080"
 																				decoding="async"
@@ -1011,14 +1016,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																	</figure>
 																</div>
 															</figure>
-
 															<div class="product-additional-galleries">
 																<div
 																	class="wd-show-product-gallery-wrap wd-action-btn wd-style-icon-bg-text wd-gallery-btn">
 																	<a href="index.php" rel="nofollow"
-																		class="woodmart-show-product-gallery"><span>Click
-																			to enlarge</span></a></div>
+																		class="woodmart-show-product-gallery"><a href="index.php"><span>Click
+																			to enlarge</span></a></a></div>
 															</div>
+															
 														</div>
 
 														<div class="col-12">
@@ -1054,18 +1059,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																		<a href="index.php@p=2401"
 																			class="wd-product-nav-thumb">
 																			<img width="300" height="300"
-																				src="wp-content/uploads/2023/07/combo-4-2-300x300.webp"
+																				src="images/products/<?= $row["image_name"] ?>"
 																				class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-																				alt="combo offer - Pickle Infusion + Garlic Sev"
+																				alt="<?= $row["image_name"] ?>"
 																				decoding="async"
-																				srcset="wp-content/uploads/2023/07/combo-4-2-300x300.webp 300w, wp-content/uploads/2023/07/combo-4-2-1024x1024.webp 1024w, wp-content/uploads/2023/07/combo-4-2-150x150.webp 150w, wp-content/uploads/2023/07/combo-4-2-768x768.webp 768w, wp-content/uploads/2023/07/combo-4-2-600x600.webp 600w, wp-content/uploads/2023/07/combo-4-2-32x32.webp 32w, wp-content/uploads/2023/07/combo-4-2.webp 1080w"
 																				sizes="(max-width: 300px) 100vw, 300px" />
 																		</a>
 
 																		<div class="wd-product-nav-desc">
-																			<a href="index.php@p=2401"
+																			<a 
 																				class="wd-entities-title">
-																				Pickle Infusion + Garlic Sev </a>
+																				<?= $row["image_name"] ?> </a>
 
 																			<span class="price">
 																				<del aria-hidden="true"><span
@@ -1118,6 +1122,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																		</div>
 																	</div>
 																</div>
+
+
 															</div>
 														</div>
 													</div>
@@ -1138,7 +1144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																</bdi></span></ins> <small
 															class="woocommerce-price-suffix">inc. taxes</small></p>
 
-
+														<p> <?= html_entity_decode($productDetail['details'])?> </p>
 
 
 
@@ -1191,64 +1197,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 													</div>
 
-													<div
-														class="wd-social-icons icons-design-default icons-size-small color-scheme-dark social-share social-form-circle product-share wd-layout-inline text-left">
-
-														<span class="wd-label share-title">Share:</span>
-
-														<a rel="noopener noreferrer nofollow"
-															href="<?=$socialArray["Facebook"] ?>sharer/sharer.php?u=products/combos/aalu-wafers-salty-vinegar-crunch/"
-															target="_blank" class=" wd-social-icon social-facebook"
-															aria-label="Facebook social link">
-															<span class="wd-icon"></span>
-														</a>
-
-														<a rel="noopener noreferrer nofollow"
-															href="https://twitter.com/share?url=products/combos/aalu-wafers-salty-vinegar-crunch/"
-															target="_blank" class=" wd-social-icon social-twitter"
-															aria-label="Twitter social link">
-															<span class="wd-icon"></span>
-														</a>
-
-
-
-
-														<a rel="noopener noreferrer nofollow"
-															href=""
-															target="_blank" class=" wd-social-icon social-pinterest"
-															aria-label="Pinterest social link">
-															<span class="wd-icon"></span>
-														</a>
-
-
-														<a rel="noopener noreferrer nofollow"
-															href="https://www.linkedin.com/shareArticle?mini=true&url=products/combos/aalu-wafers-salty-vinegar-crunch/"
-															target="_blank" class=" wd-social-icon social-linkedin"
-															aria-label="Linkedin social link">
-															<span class="wd-icon"></span>
-														</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-														<a rel="noopener noreferrer nofollow"
-															href="https://telegram.me/share/url?url=products/combos/aalu-wafers-salty-vinegar-crunch/"
-															target="_blank" class=" wd-social-icon social-tg"
-															aria-label="Telegram social link">
-															<span class="wd-icon"></span>
-														</a>
-
-
-													</div>
 
 												</div>
 											</div>
@@ -1303,8 +1251,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 															<p style="text-align: center">
 																<?=$params["name"]?> :
 																<?= $productDetail["name"]?>(
-																<?= $params_val["param_value"] ?>)
+																<?= $params_val["param_value"] ?>
+																<?= $productDetail["price"] ?>)
 															</p>
+															<p> <?= html_entity_decode($productDetail['details'])?> </p>
 														</div>
 													</div>
 												</div>
@@ -1370,7 +1320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																	</span>
 																</div>
 																<img loading="lazy" width="300" height="300"
-																	src="wp-content/uploads/2023/07/combo-4-2-300x300.webp"
+																	src="images/products/<?= $row["image_name"] ?>"
 																	class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-image-11233"
 																	alt="combo offer - Pickle Infusion + Garlic Sev"
 																	decoding="async"
