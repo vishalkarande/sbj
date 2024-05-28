@@ -1045,14 +1045,14 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript">window._wca = window._wca || [];</script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-	<title> &amp; Conditions - Saptdhanya</title>
+	<title> Privacy Policy</title>
 	<meta name="description"
 		content="As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and" />
 	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
 	
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content=" &amp; Conditions - Saptdhanya" />
+	<meta property="og:title" content=" Privacy Policy" />
 	<meta property="og:description"
 		content="As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and" />
 	<meta property="og:url" content="/-conditions/" />
@@ -1062,13 +1062,13 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 	<meta property="article:published_time" content="2023-06-15T03:03:40+05:30" />
 	<meta property="article:modified_time" content="2023-06-15T03:04:57+05:30" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content=" &amp; Conditions - Saptdhanya" />
+	<meta name="twitter:title" content=" Privacy Policy" />
 	<meta name="twitter:description"
 		content="As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and" />
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="2 minutes" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"/#website","url":"","name":"Saptdhanya","publisher":{"@id":"/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"/-conditions/#webpage","url":"/-conditions/","name":" &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","isPartOf":{"@id":"/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"/author//","name":"Saptdhanya","url":"/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"/#organization"}},{"@type":"Article","headline":" &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","author":{"@id":"/author//","name":"Saptdhanya"},"publisher":{"@id":"/#organization"},"description":"As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and","name":" &amp; Conditions - Saptdhanya","@id":"/-conditions/#richSnippet","isPartOf":{"@id":"/-conditions/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"/-conditions/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"/#website","url":"","name":"Saptdhanya","publisher":{"@id":"/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"/-conditions/#webpage","url":"/-conditions/","name":" Privacy Policy","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","isPartOf":{"@id":"/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"/author//","name":"Saptdhanya","url":"/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"/#organization"}},{"@type":"Article","headline":" Privacy Policy","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","author":{"@id":"/author//","name":"Saptdhanya"},"publisher":{"@id":"/#organization"},"description":"As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and","name":" Privacy Policy","@id":"/-conditions/#richSnippet","isPartOf":{"@id":"/-conditions/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"/-conditions/#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='https://stats.wp.com/' />
@@ -2785,6 +2785,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 													<a href=".php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
+												<li class="elementor-repeater-item-f93516b">
+
+<span class="list-content">
+Shipping &amp; Return Policy </span>
+
+
+<a href="shipping.php" class="wd-fill"
+	aria-label="List item link"></a>
+</li>
 											</ul>
 
 										</div>

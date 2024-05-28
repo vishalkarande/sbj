@@ -3032,6 +3032,15 @@ function (event) {
 													<a href="terms.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
+												<li class="elementor-repeater-item-f93516b">
+
+<span class="list-content">
+Shipping &amp; Return Policy </span>
+
+
+<a href="shipping.php" class="wd-fill"
+	aria-label="List item link"></a>
+</li>
 											</ul>
 
 										</div>
