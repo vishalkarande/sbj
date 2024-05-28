@@ -22,7 +22,7 @@ if(isset($_GET["pop"]) && isset($_GET["mes"])) {
 	$pop=$_GET["pop"];
 	$mes=$_GET['mes'];
 	if($pop==1 && $mes==1){
-	  $message="Registration Success ";
+	  $message="Registration Success. Can login with Email ID. ";
 	}elseif($pop==1 && $mes==2){
 	  $message="Registration Failed "; 
 	}elseif($pop==1 && $mes==3){
@@ -58,7 +58,7 @@ if(isset($_POST['login'])) {
 
 
 if(isset($_POST['register'])) {
-	$dummy = $QueryFire->getAllData('users',' mobile_no = "'.trim($_POST['mobile_no']).'" or email = "'.$_POST['email'].'";');
+	$dummy = $QueryFire->getAllData('users',' email = "'.$_POST['email'].'";');
 	if(empty($dummy)) {
 		$data = array();
 		$data['name'] = $_POST['full_name'];
@@ -71,7 +71,7 @@ if(isset($_POST['register'])) {
 		
 		$data['access_token'] = rand(100000,999999);
 		//$QueryFire->sendSms('To verify your account use OTP - '.$data['access_token'],$data['mobile_no']);
-		$data['is_verified'] = 0;
+		$data['is_verified'] = 1;
 		
 		$to = $data['email'];
 		$subject = 'Welcome to Saptdhanya. Verify your profile.';
@@ -104,7 +104,7 @@ if(isset($_POST['register'])) {
 		}
 
 		if($QueryFire->insertData('users', $data)) {
-		  $success = 'You have successfully created your account. Please Login with Phone Number.';
+		  $success = 'You have successfully created your account. Please Login with Email.';
 		  header("Location: {$_SERVER['PHP_SELF']}?pop=1&mes=1");
 		  exit();
 		}

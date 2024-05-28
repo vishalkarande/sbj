@@ -1057,7 +1057,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 		content="As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and" />
 	<meta property="og:url" content="/terms.php" />
 	<meta property="og:site_name" content="Saptdhanya" />
-	<meta property="article:author" content="<?=$socialArray["Facebook"] ?>pragssaltyjodhpur" />
+	<meta property="article:author" content="<?=$socialArray["Facebook"] ?>" />
 	<meta property="og:updated_time" content="2023-06-15T03:04:57+05:30" />
 	<meta property="article:published_time" content="2023-06-15T03:03:40+05:30" />
 	<meta property="article:modified_time" content="2023-06-15T03:04:57+05:30" />
@@ -1068,7 +1068,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="2 minutes" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"/#website","url":"","name":"Saptdhanya","publisher":{"@id":"/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"/terms.php#webpage","url":"/terms.php","name":"Terms &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","isPartOf":{"@id":"/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"/author/pragssaltyjodhpur/","name":"Saptdhanya","url":"/author/pragssaltyjodhpur/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>pragssaltyjodhpur"],"worksFor":{"@id":"/#organization"}},{"@type":"Article","headline":"Terms &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","author":{"@id":"/author/pragssaltyjodhpur/","name":"Saptdhanya"},"publisher":{"@id":"/#organization"},"description":"As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and","name":"Terms &amp; Conditions - Saptdhanya","@id":"/terms.php#richSnippet","isPartOf":{"@id":"/terms.php#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"/terms.php#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"/#website","url":"","name":"Saptdhanya","publisher":{"@id":"/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"/terms.php#webpage","url":"/terms.php","name":"Terms &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","isPartOf":{"@id":"/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"/author//","name":"Saptdhanya","url":"/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"/#organization"}},{"@type":"Article","headline":"Terms &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","author":{"@id":"/author//","name":"Saptdhanya"},"publisher":{"@id":"/#organization"},"description":"As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and","name":"Terms &amp; Conditions - Saptdhanya","@id":"/terms.php#richSnippet","isPartOf":{"@id":"/terms.php#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"/terms.php#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='https://stats.wp.com/' />
@@ -2540,7 +2540,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<div class="elementor-social-icons-wrapper elementor-grid">
 												<span class="elementor-grid-item">
 													<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-ba7e7c7"
-														href="<?=$socialArray["Facebook"] ?>pragssaltyjodhpur"
+														href="<?=$socialArray["Facebook"] ?>"
 														target="_blank">
 														<span class="elementor-screen-only">Facebook</span>
 														<i class="fab fa-facebook"></i> </a>

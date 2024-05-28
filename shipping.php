@@ -454,7 +454,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
                                 ? o.bind(s)(e)
                                 : o(e);
                           } catch (p) {
-                            x(p, o);
+                           let a=1;
                           }
                           oe = null;
                         }
@@ -1045,30 +1045,30 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript">window._wca = window._wca || [];</script>
 
 	<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-	<title> &amp; Conditions - Saptdhanya</title>
+	<title>Shipping &amp; Return Policy - Saptdhanya</title>
 	<meta name="description"
 		content="As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and" />
 	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
 	
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content=" &amp; Conditions - Saptdhanya" />
+	<meta property="og:title" content="Shipping &amp; Return Policy - Saptdhanya" />
 	<meta property="og:description"
 		content="As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and" />
-	<meta property="og:url" content="/-conditions/" />
+	<meta property="og:url" content="/shipping.php" />
 	<meta property="og:site_name" content="Saptdhanya" />
 	<meta property="article:author" content="<?=$socialArray["Facebook"] ?>" />
 	<meta property="og:updated_time" content="2023-06-15T03:04:57+05:30" />
 	<meta property="article:published_time" content="2023-06-15T03:03:40+05:30" />
 	<meta property="article:modified_time" content="2023-06-15T03:04:57+05:30" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content=" &amp; Conditions - Saptdhanya" />
+	<meta name="twitter:title" content="Shipping &amp; Return Policy - Saptdhanya" />
 	<meta name="twitter:description"
 		content="As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and" />
 	<meta name="twitter:label1" content="Time to read" />
 	<meta name="twitter:data1" content="2 minutes" />
 	<script type="application/ld+json"
-		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"/#website","url":"","name":"Saptdhanya","publisher":{"@id":"/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"/-conditions/#webpage","url":"/-conditions/","name":" &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","isPartOf":{"@id":"/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"/author//","name":"Saptdhanya","url":"/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"/#organization"}},{"@type":"Article","headline":" &amp; Conditions - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","author":{"@id":"/author//","name":"Saptdhanya"},"publisher":{"@id":"/#organization"},"description":"As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and","name":" &amp; Conditions - Saptdhanya","@id":"/-conditions/#richSnippet","isPartOf":{"@id":"/-conditions/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"/-conditions/#webpage"}}]}</script>
+		class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"Saptdhanya"},{"@type":"WebSite","@id":"/#website","url":"","name":"Saptdhanya","publisher":{"@id":"/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"/shipping.php#webpage","url":"/shipping.php","name":"Shipping &amp; Return Policy - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","isPartOf":{"@id":"/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"/author//","name":"Saptdhanya","url":"/author//","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/80cb3f87f953c593db5fb3f4e3b16c7b?s=96&amp;d=mm&amp;r=g","caption":"Saptdhanya","inLanguage":"en-US"},"sameAs":["","<?=$socialArray["Facebook"] ?>"],"worksFor":{"@id":"/#organization"}},{"@type":"Article","headline":"Shipping &amp; Return Policy - Saptdhanya","datePublished":"2023-06-15T03:03:40+05:30","dateModified":"2023-06-15T03:04:57+05:30","author":{"@id":"/author//","name":"Saptdhanya"},"publisher":{"@id":"/#organization"},"description":"As part of the registration process on the Site, Saptdhanya may collect the following personally identifiable information about you: Name including first and","name":"Shipping &amp; Return Policy - Saptdhanya","@id":"/shipping.php#richSnippet","isPartOf":{"@id":"/shipping.php#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"/shipping.php#webpage"}}]}</script>
 	<!-- /Rank Math WordPress SEO plugin -->
 
 	<link rel='dns-prefetch' href='https://stats.wp.com/' />
@@ -1586,7 +1586,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 		id="wpo_min-header-14-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-header-15-js-extra">
 /* <![CDATA[ */
-var pysOptions = {"staticEvents":[],"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"debug":"","siteUrl":"https:\/\/","ajaxUrl":"https:\/\/\/wp-admin\/admin-ajax.php","ajax_event":"ef3f681bba","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","send_external_id":"1","external_id_expire":"180","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utm_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"undefined","TrafficUtms":[],"TrafficUtmsId":[]},"woo":{"enabled":true,"enabled_save_data_to_orders":true,"addToCartOnButtonEnabled":true,"addToCartOnButtonValueEnabled":true,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":false,"containOrderId":false},"edd":{"enabled":false}};
+var pysOptions = {"staticEvents":[],"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"debug":"","siteUrl":"https:\/\/","ajaxUrl":"https:\/\/\/wp-admin\/admin-ajax.php","ajax_event":"ef3f681bba","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","send_external_id":"1","external_id_expire":"180","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utmTerms_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"undefined","TrafficUtms":[],"TrafficUtmsId":[]},"woo":{"enabled":true,"enabled_save_data_to_orders":true,"addToCartOnButtonEnabled":true,"addToCartOnButtonValueEnabled":true,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":false,"containOrderId":false},"edd":{"enabled":false}};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
@@ -1617,11 +1617,11 @@ gtag("config", "GT-PJNB9QPL");
 	<link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/2159" />
 	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php@rsd" />
 	<meta name="generator" content="WordPress 6.5.2" />
-	
+
 	<link rel="alternate" type="application/json+oembed"
-		href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F%252F-conditions%252F" />
+		href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F%252Fterms-conditions%252F" />
 	<link rel="alternate" type="text/xml+oembed"
-		href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F%252F-conditions%252F&amp;format=xml" />
+		href="wp-json/oembed/1.0/embed@url=https%253A%252F%252F%252Fterms-conditions%252F&amp;format=xml" />
 	<meta name="generator" content="Site Kit by Google 1.124.0" /><!-- Google tag (gtag.js) -->
 	<!-- <script  type="javascript/blocked" data-wpmeteor-type="text/javascript"  async data-wpmeteor-src="https://www.googletagmanager.com/gtag/js?id=UA-269068220-1"></script>
 <script  type="javascript/blocked" data-wpmeteor-type="text/javascript" >
@@ -1838,222 +1838,123 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <?php require_once('headerbar.php'); ?>
 
-    <div class="main-page-wrapper">
+		<div class="main-page-wrapper">
 
-<div class="page-title  page-title-default title-size-small title-design-centered color-scheme-light"
-    style="">
-    <div class="container">
-        <h1 class="entry-title title">
-            Privacy Policy </h1>
-
-
-    </div>
-</div>
-
-<!-- MAIN CONTENT AREA -->
-<div class="container">
-    <div class="row content-layout-wrapper align-items-start">
-
-        <div class="site-content col-lg-12 col-12 col-md-12" role="main">
-
-            <article id="post-2159" class="post-2159 page type-page status-publish hentry">
-
-                <div class="entry-content">
-                    <div data-elementor-type="wp-page" data-elementor-id="2159"
-                        class="elementor elementor-2159" data-elementor-post-type="page">
-                        <section data-particle_enable="false" data-particle-mobile-disabled="false"
-                            class="wd-negative-gap elementor-section elementor-top-section elementor-element elementor-element-8b298c0 elementor-section-boxed elementor-section-height-default elementor-section-height-default wd-section-disabled"
-                            data-id="8b298c0" data-element_type="section">
-                            <div class="elementor-container elementor-column-gap-default">
-                                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ac959e1"
-                                    data-id="ac959e1" data-element_type="column">
-                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                        <div class="elementor-element elementor-element-c5fb5fc color-scheme-inherit text-left elementor-widget elementor-widget-text-editor"
-                                            data-id="c5fb5fc" data-element_type="widget"
-                                            data-widget_type="text-editor.default">
-                                            <div class="elementor-widget-container">
-                                                <style>
-                                                    /*! elementor - v3.20.0 - 10-04-2024 */
-                                                    .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
-                                                        background-color: #69727d;
-                                                        color: #fff
-                                                    }
-
-                                                    .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
-                                                        color: #69727d;
-                                                        border: 3px solid;
-                                                        background-color: transparent
-                                                    }
-
-                                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
-                                                        margin-top: 8px
-                                                    }
-
-                                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
-                                                        width: 1em;
-                                                        height: 1em
-                                                    }
-
-                                                    .elementor-widget-text-editor .elementor-drop-cap {
-                                                        float: left;
-                                                        text-align: center;
-                                                        line-height: 1;
-                                                        font-size: 50px
-                                                    }
-
-                                                    .elementor-widget-text-editor .elementor-drop-cap-letter {
-                                                        display: inline-block
-                                                    }
-                                                </style>
-                                                <p><!-- wp:heading --></p>
-                                                <p>
-<span style="color: #000000;">Welcome to Saptdhanya! We
-		value your privacy. Want to assure you that we take
-		it seriously. This Privacy Policy provides an
-		overview of how we handle and protect your
-		information when you use our website or engage with
-		our products and services.</span>
-</p>
-<p>
-<span style="color: #000000;">Information We
-		Collect;</span>
-</p>
-<p>
-<span style="color: #000000;">When you make a purchase or
-		sign up for our newsletter we may collect details
-		such as your name, email address and shipping
-		address. Additionally we may gather personal
-		information like browser type, IP address and device
-		information.</span>
-</p>
-<p>
-<span style="color: #000000;"><strong>How We Use Your
-			Information:</strong></span>
-</p>
-<p>
-<span style="color: #000000;">We utilize the information
-		you provide us to process orders communicate with
-		you effectively and continuously enhance our
-		products and services. With your consent we may also
-		send you materials. Rest assured that we do not sell
-		or share your information with any parties for
-		marketing purposes.</span>
-</p>
-<p>
-<span style="color: #000000;"><strong>Cookies and
-			Tracking:</strong></span>
-</p>
-<p>
-<span style="color: #000000;">To improve your browsing
-		experience on our website and gain insights into how
-		you interact with it we employ cookies and similar
-		tracking technologies. You have the option to manage
-		your cookie preferences through the settings in your
-		browser.</span>
-</p>
-<p>
-<span style="color: #000000;"><strong>Security:</strong></span>
-
-</p>
-<p>
-<span style="color: #000000;">We take the security of
-		your information seriously by implementing robust
-		measures to safeguard it. However please remember
-		that no method of transmitting data over the
-		internet or storing it electronically can guarantee
-		security. We strongly advise you to create passwords
-		for accessing our services while keeping your login
-		credentials confidential.</span>
-</p>
-<p>
-<span style="color: #000000;"><strong>Third Party
-			Links:</strong></span>
-</p>
-<p>
-<span style="color: #000000;">Please note that our
-		website may contain links, to third party websites
-		or services. Although we strive to ensure their
-		reliability once you leave our site their respective
-		privacy practices will apply.</span>
-</p>
-<p>
-<span style="color: #000000;">Should you have any
-		questions or concerns regarding our Privacy Policy.
-		How we handle your personal information please do
-		not hesitate to contact us.</span><br /><span style="color: #000000;">On our website you may find
-		links to websites that are not under our control. We
-		want to make it clear that we cannot take
-		responsibility, for the privacy practices or content
-		of these sites. Before sharing any information we
-		strongly advise you to review and understand the
-		privacy policies of these third party
-		websites.</span>
-</p>
-<p>
-<span style="color: #000000;"><strong>Child
-			Privacy:</strong></span>
-</p>
-<p>
-<span style="color: #000000;">Our products and services
-		are meant for individuals who&#8217;re 13 years of
-		age or older. We do not knowingly gather information
-		from children. If you believe that a child has
-		provided us with their information please get in
-		touch with us. We will promptly remove it.</span>
-
-</p>
-<p>
-<span style="color: #000000;"><strong>Your
-			Options:</strong></span>
-</p>
-<p>
-<span style="color: #000000;">You have the right to
-		access rectify or delete your information. You can
-		also choose to opt out of receiving emails. If you
-		have any concerns about your privacy please reach
-		out to us.</span>
-</p>
-<p>
-<span style="color: #000000;"><strong>Updates to this
-			Privacy Policy:</strong></span>
-</p>
-<p>
-<span style="color: #000000;">We may modify this Privacy
-		Policy to reflect changes in our practices. We will
-		inform you about any changes by publishing the
-		updated policy, on our website.</span>
-</p>
-<p>
-<span style="color: #000000;">By using our website and
-		services you agree to abide by the terms specified
-		in this Privacy Policy. If you have any questions or
-		concerns please contact us at <a style="color: #000000;" href="mailto:saptdhanya@gmail.com"><span
-				style="text-decoration: underline;">saptdhanya@gmail.com</span></a>.</span>
-
-</p>
-                                                <p><!-- /wp:paragraph --></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
+			<div class="page-title  page-title-default title-size-small title-design-centered color-scheme-light"
+				style="">
+				<div class="container">
+					<h1 class="entry-title title">
+						Shipping &#038; Return Policy </h1>
 
 
-            </article><!-- #post -->
+				</div>
+			</div>
+
+			<!-- MAIN CONTENT AREA -->
+			<div class="container">
+				<div class="row content-layout-wrapper align-items-start">
+
+					<div class="site-content col-lg-12 col-12 col-md-12" role="main">
+
+						<article id="post-2159" class="post-2159 page type-page status-publish hentry">
+
+							<div class="entry-content">
+								<div data-elementor-type="wp-page" data-elementor-id="2159"
+									class="elementor elementor-2159" data-elementor-post-type="page">
+									<section data-particle_enable="false" data-particle-mobile-disabled="false"
+										class="wd-negative-gap elementor-section elementor-top-section elementor-element elementor-element-8b298c0 elementor-section-boxed elementor-section-height-default elementor-section-height-default wd-section-disabled"
+										data-id="8b298c0" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-default">
+											<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ac959e1"
+												data-id="ac959e1" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-c5fb5fc color-scheme-inherit text-left elementor-widget elementor-widget-text-editor"
+														data-id="c5fb5fc" data-element_type="widget"
+														data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<style>
+																/*! elementor - v3.20.0 - 10-04-2024 */
+																.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
+																	background-color: #69727d;
+																	color: #fff
+																}
+
+																.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
+																	color: #69727d;
+																	border: 3px solid;
+																	background-color: transparent
+																}
+
+																.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
+																	margin-top: 8px
+																}
+
+																.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
+																	width: 1em;
+																	height: 1em
+																}
+
+																.elementor-widget-text-editor .elementor-drop-cap {
+																	float: left;
+																	text-align: center;
+																	line-height: 1;
+																	font-size: 50px
+																}
+
+																.elementor-widget-text-editor .elementor-drop-cap-letter {
+																	display: inline-block
+																}
+															</style>
+															<p><!-- wp:heading --></p>
+															<h3><strong>SHIPPING</strong></h3>
+															<p>All orders for our products are processed and shipped out in 2-4 business days. Orders are not shipped or delivered on weekends or holidays. If we are experiencing a high volume of orders, shipments may be delayed by a few days. Please allow additional days in transit for delivery. If there will be a significant delay in the shipment of your order, we will contact you via email. </p>
+															<h3><strong>WRONG ADDRESS DISCLAIMER </strong></h3>
+															<p>It is the responsibility of the customers to make sure that the shipping address entered is correct. We do our best to speed up processing and shipping time, so there is always a small window to correct an incorrect shipping address. Please contact us immediately if you believe you have provided an incorrect shipping address. </p>
+															<h3><strong>UNDELIVERABLE ORDERS </strong></h3>
+															<p>Orders that are returned to us as undeliverable because of incorrect shipping information are subject to a restocking fee to be determined by us. 
+															</p>
+															
+															<h3><strong>LOST/STOLEN PACKAGES </strong></h3>
+															<p>Saptdhanya is not responsible for lost or stolen packages. If your tracking information states that your package was delivered to your address and you have not received it, please report to the local authorities.</p>
+															<h3><strong>OUT OF STOCK ITEM PROCESS </strong></h3>
+															<p>Saptdhanya will wait for all items to be in stock before dispatching. </p>
+															<h3><strong>ACCEPTANCE  </strong></h3>
+															<p>By accessing our site and placing an order you have willingly accepted the terms of this Shipping Policy. </p>
+															<h3><strong>Refund and Returns Policy </strong></h3>
+															<p>We at Saptdhanya always strive for the best quality product reaching the customers.
+
+                                                            Customers are required to ensure correctness of delivery address (including the pin code).</p>
+
+                                                            <p>As a policy we do not accept returned items, however in the unfortunate and rare event of receiving damaged /defective product, kindly raise the issue by emailing us on saptdhanya@gmail.com within 24 hours of having received the product. We will surely try to resolve the issue as quickly as possible.</p>
+
+                                                            <p>Cancellation of order – Once the order is placed, the same can only be cancelled before dispatch of the order items. You cannot cancel the order after it is dispatched.</p>
+
+                                                            <p>We reserve the right to cancel the order. In case of cancellations by us, a notification will be sent to customer’s registered mobile number and/or email ID and refund for the same will be processed within 5-7 business days. We will not be liable for any kind of interest/compensation in such cases. We will refund the amount through the same mode by which the customer would make the payment, through our Payment Gateway partner.</p>
+
+                                                            <p>For international transactions, if a refund is to be processed, the refund will be initiated for the Rupee amount received at our end. Any currency conversion charges/ fluctuation difference arising out will be solely the customer’s responsibility. </p>
+															
+                                                            <p><!-- /wp:paragraph --></p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+							</div>
+
+
+						</article><!-- #post -->
 
 
 
-        </div><!-- .site-content -->
+					</div><!-- .site-content -->
 
 
 
-    </div><!-- .main-page-wrapper -->
-</div> <!-- end row -->
-</div> <!-- end container -->
-
+				</div><!-- .main-page-wrapper -->
+			</div> <!-- end row -->
+		</div> <!-- end container -->
 
 
 		<footer class="footer-container color-scheme-light">
@@ -2705,7 +2606,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												}
 											</style> <img
 												src="wp-content/uploads/elementor/thumbs/FSSAI_logo-qhknfg5w7q5sou0mwj9etsyho23217v1nl6qnl44cg.png"
-												title="FSSAI_logo" alt="pragssalty - fssai" loading="lazy" />
+												title="FSSAI_logo" alt=" - fssai" loading="lazy" />
 										</div>
 									</div>
 									<div class="elementor-element elementor-element-0c93ff4 elementor-widget elementor-widget-wd_title"
@@ -2782,7 +2683,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														Terms & Conditions </span>
 
 
-													<a href=".php" class="wd-fill"
+													<a href="terms.php" class="wd-fill"
+														aria-label="List item link"></a>
+												</li>
+                                                <li class="elementor-repeater-item-f93516b">
+
+													<span class="list-content">
+                                                    Shipping &amp; Return Policy </span>
+
+
+													<a href="shipping.php" class="wd-fill"
 														aria-label="List item link"></a>
 												</li>
 											</ul>
@@ -3022,7 +2932,7 @@ var woodmart_page_css = {"wd-widget-nav-css":"https:\/\/\/wp-content\/themes\/wo
 		id="wpo_min-footer-23-js"></script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript" id="wpo_min-footer-24-js-extra">
 /* <![CDATA[ */
-var localize = {"ajaxurl":"https:\/\/\/wp-admin\/admin-ajax.php","nonce":"18f5fb8f9e","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https:\/\/\/-conditions\/","cart_redirectition":"no","cart_page_url":"https:\/\/\/cart\/","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"ParticleThemesData":{"default":"{\"particles\":{\"number\":{\"value\":160,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":true,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"repulse\"},\"onclick\":{\"enable\":true,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nasa":"{\"particles\":{\"number\":{\"value\":250,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":1,\"random\":true,\"anim\":{\"enable\":true,\"speed\":1,\"opacity_min\":0,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":4,\"size_min\":0.3,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":1,\"direction\":\"none\",\"random\":true,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":600}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":250,\"size\":0,\"duration\":2,\"opacity\":0,\"speed\":3},\"repulse\":{\"distance\":400,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","bubble":"{\"particles\":{\"number\":{\"value\":15,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#1b1e34\"},\"shape\":{\"type\":\"polygon\",\"stroke\":{\"width\":0,\"color\":\"#000\"},\"polygon\":{\"nb_sides\":6},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":50,\"random\":false,\"anim\":{\"enable\":true,\"speed\":10,\"size_min\":40,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":200,\"color\":\"#ffffff\",\"opacity\":1,\"width\":2},\"move\":{\"enable\":true,\"speed\":8,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":false,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","snow":"{\"particles\":{\"number\":{\"value\":450,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#fff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":500,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":2},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"bottom\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":0.5}},\"bubble\":{\"distance\":400,\"size\":4,\"duration\":0.3,\"opacity\":1,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nyan_cat":"{\"particles\":{\"number\":{\"value\":150,\"density\":{\"enable\":false,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"star\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"http:\/\/wiki.lexisnexis.com\/academic\/images\/f\/fb\/Itunes_podcast_icon_300.jpg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":4,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":14,\"direction\":\"left\",\"random\":false,\"straight\":true,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":200,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}"},"eael_login_nonce":"a72fac3df5","eael_register_nonce":"a57e28adaf","eael_lostpassword_nonce":"05043b5222","eael_resetpassword_nonce":"4a5372780f"};
+var localize = {"ajaxurl":"https:\/\/\/wp-admin\/admin-ajax.php","nonce":"18f5fb8f9e","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https:\/\/\/terms-conditions\/","cart_redirectition":"no","cart_page_url":"https:\/\/\/cart\/","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"ParticleThemesData":{"default":"{\"particles\":{\"number\":{\"value\":160,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":true,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"repulse\"},\"onclick\":{\"enable\":true,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nasa":"{\"particles\":{\"number\":{\"value\":250,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":1,\"random\":true,\"anim\":{\"enable\":true,\"speed\":1,\"opacity_min\":0,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":4,\"size_min\":0.3,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":1,\"direction\":\"none\",\"random\":true,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":600}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":250,\"size\":0,\"duration\":2,\"opacity\":0,\"speed\":3},\"repulse\":{\"distance\":400,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","bubble":"{\"particles\":{\"number\":{\"value\":15,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#1b1e34\"},\"shape\":{\"type\":\"polygon\",\"stroke\":{\"width\":0,\"color\":\"#000\"},\"polygon\":{\"nb_sides\":6},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":50,\"random\":false,\"anim\":{\"enable\":true,\"speed\":10,\"size_min\":40,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":200,\"color\":\"#ffffff\",\"opacity\":1,\"width\":2},\"move\":{\"enable\":true,\"speed\":8,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":false,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","snow":"{\"particles\":{\"number\":{\"value\":450,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#fff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":500,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":2},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"bottom\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":0.5}},\"bubble\":{\"distance\":400,\"size\":4,\"duration\":0.3,\"opacity\":1,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nyan_cat":"{\"particles\":{\"number\":{\"value\":150,\"density\":{\"enable\":false,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"star\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"http:\/\/wiki.lexisnexis.com\/academic\/images\/f\/fb\/Itunes_podcast_icon_300.jpg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":4,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":14,\"direction\":\"left\",\"random\":false,\"straight\":true,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":200,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}"},"eael_login_nonce":"a72fac3df5","eael_register_nonce":"a57e28adaf","eael_lostpassword_nonce":"05043b5222","eael_resetpassword_nonce":"4a5372780f"};
 /* ]]> */
 </script>
 	<script type="javascript/blocked" data-wpmeteor-type="text/javascript"
